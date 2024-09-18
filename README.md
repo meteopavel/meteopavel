@@ -1,8 +1,7 @@
 <!-- BACK TO TOP LINK -->
 <a name="readme-top"></a>
 
-
-<!-- PROJECT SHIELDS -->
+<!-- SHIELDS -->
 [![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
@@ -17,6 +16,14 @@
 
 [![Celery][Celery-shield]][Celery-url]
 [![Redis][Redis-shield]][Redis-url]
+
+[![Flask][Flask-shield]][Flask-url]
+[![FastAPI][FastAPI-shield]][FastAPI-url]
+[![SQLAlchemy][SQLAlchemy-shield]][SQLAlchemy-url]
+[![Requests][Requests-shield]][Requests-url]
+[![TensorFlow][TensorFlow-shield]][TensorFlow-url]
+[![Pandas][Pandas-shield]][Pandas-url]
+[![Numpy][Numpy-shield]][Numpy-url]
 
 ▎Привет! Я Python разработчик
 
@@ -100,6 +107,21 @@
 [Docker-url]: https://docs.docker.com/engine/release-notes/26.1/
 [Nginx-shield]: https://img.shields.io/badge/Nginx-blue?style=flat&logo=nginx&labelColor=FDEBD0&logoColor=blue
 [Nginx-url]: https://nginx.org/en/docs/
+
+[Flask-shield]: https://img.shields.io/badge/Flask-blue?style=flat&logo=flask&labelColor=FDEBD0&logoColor=blue
+[Flask-url]: https://flask.palletsprojects.com/en/2.2.x/changes/
+[FastAPI-shield]: https://img.shields.io/badge/FastAPI-green?style=flat&logo=fastapi&labelColor=FDEBD0&logoColor=blue
+[FastAPI-url]: https://fastapi.tiangolo.com/release-notes/
+[SQLAlchemy-shield]: https://img.shields.io/badge/SQLAlchemy-blue?style=flat&logo=sqlalchemy&labelColor=FDEBD0&logoColor=blue
+[SQLAlchemy-url]: https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html
+[Requests-shield]: https://img.shields.io/badge/Requests-green?style=flat&logo=http&labelColor=FDEBD0&logoColor=blue
+[Requests-url]: https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1
+[TensorFlow-shield]: https://img.shields.io/badge/TensorFlow-blue?style=flat&logo=tensorflow&labelColor=FDEBD0&logoColor=blue
+[TensorFlow-url]: https://www.tensorflow.org/release_notes
+[Pandas-shield]: https://img.shields.io/badge/Pandas-green?style=flat&logo=pandas&labelColor=FDEBD0&logoColor=blue
+[Pandas-url]: https://pandas.pydata.org/pandas-docs/stable/whatsnew/index.html
+[Numpy-shield]: https://img.shields.io/badge/Numpy-blue?style=flat&logo=numpy&labelColor=FDEBD0&logoColor=blue
+[Numpy-url]: https://numpy.org/doc/stable/release.html
 [Uvicorn-shield]: https://img.shields.io/badge/Uvicorn-green?style=flat&logo=gunicorn&labelColor=FDEBD0&logoColor=blue
 [Uvicorn-url]: https://www.uvicorn.org/release-notes/
 [GitHub-shield]: https://img.shields.io/badge/GitHub-Actions-blue?style=flat&logo=github&labelColor=FDEBD0&logoColor=blue
