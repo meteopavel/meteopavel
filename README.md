@@ -107,9 +107,9 @@
 [Docker-url]: https://docs.docker.com/engine/release-notes/26.1/
 [Nginx-shield]: https://img.shields.io/badge/Nginx-blue?style=flat&logo=nginx&labelColor=FDEBD0&logoColor=blue
 [Nginx-url]: https://nginx.org/en/docs/
-[Celery-shield]: https://img.shields.io/badge/Celery-v5.4-blue?style=flat&logo=celery&labelColor=FDEBD0&logoColor=blue
+[Celery-shield]: https://img.shields.io/badge/Celery-blue?style=flat&logo=celery&labelColor=FDEBD0&logoColor=blue
 [Celery-url]: https://docs.celeryq.dev/en/stable/
-[Redis-shield]: https://img.shields.io/badge/Redis-v5.0-green?style=flat&logo=redis&labelColor=FDEBD0&logoColor=blue
+[Redis-shield]: https://img.shields.io/badge/Redis-green?style=flat&logo=redis&labelColor=FDEBD0&logoColor=blue
 [Redis-url]: https://master--redis-doc.netlify.app/docs/about/
 
 [Flask-shield]: https://img.shields.io/badge/Flask-blue?style=flat&logo=flask&labelColor=FDEBD0&logoColor=blue
