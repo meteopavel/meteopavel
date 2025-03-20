@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: ./nginx/
+    ports:
+      - 8222:80  
+    volumes:
+      - ./static:/usr/share/nginx/html

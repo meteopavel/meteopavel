@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  gateway:
+    build: meteopavel/meteopavel_gateway
+    restart: unless-stopped
+    ports:
+      - 8222:80  
+    volumes:
+      - ./static:/usr/share/nginx/html
