@@ -3,7 +3,7 @@ name: Main Meteopavel Workflow
 on:
   push:
     branches:
-      - main1
+      - main
 
 jobs:
   build_gateway_and_push_to_docker_hub:
