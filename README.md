@@ -3,110 +3,24 @@
 </div>
 
 <!-- BEGIN_SHIELDS -->
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://www.python.org/downloads/release/python-31010/">
-        <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=python&labelColor=FDEBD0&logoColor=blue" alt="Python">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.djangoproject.com/en/5.0/releases/5.0/">
-        <img src="https://img.shields.io/badge/Django-green?style=flat&logo=django&labelColor=FDEBD0&logoColor=blue" alt="Django">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.postgresql.org/docs/13/release-13-15.html">
-        <img src="https://img.shields.io/badge/PostgreSQL-blue?style=flat&logo=PostgreSQL&labelColor=FDEBD0&logoColor=blue" alt="PostgreSQL">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html">
-        <img src="https://img.shields.io/badge/Pillow-green?style=flat&logo=pillow&labelColor=FDEBD0&logoColor=blue" alt="Pillow">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.python-telegram-bot.org/en/v21.2/">
-        <img src="https://img.shields.io/badge/Python--telegram--bot-blue?style=flat&logo=telegram&labelColor=FDEBD0&logoColor=blue" alt="Python-Telegram-Bot">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.docker.com/engine/release-notes/26.1/">
-        <img src="https://img.shields.io/badge/Docker-green?style=flat&logo=docker&labelColor=FDEBD0&logoColor=blue" alt="Docker">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://nginx.org/en/docs/">
-        <img src="https://img.shields.io/badge/Nginx-blue?style=flat&logo=nginx&labelColor=FDEBD0&logoColor=blue" alt="Nginx">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://www.uvicorn.org/release-notes/">
-        <img src="https://img.shields.io/badge/Uvicorn-green?style=flat&logo=gunicorn&labelColor=FDEBD0&logoColor=blue" alt="Uvicorn">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.github.com/en/actions">
-        <img src="https://img.shields.io/badge/GitHub-Actions-blue?style=flat&logo=github&labelColor=FDEBD0&logoColor=blue" alt="GitHub">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://docs.celeryq.dev/en/stable/">
-        <img src="https://img.shields.io/badge/Celery-blue?style=flat&logo=celery&labelColor=FDEBD0&logoColor=blue" alt="Celery">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://master--redis-doc.netlify.app/docs/about/">
-        <img src="https://img.shields.io/badge/Redis-green?style=flat&logo=redis&labelColor=FDEBD0&logoColor=blue" alt="Redis">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://flask.palletsprojects.com/en/2.2.x/changes/">
-        <img src="https://img.shields.io/badge/Flask-blue?style=flat&logo=flask&labelColor=FDEBD0&logoColor=blue" alt="Flask">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://fastapi.tiangolo.com/release-notes/">
-        <img src="https://img.shields.io/badge/FastAPI-green?style=flat&logo=fastapi&labelColor=FDEBD0&logoColor=blue" alt="FastAPI">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html">
-        <img src="https://img.shields.io/badge/SQLAlchemy-blue?style=flat&logo=sqlalchemy&labelColor=FDEBD0&logoColor=blue" alt="SQLAlchemy">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1">
-        <img src="https://img.shields.io/badge/Requests-green?style=flat&logo=http&labelColor=FDEBD0&logoColor=blue" alt="Requests">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://www.tensorflow.org/release_notes">
-        <img src="https://img.shields.io/badge/TensorFlow-blue?style=flat&logo=tensorflow&labelColor=FDEBD0&logoColor=blue" alt="TensorFlow">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://pandas.pydata.org/pandas-docs/stable/whatsnew/index.html">
-        <img src="https://img.shields.io/badge/Pandas-green?style=flat&logo=pandas&labelColor=FDEBD0&logoColor=blue" alt="Pandas">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://numpy.org/doc/stable/release.html">
-        <img src="https://img.shields.io/badge/Numpy-blue?style=flat&logo=numpy&labelColor=FDEBD0&logoColor=blue" alt="Numpy">
-      </a>
-    </td>
-  </tr>
-</table>
+[![Python][Python-shield]][Python-url]
+[![Django][Django-shield]][Django-url]
+[![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
+[![Pillow][Pillow-shield]][Pillow-url]
+[![Python-Telegram-Bot][Python-Telegram-Bot-shield]][Python-Telegram-Bot-url]
+[![Docker][Docker-shield]][Docker-url]
+[![Nginx][Nginx-shield]][Nginx-url]
+[![Uvicorn][Uvicorn-shield]][Uvicorn-url]
+[![GitHub][GitHub-shield]][GitHub-url]
+[![Celery][Celery-shield]][Celery-url]
+[![Redis][Redis-shield]][Redis-url]
+[![Flask][Flask-shield]][Flask-url]
+[![FastAPI][FastAPI-shield]][FastAPI-url]
+[![SQLAlchemy][SQLAlchemy-shield]][SQLAlchemy-url]
+[![Requests][Requests-shield]][Requests-url]
+[![TensorFlow][TensorFlow-shield]][TensorFlow-url]
+[![Pandas][Pandas-shield]][Pandas-url]
+[![Numpy][Numpy-shield]][Numpy-url]
 <!-- END_SHIELDS -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
