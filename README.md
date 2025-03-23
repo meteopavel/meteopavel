@@ -1,7 +1,7 @@
 <!-- BACK TO TOP LINK -->
-
 <a name="readme-top"></a>
 
+<!-- BEGIN_SHIELDS -->
 <div class="shields-container">
   <div class="column">
     <h4>Языки программирования</h4>
@@ -52,6 +52,7 @@
     margin: 5px 0;
   }
 </style>
+<!-- END_SHIELDS -->
 
 <!-- SHIELDS -->
 <!-- [![Python][Python-shield]][Python-url]
