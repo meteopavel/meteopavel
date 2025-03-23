@@ -1,91 +1,69 @@
-<!-- README.md -->
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Резюме Найденова Павла Андреевича</title>
-  <style>
-    /* Встроенные стили */
-    body {
-      font-family: 'Open Sans', sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-      background-color: #007bff;
-      color: white;
-    }
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    section {
-      margin-bottom: 40px;
-    }
-    h2 {
-      color: #007bff;
-      border-bottom: 2px solid #007bff;
-      padding-bottom: 10px;
-    }
-    .shields-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    .shields-container img {
-      height: 30px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Найденов Павел Андреевич</h1>
-    <p>Python разработчик</p>
-  </header>
-
-  <main>
-    <!-- Раздел "Обо мне" -->
-    <section id="about-me">
-      <h2>Обо мне</h2>
-      <p>Я выбрал бэкенд-разработку на Python, потому что она является основой для создания современных веб-приложений. Мне нравится работать с "невидимой" частью приложений, обеспечивая их функциональность и стабильность.</p>
-    </section>
-    <!-- Раздел "Технологии" -->
-    <section id="shields">
-      <h2>Технологии</h2>
-      <div class="shields-container">
-        <a href="https://www.python.org/downloads/release/python-31010/">
-          <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=python&labelColor=FDEBD0&logoColor=blue" alt="Python">
-        </a>
-        <a href="https://docs.djangoproject.com/en/5.0/releases/5.0/">
-          <img src="https://img.shields.io/badge/Django-green?style=flat&logo=django&labelColor=FDEBD0&logoColor=blue" alt="Django">
-        </a>
-        <a href="https://flask.palletsprojects.com/en/2.2.x/changes/">
-          <img src="https://img.shields.io/badge/Flask-blue?style=flat&logo=flask&labelColor=FDEBD0&logoColor=blue" alt="Flask">
-        </a>
-        <!-- Добавьте остальные шилды -->
+<svg fill="none" viewBox="0 0 600 300" width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <style>
+        @keyframes hi  {
+            0% { transform: rotate( 0.0deg) }
+           10% { transform: rotate(14.0deg) }
+           20% { transform: rotate(-8.0deg) }
+           30% { transform: rotate(14.0deg) }
+           40% { transform: rotate(-4.0deg) }
+           50% { transform: rotate(10.0deg) }
+           60% { transform: rotate( 0.0deg) }
+          100% { transform: rotate( 0.0deg) }
+        }
+        @keyframes gradient {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .container {
+          --color-main: #5452ee;
+          --color-primary: #e73c7e;
+          --color-secondary: #23a6d5;
+          --color-tertiary: #ffff;
+          background: linear-gradient(-45deg, var(--color-main), var(--color-primary), var(--color-secondary), var(--color-tertiary));
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+          width: 100%;
+          height: 300px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        .hi {
+          animation: hi 1.5s linear -0.5s infinite;
+          display: inline-block;
+          transform-origin: 70% 70%;
+        }
+        @media (prefers-color-scheme: light) {
+          .container {
+            --color-main: #F15BB5;
+            --color-primary: #24b0ef;
+            --color-secondary: #4526f6;
+            --color-tertiary: #f6f645;
+          }
+        }
+        @media (prefers-reduced-motion) {
+          .container {
+            animation: none;
+          }
+          .hi {
+            animation: none;
+          }
+        }
+      </style>
+      <div class="container">
+        <h1>Hi there, my name is Pavel <div class="hi">👋</div></h1>
       </div>
-    </section>
-    <!-- Раздел "Опыт работы" -->
-    <section id="experience">
-      <h2>Опыт работы</h2>
-      <ul>
-        <li><strong>Legacy сервис рассылки email</strong> (Апрель 2023 — настоящее время)</li>
-        <li><strong>Telegram-бот для поиска коммерческой недвижимости</strong></li>
-        <li><strong>API для отзывов на произведения</strong></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2023 Найденов Павел Андреевич</p>
-  </footer>
-</body>
-</html>
+    </div>
+  </foreignObject>
+</svg>
