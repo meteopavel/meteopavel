@@ -1,13 +1,13 @@
 <!-- BACK TO TOP LINK -->
 <a name="readme-top"></a>
 
-<!-- BEGIN_GREETING -->
+<!-- GREETING -->
 <div style="width: 100%;">
-  <img src="./static/images/animated_greeting.svg" style="width: 100%;" alt="Click to see the source"><br />
+  <img src="./static/images/animated_greeting.svg" style="width: 100%;" alt="Click to see the source">
 </div>
-<!-- END_GREETING -->
 
-<!-- BEGIN_SHIELDS -->
+#
+<!-- SHIELDS -->
 [![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
@@ -30,7 +30,7 @@
 [![TensorFlow][TensorFlow-shield]][TensorFlow-url]
 [![Pandas][Pandas-shield]][Pandas-url]
 [![Numpy][Numpy-shield]][Numpy-url]
-<!-- END_SHIELDS -->
+
 
 ▎О себе
 
