@@ -1,29 +1,72 @@
 <!-- BACK TO TOP LINK -->
 <a name="readme-top"></a>
 
-<!-- SHIELDS -->
-[![Python][Python-shield]][Python-url]
-[![Django][Django-shield]][Django-url]
-[![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
-[![Pillow][Pillow-shield]][Pillow-url]
-
-[![Python-Telegram-Bot][Python-Telegram-Bot-shield]][Python-Telegram-Bot-url]
-
-[![Docker][Docker-shield]][Docker-url]
-[![Nginx][Nginx-shield]][Nginx-url]
-[![Uvicorn][Uvicorn-shield]][Uvicorn-url]
-[![GitHub][GitHub-shield]][GitHub-url]
-
-[![Celery][Celery-shield]][Celery-url]
-[![Redis][Redis-shield]][Redis-url]
-
-[![Flask][Flask-shield]][Flask-url]
-[![FastAPI][FastAPI-shield]][FastAPI-url]
-[![SQLAlchemy][SQLAlchemy-shield]][SQLAlchemy-url]
-[![Requests][Requests-shield]][Requests-url]
-[![TensorFlow][TensorFlow-shield]][TensorFlow-url]
-[![Pandas][Pandas-shield]][Pandas-url]
-[![Numpy][Numpy-shield]][Numpy-url]
+<!-- BEGIN_SHIELDS -->
+<table>
+  <tr>
+    <!-- Языки программирования -->
+    <td align="center">
+      <h4>Языки программирования</h4>
+      [![Python][Python-shield]][Python-url]
+    </td>
+    
+    <!-- Фреймворки -->
+    <td align="center">
+      <h4>Фреймворки</h4>
+      [![Django][Django-shield]][Django-url]  
+      [![Flask][Flask-shield]][Flask-url]  
+      [![FastAPI][FastAPI-shield]][FastAPI-url]
+    </td>
+    
+    <!-- Базы данных -->
+    <td align="center">
+      <h4>Базы данных</h4>
+      [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]  
+      [![SQLAlchemy][SQLAlchemy-shield]][SQLAlchemy-url]
+    </td>
+  </tr>
+  
+  <tr>
+    <!-- Асинхронность и задачи -->
+    <td align="center">
+      <h4>Асинхронность и задачи</h4>
+      [![Celery][Celery-shield]][Celery-url]  
+      [![Redis][Redis-shield]][Redis-url]
+    </td>
+    
+    <!-- Контейнеризация и серверы -->
+    <td align="center">
+      <h4>Контейнеризация и серверы</h4>
+      [![Docker][Docker-shield]][Docker-url]  
+      [![Nginx][Nginx-shield]][Nginx-url]  
+      [![Uvicorn][Uvicorn-shield]][Uvicorn-url]
+    </td>
+    
+    <!-- Телеграм-боты -->
+    <td align="center">
+      <h4>Телеграм-боты</h4>
+      [![Python-Telegram-Bot][Python-Telegram-Bot-shield]][Python-Telegram-Bot-url]
+    </td>
+  </tr>
+  
+  <tr>
+    <!-- Научные библиотеки -->
+    <td align="center">
+      <h4>Научные библиотеки</h4>
+      [![TensorFlow][TensorFlow-shield]][TensorFlow-url]  
+      [![Pandas][Pandas-shield]][Pandas-url]  
+      [![Numpy][Numpy-shield]][Numpy-url]
+    </td>
+    
+    <!-- Другие инструменты -->
+    <td align="center">
+      <h4>Другие инструменты</h4>
+      [![Requests][Requests-shield]][Requests-url]  
+      [![Pillow][Pillow-shield]][Pillow-url]
+    </td>
+  </tr>
+</table>
+<!-- END_SHIELDS -->
 
 ▎Привет! Я Python разработчик
 
