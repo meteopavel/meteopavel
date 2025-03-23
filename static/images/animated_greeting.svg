@@ -1,12 +1,10 @@
-<svg fill="none" viewBox="0 0 600 100" width="600" height="100" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 600 60" width="600" height="60" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
         @font-face {
           font-family: 'Roboto';
-          src: url('../fonts/Roboto-Italic.ttf') format('truetype');
-          font-weight: normal;
-          font-style: italic;
+          src: url('../fonts/Roboto-Light.ttf');
         }
 
         @keyframes hi {
@@ -36,7 +34,7 @@
           background-size: 400% 400%;
           animation: gradient 15s ease infinite;
           width: 100%;
-          height: 100px;
+          height: 60px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -51,9 +49,8 @@
         }
 
         h1 {
-          font-size: 18px;
+          font-size: 24px;
           margin: 0;
-          font-weight: 700; /* Жирный шрифт */
         }
 
         @media (prefers-color-scheme: light) {
@@ -75,7 +72,7 @@
         }
       </style>
       <div class="container">
-        <h1>Привет! Я Павел<div class="hi">👋</div></h1>
+        <h1>Привет! Я Павел <div class="hi">👋</div></h1>
       </div>
     </div>
   </foreignObject>
