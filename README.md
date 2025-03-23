@@ -2,60 +2,7 @@
 <a name="readme-top"></a>
 
 <!-- BEGIN_SHIELDS -->
-<div class="shields-container">
-  <div class="column">
-    <h4>Языки программирования</h4>
-    <a href="https://www.python.org/downloads/release/python-31010/">
-      <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=python&labelColor=FDEBD0&logoColor=blue" alt="Python">
-    </a>
-  </div>
-
-  <div class="column">
-    <h4>Фреймворки</h4>
-    <a href="https://docs.djangoproject.com/en/5.0/releases/5.0/">
-      <img src="https://img.shields.io/badge/Django-green?style=flat&logo=django&labelColor=FDEBD0&logoColor=blue" alt="Django">
-    </a>
-    <a href="https://flask.palletsprojects.com/en/2.2.x/changes/">
-      <img src="https://img.shields.io/badge/Flask-blue?style=flat&logo=flask&labelColor=FDEBD0&logoColor=blue" alt="Flask">
-    </a>
-    <a href="https://fastapi.tiangolo.com/release-notes/">
-      <img src="https://img.shields.io/badge/FastAPI-green?style=flat&logo=fastapi&labelColor=FDEBD0&logoColor=blue" alt="FastAPI">
-    </a>
-  </div>
-
-  <div class="column">
-    <h4>Базы данных</h4>
-    <a href="https://www.postgresql.org/docs/13/release-13-15.html">
-      <img src="https://img.shields.io/badge/PostgreSQL-blue?style=flat&logo=PostgreSQL&labelColor=FDEBD0&logoColor=blue" alt="PostgreSQL">
-    </a>
-    <a href="https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html">
-      <img src="https://img.shields.io/badge/SQLAlchemy-blue?style=flat&logo=sqlalchemy&labelColor=FDEBD0&logoColor=blue" alt="SQLAlchemy">
-    </a>
-  </div>
-
-  <!-- Добавьте остальные колонки аналогично -->
-</div>
-
-<style>
-  .shields-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .column {
-    flex: 1 1 30%; /* Каждая колонка занимает ~30% ширины */
-    text-align: center;
-  }
-
-  .column img {
-    margin: 5px 0;
-  }
-</style>
-<!-- END_SHIELDS -->
-
-<!-- SHIELDS -->
-<!-- [![Python][Python-shield]][Python-url]
+[![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
 [![Pillow][Pillow-shield]][Pillow-url]
@@ -76,7 +23,8 @@
 [![Requests][Requests-shield]][Requests-url]
 [![TensorFlow][TensorFlow-shield]][TensorFlow-url]
 [![Pandas][Pandas-shield]][Pandas-url]
-[![Numpy][Numpy-shield]][Numpy-url] -->
+[![Numpy][Numpy-shield]][Numpy-url]
+<!-- END_SHIELDS -->
 
 ▎Привет! Я Python разработчик
 
