@@ -85,8 +85,6 @@
         </header>
 
         <!-- Опыт работы -->
-        <div id="shields-content"></div>
-
         <script>
           fetch("https://api.github.com/repos/meteopavel/meteopavel/readme")
             .then((response) => response.json())
@@ -95,23 +93,21 @@
         
               // Извлекаем содержимое между маркерами
               const shieldsContent = extractSection(content, "BEGIN_SHIELDS", "END_SHIELDS");
+              const greetingContent = extractSection(content, "BEGIN_GREETING", "END_GREETING");
         
-              // Отображаем найденный контент
+              // Отображаем найденный контент для шилдов
               if (shieldsContent) {
                 document.getElementById("shields-content").innerHTML = marked.parse(shieldsContent);
               } else {
-                document.getElementById("shields-content").textContent = "Раздел не найден.";
+                document.getElementById("shields-content").textContent = "Раздел SHIELDS не найден.";
               }
-
-              const greetingContent = extractSection(content, "BEGIN_GREETING", "END_GREETING");
-
+        
+              // Отображаем найденный контент для приветствия
               if (greetingContent) {
-                document.getElementById("greeting-content").innerHTML = marked.parse(shieldsContent);
+                document.getElementById("greeting-content").innerHTML = marked.parse(greetingContent); // Исправлено здесь
               } else {
-                document.getElementById("greeting-content").textContent = "Раздел не найден.";
+                document.getElementById("greeting-content").textContent = "Раздел GREETING не найден.";
               }
-
-
             })
             .catch((error) => console.error("Ошибка:", error));
         
@@ -142,6 +138,10 @@
         
         <!-- Подключите библиотеку marked.js для рендеринга Markdown -->
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        
+        <!-- HTML-элементы для отображения контента -->
+        <div id="greeting-content">Загрузка приветствия...</div>
+        <div id="shields-content">Загрузка шилдов...</div>
 
         
         <section class="section">
