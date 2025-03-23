@@ -2,8 +2,9 @@
   <img src="animated.svg" style="width: 100%;" alt="Click to see the source">
 </div>
 
+
 <!-- BEGIN_SHIELDS -->
-<div class="shields-container">
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 40px 0;">
   <a href="https://www.python.org/downloads/release/python-31010/">
     <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=python&labelColor=FDEBD0&logoColor=blue" alt="Python">
   </a>
