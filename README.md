@@ -1,7 +1,11 @@
+<link rel="stylesheet" href="./static/styles-readme.css" />
+
 <!-- BACK TO TOP LINK -->
 <a name="readme-top"></a>
 
 <!-- BEGIN_SHIELDS -->
+<div class="shields-container">
+
 [![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
@@ -24,6 +28,8 @@
 [![TensorFlow][TensorFlow-shield]][TensorFlow-url]
 [![Pandas][Pandas-shield]][Pandas-url]
 [![Numpy][Numpy-shield]][Numpy-url]
+
+</div>
 <!-- END_SHIELDS -->
 
 ▎Привет! Я Python разработчик
