@@ -102,6 +102,16 @@
               } else {
                 document.getElementById("shields-content").textContent = "Раздел не найден.";
               }
+
+              const greetingContent = extractSection(content, "BEGIN_GREETING", "END_GREETING");
+
+              if (greetingContent) {
+                document.getElementById("greeting-content").innerHTML = marked.parse(shieldsContent);
+              } else {
+                document.getElementById("greeting-content").textContent = "Раздел не найден.";
+              }
+
+
             })
             .catch((error) => console.error("Ошибка:", error));
         
