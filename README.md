@@ -3,7 +3,7 @@
 
 <!-- BEGIN_GREETING -->
 <div style="width: 100%;">
-  <img src="./static/images/animated_greeting.svg" style="width: 100%;" alt="Click to see the source">
+  <img src="./static/images/animated_greeting.svg" style="width: 100%;" alt="Click to see the source"><br />
 </div>
 <!-- END_GREETING -->
 
