@@ -1,18 +1,20 @@
 body {
   font-family: 'Open Sans', Arial, sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  margin: 20px;
+  background-color: #0f172a;
+  color: #7c8a9e;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   display: flex;
   max-width: 1200px;
+  height: 100%;
   margin: 0 auto;
-  background: #1e1e1e;
+  background: #0f172a;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
   flex-direction: row;
 }
 
@@ -28,27 +30,28 @@ body {
 h1, h2, h3 {
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
-  color: #bb86fc;
+  color: #e2e8f0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
 }
 
 .profile-photo {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 
 .contact-info a {
-  color: #bb86fc;
+  color: #7c8a9e;
   text-decoration: none;
 }
 
 .contact-info a:hover {
   text-decoration: underline;
-}
-
-ul {
-  padding-left: 20px;
 }
 
 .skills {
@@ -59,11 +62,31 @@ ul {
 
 .skill {
   background: #333;
-  color: #e0e0e0;
+  color: #7c8a9e;
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 0.9em;
 }
+
+.contact-svg {
+  transition: color 0.1s ease;
+  width: 40px;
+}
+
+.contact-svg:hover {
+  color: #e2e8f0;
+}
+
+.social {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: none;
+}
+
 
 @media (max-width: 768px) {
   .container {
