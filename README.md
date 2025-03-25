@@ -2,10 +2,15 @@
 <a name="readme-top"></a>
 
 <!-- BEGIN_GREETING -->
-<div style="width: 100%;">
-  <img src="./static/images/animated_greeting.svg" style="width: 100%;" alt="Click to see the source">
-</div>
+
+<img src="./static/images/animated_greeting.svg" style="width: 100%;">
+
 <!-- END_GREETING -->
+
+#
+
+<img src="./static/images/shields/Python_2.svg" alt="Click to see the source">
+
 
 #
 <!-- BEGIN_SHIELDS -->
