@@ -1,24 +1,12 @@
 <!-- BACK TO TOP LINK -->
 <a name="readme-top"></a>
 
-<!-- BEGIN_GREETING -->
-<a href="https://meteopavel.space">
-  <img src="./static/images/animated_greeting.svg" style="width: 100%;">
-</a>
-
-<!-- END_GREETING -->
+<!-- GREETING -->
+<!-- Greeting --><a href="https://meteopavel.space"><img src="./static/images/animated_greeting.svg" style="width: 100%;"></a>
 
 #
-
-<a href="https://www.python.org/download/releases/2.7/"><img src="./static/images/shields/python2.svg" alt="Click to see the source"></a>
-
-[![Python2][Python2-shield]][Python2-url]
-[Python2-shield]: ./static/images/shields/python2.svg
-[Python2-url]: https://www.python.org/download/releases/2.7/
-
-
-#
-<!-- BEGIN_SHIELDS -->
+<!-- SHIELDS -->
+<!-- Python2 --><a href="https://www.python.org/download/releases/2.7/"><img src="./static/images/shields/python2.svg" alt="Click to see the source"></a>
 [![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
