@@ -6,7 +6,7 @@
 
 #
 <!-- SHIELDS -->
-<!-- Python2 --><a href="https://www.python.org/download/releases/2.7/"><img src="./static/images/shields/python2.svg" alt="Click to see the source"></a>
+<!-- Python2 --><a href="https://www.python.org/download/releases/2.7"><img src="./static/images/shields/python2.svg" alt="Click to see the source"></a>
 [![Python][Python-shield]][Python-url]
 [![Django][Django-shield]][Django-url]
 [![PostgreSQL][PostgreSQL-shield]][PostgreSQL-url]
