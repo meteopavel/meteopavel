@@ -17,13 +17,14 @@ body {
   flex-direction: row;
 }
 
-.left-column {
-  width: 30%;
+.column_left {
+  width: 25%;
   padding-right: 20px;
+  min-width: 300px;
 }
 
-.right-column {
-  width: 70%;
+.column_right {
+  width: 75%;
 }
 
 h1, h2, h3 {
@@ -59,24 +60,16 @@ a {
   gap: 10px;
 }
 
-.skill {
-  background: #333;
-  color: #7c8a9e;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
 .contact-svg {
   transition: color 0.1s ease;
-  width: 40px;
+  width: 30px;
 }
 
 .contact-svg:hover {
   color: #e2e8f0;
 }
 
-.social {
+.social ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -90,6 +83,8 @@ a {
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
+    min-width: 500px;
+
   }
 
   .left-column,
@@ -99,7 +94,11 @@ a {
   }
 
   .profile-photo {
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
+  }
+
+  .social {
+    width: 300px;
   }
 }
