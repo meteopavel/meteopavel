@@ -3,7 +3,7 @@
     url(interregular.woff) format('woff'),
     url(interregular.woff2) format('woff2');
   font-family: 'Inter Regular';
-  font-weight: 400;
+  font-weight: 600;
   font-display: swap;
 }
 
