@@ -146,76 +146,149 @@
       <!-- Правая колонка (Опыт и портфолио) -->
       <div class="column_right">
         <!-- Обо мне -->
-        <section class="about_me">
-          <h3>Обо мне</h3>
-          <p>
+        <section class="about_me section">
+          <h3 class="section__header">Обо мне</h3>
+          <p class="section__p">
             Я разработчик, который создает доступные и эффективные решения,
             сочетающие мощь бэкенда с элегантным фронтом. Моя работа часто
             находится на пересечении серверной логики и клиентской части
             приложений — я создаю системы, которые обеспечивают высокую
             производительность, надежность и интуитивно понятный интерфейс.
           </p>
-          <p>
+          <p class="section__p">
             Мой опыт включает разработку масштабируемых API, обработку больших
             данных и создание современных фронтенд-компонентов. Я стремлюсь к
             тому, чтобы каждое решение было не только функциональным, но и
             эстетически привлекательным.
           </p>
-          <p>
+          <p class="section__p">
             В настоящее время я занимаюсь комплексными системами, где бэкенд
             обеспечивает стабильную работу сервисов, а фронтенд делает их
             использование максимально удобным. Моя цель — создавать решения,
             которые соответствуют стандартам доступности и обеспечивают отличный
             пользовательский опыт.
           </p>
-          <p>
+          <p class="section__p">
             В свободное время я увлекаюсь фитнесом, горным туризмом и
             велоспортом. Эти занятия помогают мне поддерживать форму и
             балансировать между работой и отдыхом.
           </p>
         </section>
         <!-- Проекты -->
-        <section class="projects">
-          <h3>Проекты</h3>
-          <ul>
+        <section class="projects section">
+          <h3 class="section__header">Проекты</h3>
+          <ul class="section__ul">
             <li>
-              Legacy сервис рассылки email Стек технологий: Python 2.7, Django
-              1.9, Redis, Celery, Chocolatey, xTunnel, Bootstrap, JQuery Создан
-              асинхронный сервис рассылки электронной почты.
-              <object
-                type="image/svg+xml"
-                data="./images/shields/python2.svg"
-              ></object>
+              <div class="section__li-left">
+                <a
+                  href="https://legacymailer.meteopavel.space/newsletters/create-newsletter/"
+                >
+                  <img src="./images/previews/legacy_mailer.png"
+                /></a>
+              </div>
+              <div class="section__li-right">
+                <p class="section__p">
+                  Legacy сервис рассылки email Стек технологий: Python 2.7,
+                  Django 1.9, Redis, Celery, Chocolatey, xTunnel, Bootstrap,
+                  JQuery Создан асинхронный сервис рассылки электронной почты.
+                </p>
+                <object
+                  type="image/svg+xml"
+                  data="./images/shields/python2.svg"
+                ></object>
+              </div>
             </li>
             <li>
-              Telegram-бот для поиска коммерческой недвижимости Стек технологий:
-              Django 5.0, Python-Telegram-Bot 21.2, Docker, Nginx, Redis,
-              Celery, xTunnel Создан Telegram-бот для поиска коммерческой
-              недвижимости.
-              <object
-                type="image/svg+xml"
-                data="./images/shields/python3.svg"
-              ></object>
+              <div class="section__li-left">
+                <a href="https://github.com/meteopavel/Premium_product_bot">
+                  <img src="./images/previews/premium_product.jpg"
+                /></a>
+              </div>
+              <div class="section__li-right">
+                <p class="section__p">
+                  Telegram-бот для поиска коммерческой недвижимости Стек
+                  технологий: Django 5.0, Python-Telegram-Bot 21.2, Docker,
+                  Nginx, Redis, Celery, xTunnel Создан Telegram-бот для поиска
+                  коммерческой недвижимости.
+                </p>
+                <object
+                  type="image/svg+xml"
+                  data="./images/shields/python3.svg"
+                ></object>
+              </div>
             </li>
             <li>
-              API для отзывов на произведения Стек технологий: Django, DRF,
-              PostgreSQL, JWT Разработан API для сбора отзывов на книги, фильмы
-              и музыку.
-              <object
-                type="image/svg+xml"
-                data="./images/shields/python3.svg"
-              ></object>
+              <div class="section__li-left">
+                <a href="https://github.com/meteopavel/api_yamdb">
+                <svg class="preview-svg" viewBox="0 0 64 64">
+                  <use
+                    href="./images/previews/yamdb.svg#yamdb"
+                    class="preview-svg"
+                  />
+                </svg></a>
+              </div>
+              <div class="section__li-right">
+                <p class="section__p">
+                  API для отзывов на произведения Стек технологий: Django, DRF,
+                  PostgreSQL, JWT Разработан API для сбора отзывов на книги,
+                  фильмы и музыку.
+                </p>
+                <object
+                  type="image/svg+xml"
+                  data="./images/shields/python3.svg"
+                ></object>
+              </div>
+            </li>
+            <li>
+              <div class="section__li-left">
+                <a href="https://github.com/meteopavel/Froggygram">
+                <svg class="preview-svg" viewBox="0 0 437 438">
+                  <use
+                    href="./images/previews/froggygram.svg#froggygram"
+                    class="preview-svg"
+                  />
+                </svg></a>
+              </div>
+              <div class="section__li-right">
+                <p class="section__p">
+                  Fitgram
+                </p>
+                <object
+                  type="image/svg+xml"
+                  data="./images/shields/python3.svg"
+                ></object>
+              </div>
+            </li>
+            <li>
+              <div class="section__li-left">
+                <a href="https://github.com/meteopavel/Fitgram">
+                <svg class="preview-svg" viewBox="0 0 800 800">
+                  <use
+                    href="./images/previews/fitgram.svg#fitgram"
+                    class="preview-svg"
+                  />
+                </svg></a>
+              </div>
+              <div class="section__li-right">
+                <p class="section__p">
+                  Froggygram
+                </p>
+                <object
+                  type="image/svg+xml"
+                  data="./images/shields/python3.svg"
+                ></object>
+              </div>
             </li>
           </ul>
         </section>
 
         <!-- Образование -->
-        <section class="education">
-          <h3>Образование</h3>
-          <ul>
+        <section class="education section">
+          <h3 class="section__header">Образование</h3>
+          <ul class="section__ul">
             <li>
-              <div class="education__year">2024</div>
-              <div class="education__university">
+              <div class="section__li-left">2024</div>
+              <div class="section__li-right">
                 <p>
                   <a href="https://practicum.yandex.ru" target="_blank">
                     Яндекс.Практикум</a
@@ -228,8 +301,8 @@
               </div>
             </li>
             <li>
-              <div class="education__year">2024</div>
-              <div class="education__university">
+              <div class="section__li-left">2024</div>
+              <div class="section__li-right">
                 <p>
                   <a href="https://practicum.yandex.ru" target="_blank">
                     Яндекс.Практикум</a
@@ -242,8 +315,8 @@
               </div>
             </li>
             <li>
-              <div class="education__year">2022</div>
-              <div class="education__university">
+              <div class="section__li-left">2022</div>
+              <div class="section__li-right">
                 <p>
                   <a href="https://isu.ru" target="_blank">
                     Иркутский государственный университет</a
