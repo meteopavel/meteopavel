@@ -22,6 +22,16 @@ blockquote {
   padding: 0;
 }
 
+::selection {
+  background-color: #21e7e7;
+  color: #596371;
+}
+
+::-moz-selection {
+  background-color: #21e7e7;
+  color: #596371;
+}
+
 ul,
 ol {
   list-style: none;
@@ -101,11 +111,55 @@ p {
   font-size: 16px;
 }
 
+.section__header {
+  margin-bottom: 10px;
+}
 
-.projects ul {
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.section__ul {
   display: flex;
   flex-direction: column;
   gap: 20px
+}
+
+.education li, .projects li {
+  display: flex;
+  gap: 10px;
+}
+
+.projects li {
+  transition: outline-color 0.2s ease, background-color 0.2s ease;
+  padding: 20px;
+}
+
+.projects li:hover {
+  background-color: #141f37;
+  border-radius: 20px;
+  outline: solid 1px #21e7e7;
+}
+
+.section__li-left {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.section__li-left img {
+  width: 100%;
+}
+
+.section__li-right {
+  width: 80%;
+}
+
+.section__p {
+  margin-bottom: 10px;
 }
 
 .projects object {
@@ -139,11 +193,6 @@ p {
   color: #21e7e7;
 }
 
-.education li {
-  display: flex;
-  gap: 10%;
-}
-
 
 @media (max-width: 900px) {
   .container {
@@ -153,7 +202,6 @@ p {
     min-width: 320px;
     padding: 50px 25px;
   }
-
 
   .column_left {
     position: static;
