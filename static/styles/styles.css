@@ -150,6 +150,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    min-width: 320px;
     padding: 50px 25px;
   }
 
