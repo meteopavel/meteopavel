@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" role="img" aria-label="Python 2">
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" role="img" aria-label="Python 3">
     <title>Python 3</title>
-    <a target="_blank" href="https://www.python.org/download/releases/2.7/">
+    <a target="_blank" href="https://www.python.org/downloads/release/python-3100/">
         <linearGradient id="s" x2="0" y2="100%">
             <stop offset="0" stop-color="#bbb" stop-opacity=".1" />
             <stop offset="1" stop-opacity=".1" />
@@ -23,3 +23,8 @@
         </g>
     </a>
 </svg>
+<!-- Меняем width в четырёх местах -->
+<!-- Меняем title в четырёх местах -->
+<!-- Меняем textLength в двух местах -->
+<!-- Меняем x в двух местах -->
+<!-- Меняем href в двух местах (ссылка и svg из shields.io) -->
