@@ -59,7 +59,6 @@ ol {
   gap: 15px;
 }
 
-
 .column_right {
   display: flex;
   flex-direction: column;
@@ -124,7 +123,7 @@ p {
 .section__ul {
   display: flex;
   flex-direction: column;
-  gap: 20px
+
 }
 
 .education li, .projects li {
@@ -132,22 +131,22 @@ p {
   gap: 20px;
 }
 
-.projects li {
+.education li, .projects li {
   transition: outline-color 0.2s ease, background-color 0.2s ease;
   padding: 20px;
 }
 
-.projects li:hover {
+.projects li:hover, .education li:hover {
   background-color: #141f37;
   border-radius: 20px;
   outline: solid 1px #21e7e7;
 }
 
-.projects li svg {
+.projects li .preview-svg, .education li .preview-svg {
   transition: color 0.2s ease;
 }
 
-.projects li:hover svg {
+.projects li:hover .preview-svg, .education li:hover .preview-svg {
   color: #21e7e7;
 }
 
@@ -155,11 +154,6 @@ p {
   width: 15%;
   display: flex;
   flex-direction: column;
-
-}
-
-.section__li-left img {
-  width: 100%;
 }
 
 .section__li-right {
@@ -170,8 +164,47 @@ p {
   margin-bottom: 10px;
 }
 
-.projects object {
+.section__p span {
+  font-family: 'Inter Bold', sans-serif;
+  font-weight: 700;
+  color: #e2e8f0; 
+}
+
+.projects .section__p {
+  font-size: 15px;
+  line-height: normal;
+}
+
+.project__links {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  height: fit-content;
+  margin-bottom: 10px;
+}
+
+.project__links_link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.project__links-result {
+  display: flex;
+  justify-content: end;
+}
+
+.link-svg {
+  height: 30px;
+}
+
+.shields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .contact-svg {
