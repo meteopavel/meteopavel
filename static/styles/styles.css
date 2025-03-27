@@ -129,7 +129,7 @@ p {
 
 .education li, .projects li {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .projects li {
@@ -143,8 +143,16 @@ p {
   outline: solid 1px #21e7e7;
 }
 
+.projects li svg {
+  transition: color 0.2s ease;
+}
+
+.projects li:hover svg {
+  color: #21e7e7;
+}
+
 .section__li-left {
-  width: 20%;
+  width: 15%;
   display: flex;
   flex-direction: column;
 
@@ -155,7 +163,7 @@ p {
 }
 
 .section__li-right {
-  width: 80%;
+  width: 85%;
 }
 
 .section__p {
