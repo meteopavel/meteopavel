@@ -168,9 +168,9 @@ p {
 
 .video-container {
   position: relative;
-  width: 320px; /* Желаемая ширина */
-  height: 0;
-  padding-bottom: 56.25%; /* Соотношение сторон 16:9 (9 / 16 * 100%) */
+  width: 321px; /* Желаемая ширина */
+  height: 180px;
+
 }
 
 .video-container iframe {
