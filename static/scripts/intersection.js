@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const options = {
     root: null, // Относительно viewport
     rootMargin: '0px', // Без отступов
-    threshold: 0.5, // Элемент считается видимым, если 50% его площади в зоне видимости
+    threshold: 0.75, // Элемент считается видимым, если 50% его площади в зоне видимости
   };
 
   // Callback-функция, которая вызывается при пересечении элемента с viewport
