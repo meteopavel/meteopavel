@@ -1,0 +1,21 @@
+.container__column--left .container__link {
+  color: var(--text-color);
+}
+
+.main-info__photo {
+  border-radius: var(--border-radius);
+}
+
+.social__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-icon {
+  transition: color var(--transition-time) var(--transition-timing-function);
+  width: 30px;
+}
+
+.contact-icon:hover {
+  color: var(--secondary-color);
+}

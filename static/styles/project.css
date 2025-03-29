@@ -1,0 +1,30 @@
+.project__links {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+  width: 100%;
+  gap: 5px;
+}
+
+.project__links-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.project__link-icon {
+  height: 25px;
+}
+
+.project__shields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.project__links-view_all {
+  font-size: 16px;
+  justify-content: end;
+}
