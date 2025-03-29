@@ -1,0 +1,79 @@
+body {
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-regular);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+::selection,
+::-moz-selection {
+  background-color: var(--primary-color);
+  color: var(--highlighted-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-color);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-h2);
+}
+
+h3 {
+  text-transform: uppercase;
+  line-height: var(--line-height-h3);
+  font-size: var(--font-size-h3);
+  letter-spacing: var(--letter-spacing-h3);
+}
+
+.section__p {
+  font-size: var(--font-size-normal-text);
+  line-height: var(--line-height-normal-text);
+  letter-spacing: var(--letter-spacing-normal-text);
+}
+
+.section__p--smaller {
+  font-size: var(--font-size-smaller-text);
+  line-height: var(--line-height-smaller-text);
+  letter-spacing: var(--letter-spacing-smaller-text);
+}
+
+.section__p span {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-color);
+}

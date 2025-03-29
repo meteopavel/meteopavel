@@ -1,0 +1,46 @@
+.interviews .section__item--left {
+  width: 50%;
+}
+
+.video-container {
+  position: relative;
+  width: 320px;
+  height: 180px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+@media (max-width: 1165px) {
+  .interviews .section__item {
+    flex-direction: column;
+  }
+  .interviews .section__item--right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .interviews .section__item {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 745px) {
+  .interviews .section__item {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) {
+  .video-container iframe {
+    width: 88%;
+    height: 88%;
+  }
+}
