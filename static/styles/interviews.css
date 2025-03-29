@@ -37,10 +37,3 @@
     flex-direction: column;
   }
 }
-
-@media (max-width: 460px) {
-  .video-container iframe {
-    width: 88%;
-    height: 88%;
-  }
-}
