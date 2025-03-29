@@ -23,6 +23,18 @@
   gap: 20px;
 }
 
+.highlightable {
+  transition: box-shadow var(--transition-time) var(--transition-timing-function),
+              background-color var(--transition-time) var(--transition-timing-function);
+}
+
+@media (max-width: 460px) {
+  .highlighted {
+    background-color: #141f37;
+    box-shadow: 0 0 0 2px var(--primary-color);
+  }
+}
+
 .section__item:hover {
   background-color: #141f37;
   box-shadow: 0 0 0 2px var(--primary-color);
