@@ -7,9 +7,11 @@ NEW_WIDTH_SCALE_FACTOR = 0.9
 TEXT_LENGTH_SCALE_FACTOR = 0.85
 X_SCALE_FACTOR = 0.87
 Y_SCALE_FACTOR = 0.9
-DATA_DIRECTORY = './legacy_django_mailer'
+DIRECTORY = 'yamdb'
+DATA_DIRECTORY = './' + DIRECTORY
+TARGET_DIRECTORY = '../static/images/shields/' + DIRECTORY
 DATA_FILE = 'data.csv'
-TIME_SLEEP = 1
+TIME_SLEEP = 0
 
 
 def fetch_and_parse_svg(title, color, logo, logo_color):
@@ -122,7 +124,7 @@ def generate_custom_svg(title, color, logo, logo_color, docs_href,
     template_data = prepare_template_data(title, docs_href, scaled_data)
 
     # Шаг 4: Сохранение файла
-    save_svg_to_file(template_data, 'template.svg', DATA_DIRECTORY, title)
+    save_svg_to_file(template_data, 'template.svg', TARGET_DIRECTORY, title)
 
 
 def read_params_from_csv(file_path):

@@ -1,6 +1,10 @@
 title,logo,docs_href
-Python 2.7,python,https://www.python.org/download/releases/2.7/
-Python 3.10,python,https://docs.python.org/3.10/
-Django 5.0,django,https://docs.djangoproject.com/en/5.0/
-React 17,react,https://reactjs.org/docs/getting-started.html
-Python Telegram Bot 21.2,telegram,https://python-telegram-bot.readthedocs.io/en/v21.2/
+Python 2.7,python,https://docs.python.org/2.7/
+Django 1.9,django,https://docs.djangoproject.com/en/1.9/
+Bootstrap,bootstrap,https://getbootstrap.com/docs/5.0/getting-started/introduction/
+Redis,redis,https://redis.io/documentation
+Celery,celery,https://docs.celeryproject.org/en/stable/
+Docker,docker,https://docs.docker.com/
+Nginx,nginx,https://nginx.org/en/docs/
+Ngrok,ngrok,https://ngrok.com/docs
+Chocolatey,chocolatey,https://docs.chocolatey.org/en-us/

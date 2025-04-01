@@ -1,0 +1,10 @@
+title,logo,docs_href
+Python 3.10 alpine,python,https://devdocs.io/python~3.10/
+Django 5.0,django,https://docs.djangoproject.com/en/5.1/releases/5.0/
+PostgreSQL 13.15 alpine,postgresql,https://www.postgresql.org/docs/13/index.html
+Uvicorn,gunicorn,https://www.unicorn-engine.org/docs/
+Python Telegram Bot 21.2,telegram,https://docs.python-telegram-bot.org/en/v21.2/telegram.bot.html
+Redis,redis,https://redis.io/documentation
+Celery,celery,https://docs.celeryproject.org/en/stable/
+Docker,docker,https://docs.docker.com/
+Nginx,nginx,https://nginx.org/en/docs/
