@@ -1,0 +1,10 @@
+title,logo,docs_href
+Python 3.9,python,https://devdocs.io/python~3.9/
+Django 3.2,django,https://docs.djangoproject.com/en/5.1/releases/3.2/
+PostgreSQL 13.10,postgresql,https://www.postgresql.org/docs/13/index.html
+DRF 3.12,django,https://devdocs.io/django_rest_framework/
+JWT,django,https://jwcrypto.readthedocs.io/en/latest/jwt.html
+Pytest,pytest,https://docs.pytest.org/en/stable/contents.html
+React 17,react,https://devdocs.io/react~17/
+Docker,docker,https://docs.docker.com/
+Nginx,nginx,https://nginx.org/en/docs/

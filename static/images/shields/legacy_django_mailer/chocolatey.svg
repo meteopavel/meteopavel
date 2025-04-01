@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="30" role="img" aria-label="Chocolatey">
+    <title>Chocolatey</title>
+    <a target="_blank" href="https://docs.chocolatey.org/en-us/">
+        <linearGradient id="s" x2="0" y2="100%">
+            <stop offset="0" stop-color="#bbb" stop-opacity=".1" />
+            <stop offset="1" stop-opacity=".1" />
+        </linearGradient>
+        <clipPath id="r">
+            <rect width="120" height="30" rx="15" fill="#fff" />
+        </clipPath>
+        <g clip-path="url(#r)">
+            <rect width="120" height="30" fill="#16304d" />
+            <rect width="120" height="30" fill="url(#s)" />
+        </g>
+        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+            text-rendering="geometricPrecision" font-size="140">
+            <image x="7" y="6" width="18" height="18"
+                href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjFlN2U3IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Q2hvY29sYXRleTwvdGl0bGU+PHBhdGggZD0iTTAgMS4yNDlsMS40MzkgMy4xOEwwIDYuOTI2bDEuNDM5IDIuNUwwIDExLjkyM2wxLjQzOSAyLjQyNEwwIDE2Ljg0NWwxLjQzOSAyLjVMMCAyMi43NWwyLjgtLjkxYzYuMy4wMSAxMi42OTYuMDA2IDE4LjA5NiAwbDMuMTA0LjkxLTIuMDQ0LTMuNjM1IDEuMTM2LTEuODkyLTIuMTk2LTIuMjcyLS4wMDQtLjAxN1YyLjAwNWMtNi41NTEtLjAwMS0xMi4yNDMgMC0xOC4wOTEgMHptMTkuNjg4IDEuOTY4djcuMDNsLS4yMy0uODk4LTEuNDM4LTQuMzktMy41Ni42MDUtMS44OS0yLjM0M3ptLTExLjY5NS4wMDRoNC41NjNMOS41MzkgNC40Mjh6bTIuODYgMy42OGEzLjkwMyAzLjkwMyAwIDAgMSAxLjY0LjI1NGMxLjk2OC43NTcgMS4yODYgMi44LjE1IDQuMDEyLS4zNzguMzc4LTEuMjEuMjI3LS42MDUtLjkwOC4yMjgtLjQ1NC40NTQtMS4zNjMtLjIyNy0xLjU5LTEuNTE1LS41My0zLjI1NS42ODItMy42MzQgMi4yNzEtLjM3OCAxLjM2My42MDYgMi44MDEgMi4zNDcgMi40MjMgMS40MzktLjMwMyAyLjgwMi0xLjI4OCAzLjMzMi0xLjc0Mi41My0uNDU1LjkwNy4zOC4zMDEgMS4yODgtLjY4LjkwOC0xLjc0IDEuOTY4LTIuNjUgMi41NzQtMy41NTggMi40MjMtNi42NjItLjc1OC01LjM3NS00LjM5Mi42NzctMS44NDUgMi40NTQtNC4wNDEgNC43Mi00LjE5em02LjUyNyAyLjAzMWEuNjYuNjYgMCAwIDEgLjQ1NC4xODJjLjMyNC4zMjYuMjA0Ljk3Mi0uMjY4IDEuNDQ1LS40NzMuNDc0LTEuMTIxLjU5My0xLjQ0Ni4yNjgtLjMyNS0uMzI2LS4yMDUtLjk3Mi4yNjctMS40NDUuMjkyLS4yOTIuNjY2LS40NjEuOTkzLS40NXptLS40MiAzLjIzM2EuNjYuNjYgMCAwIDEgLjQ1NC4xODJjLjMyNS4zMjUuMjA2Ljk3My0uMjY4IDEuNDQ2LS40NzMuNDczLTEuMTIuNTkyLTEuNDQ1LjI2OC0uMzI0LS4zMjYtLjIwNS0uOTcyLjI2OC0xLjQ0NS4yOTEtLjI5Mi42NjQtLjQ2Mi45OS0uNDUxWiIvPjwvc3ZnPg==" />
+            <text aria-hidden="true" x="713" y="217" fill="#397474" fill-opacity=".5"
+                transform="scale(.1)" textLength="777">Chocolatey</text>
+            <text x="698" y="202" transform="scale(.1)" fill="#21e7e7"
+                textLength="777">Chocolatey</text>
+        </g>
+    </a>
+</svg>

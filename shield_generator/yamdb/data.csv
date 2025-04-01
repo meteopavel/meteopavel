@@ -1,0 +1,8 @@
+title,logo,docs_href
+Python 3.9,python,https://devdocs.io/python~3.9/
+Django 3.2,django,https://docs.djangoproject.com/en/5.1/releases/3.2/
+SQLite,sqlite,https://www.sqlite.org/docs.html
+DRF 3.12,django,https://devdocs.io/django_rest_framework/
+JWT,django,https://jwcrypto.readthedocs.io/en/latest/jwt.html
+Pytest,pytest,https://docs.pytest.org/en/stable/contents.html
+Postman,postman,https://learning.postman.com/docs/introduction/overview/
