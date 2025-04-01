@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="30" role="img" aria-label="SQLAlchemy">
+    <title>SQLAlchemy</title>
+    <a target="_blank" href="https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html">
+        <linearGradient id="s" x2="0" y2="100%">
+            <stop offset="0" stop-color="#bbb" stop-opacity=".1" />
+            <stop offset="1" stop-opacity=".1" />
+        </linearGradient>
+        <clipPath id="r">
+            <rect width="130" height="30" rx="15" fill="#fff" />
+        </clipPath>
+        <g clip-path="url(#r)">
+            <rect width="130" height="30" fill="#16304d" />
+            <rect width="130" height="30" fill="url(#s)" />
+        </g>
+        <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
+            text-rendering="geometricPrecision" font-size="140">
+            <image x="7" y="6" width="18" height="18"
+                href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjFlN2U3IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U1FMQWxjaGVteTwvdGl0bGU+PHBhdGggZD0iTTExLjggMTUuOTU1YTQ0LjA2OCA0NC4wNjggMCAwIDEtMS42NzMtLjY5MWMtMS43MzYtLjc1Ny0xLjk4MS0uNzcyLTIuNDk5LS4xNDMtLjExOS4xNDYtLjI1LjIzNi0uMjg3LjItLjExMS0uMTExLjIxOS0uNjQ0LjYxNy0uOTkzLjMyNS0uMjg1LjQzMy0uMzI1Ljc5MS0uMjg1LjIyOC4wMjUuOTg1LjI5IDEuNjgyLjU4NiAxLjU3My42NjkgMi4wMzQuODExIDIuNjM1LjgxMS43MzEgMCAxLjEwNi0uNTEyLjg3Ni0xLjE5Mi0uMDU3LS4xNzEtLjA0LS4yMjguMDc0LS4yMjguMjEzIDAgLjMyMi43OTcuMTY4IDEuMjU1YTEuNjE3IDEuNjE3IDAgMCAxLS40MjQuNjE0Yy0uMjUxLjIxMS0uNDEuMjU3LS44NzkuMjU0YTMuODUzIDMuODUzIDAgMCAxLTEuMDgyLS4xODhoLjAwMVptLjMwMS0yLjIyNWMwLS4wNDguMTc5LS4xMzQuNDAxLS4xODhsLjQwMS0uMDk5LjA4Ni0xLjQ0NmMuMDk0LTEuNTk5LjAyNS0zLjE3Mi0uMTQ4LTMuMzgzLS4wNjMtLjA3NC0uMjUzLS4xNjUtLjQyNy0uMjA1LS43MDUtLjE1Ni0uMjM2LS4yNjQgMS4xMzMtLjI2NCAxLjM2OCAwIDEuODAzLjA5OSAxLjE1Mi4yNjQtLjU2MS4xNC0uNTY0LjE0OC0uNTY0IDIuNDMgMCAxLjI2Ni4wNDYgMi4yMi4xMTEgMi4zNDIuMDkyLjE3MS4yMjguMjA3Ljc1Mi4yMDcgMS4wODEgMCAxLjQ1My0uMjU1IDEuNzQ3LTEuMjAzLjA4OC0uMjg0LjMxNS0uMjMzLjIzNi4wNTQtLjAzNy4xMzQtLjA5Ny41NC0uMTM0LjkxbC0uMDY4LjY2OUgxNC40NGMtMS4yODYgMC0yLjMzOS0uMDQtMi4zMzktLjA4OFptNS4zMTItLjA2OGMwLS4wODYuMDgzLS4xNzEuMjE5LS4yMzYuMTgzLS4wODYuMzAyLS4yNjUuNzM0LTEuMTEuNjg2LTEuMzM3IDEuNzY3LTMuNjM0IDEuODctMy45NzguMDc5LS4yNjIuMDk3LS4yNzYuMzkyLS4zMS4xNzEtLjAyLjMxMy0uMDMxLjMxNi0uMDI1bC41MjcgMS4xNTJjLjI4NC42MjguODU2IDEuODI0IDEuMjcxIDIuNjU0LjY5NSAxLjM5Ny43NzIgMS41MjMgMS4wMDUgMS42MzYuMTQyLjA2OS4yNTMuMTc0LjI1My4yMzcgMCAuMDk5LS4xMjIuMTExLTEuMTc1LjExMS0xLjA1NiAwLTEuMTc1LS4wMTItMS4xNzUtLjExNCAwLS4wNjguMDkxLS4xNDIuMjM2LS4xOTEuMTM0LS4wNDMuMjM2LS4xMjIuMjM2LS4xODIgMC0uMDU3LS4xMzktLjQzMi0uMzEtLjgzNGwtLjMxLS43MzFoLTIuMzVsLS4yMjUuNDk1Yy0uNDIxLjkyOC0uNDMgMS4xNDctLjAzNyAxLjI1Mi4xOTYuMDU0LjI1LjA5Ny4yMjcuMTg1LS4wMjUuMTAzLS4xMjcuMTE3LS44NjcuMTE3LS43OTQuMDA2LS44MzcgMC0uODM3LS4xMjhabS0xNS42NTIuMDI1YTEwLjkzMyAxMC45MzMgMCAwIDEtLjgwOC0uMTk2bC0uNTQ5LS4xNTQuMjgyLS41MTguMjgxLS41MTgtLjIyNy0uMjgxYy0uMzIyLS4zOTktLjczNy0xLjI3Mi0uNzQtMS41NTQtLjAwMy0uNjU3Ljg1MS0xLjYxIDEuODk4LTIuMTIyLjcyLS4zNTMgMS4yOTEtLjM2MiAyLjAwOS0uMDI2bC41NC4yNTMuMTU3LS4yMjRjLjA4NS0uMTIzLjE1Ni0uMjg1LjE1Ni0uMzU2IDAtLjA3MS4wNzEtLjEzNC4xNTctLjEzNC4wODUgMCAuMTU2LjAyMy4xNTYuMDQ4IDAgLjA2My0uNjI5IDEuNjUxLS42NjkgMS42OTEtLjAxNy4wMTYtLjE4Ny0uMDYzLS4zODEtLjE3Ny0uNTQ2LS4zMjEtMS4yMzItLjUzNS0xLjc2NC0uNTQ5LTEuMjM4LS4wMzEtMS42NjcgMS4xNzgtLjc5NCAyLjIzNmwuMzA4LjM3My44MzktLjY4Yy45NDItLjc2IDEuMDUtLjc3NyAxLjc4NC0uMjcuODI1LjU2OS44MzkgMS40MzQuMDQyIDIuMzM5LS43MDUuODA1LTEuNDMxIDEuMDI3LTIuNjc3LjgxOVptNS45ODQtLjE2NWMtLjY0Ni0uMzAxLTEuMjI5LS44NzYtMS41NjUtMS41NDctLjUzOC0xLjA3Ni0uMzczLTEuNzY1LjY0Ni0yLjY5NS44NTYtLjc4MiAxLjU1Ni0xLjA4NyAyLjQ5OC0xLjA4Ny42OCAwIC44MjUuMDM3IDEuMjY2LjMwNyAxLjA0NC42NDYgMS4zMDMgMS44NzguNjc1IDMuMjIxLS43MzcgMS41NzctMi4yOTQgMi4zNy0zLjUyIDEuODAxWm0tMy44NzItLjcwMmMuNDA5LS4zMjIuMzgxLS45MTctLjA2My0xLjM4OS0uNTU4LS41OTItLjczMS0uNTY2LTEuNzEzLjI1My0uOTc2LjgxNC0uOTgyLjc4My4xODUgMS4xNTUuNzcxLjI1MSAxLjI1NS4yNDIgMS41OTEtLjAxOVptNi4wMzQtLjA0NmMuNDg0LS4yMzkuODE3LTEuMzQzLjY4LTIuMjU5LS4xNy0xLjEzLTEuNjk4LTEuOTAxLTIuODE5LTEuNDIzLTEuMTUzLjQ5My0xLjE3IDEuODA0LS4wMzcgMi45ODUuNzkxLjgyOCAxLjQ3MSAxLjA0NCAyLjE3Ni42OTdabTExLjM1OS0xLjQxNGMuMDQtLjA3MS0uODQ1LTIuMDAzLS45MjgtMi4wMjMtLjA2LS4wMTctLjk3NiAxLjg3Mi0uOTc2IDIuMDE0IDAgLjA3MiAxLjg2MS4wOCAxLjkwNC4wMDlaIi8+PC9zdmc+" />
+            <text aria-hidden="true" x="765" y="217" fill="#397474" fill-opacity=".5"
+                transform="scale(.1)" textLength="879">SQLAlchemy</text>
+            <text x="750" y="202" transform="scale(.1)" fill="#21e7e7"
+                textLength="879">SQLAlchemy</text>
+        </g>
+    </a>
+</svg>
