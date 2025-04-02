@@ -24,7 +24,7 @@
 }
 
 .section__item:hover {
-  background-color: #141f37;
+  background-color: var(--hover-color);
   box-shadow: 0 0 0 2px var(--primary-color);
 }
 
@@ -47,4 +47,14 @@
   flex-direction: column;
   gap: 10px;
   width: 85%;
+}
+
+@media (max-width: 460px) {
+  .section__item:hover {
+    pointer-events: none;
+  }
+
+  .section__item:hover .preview-icon {
+    pointer-events: none;
+  }
 }
