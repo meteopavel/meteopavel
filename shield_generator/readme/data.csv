@@ -12,7 +12,7 @@ Docker,docker,https://docs.docker.com/
 Nginx,nginx,https://nginx.org/en/docs/
 GitHub Actions,githubactions,https://docs.github.com/en/actions
 Flask,flask,https://flask.palletsprojects.com/en/2.2.x/changes/
-FastAPI,fasapi,https://fastapi.tiangolo.com/release-notes/
+FastAPI,fastapi,https://fastapi.tiangolo.com/release-notes/
 SQLAlchemy,sqlalchemy,https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html
 Requests,python,https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1
 TensorFlow,tensorflow,https://www.tensorflow.org/release_notes">
