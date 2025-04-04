@@ -1,0 +1,12 @@
+<!-- Главная информация -->
+<section class="main-info section">
+  {% import './column_left/data/main-info_data.jinja' as data %}
+  <img
+    src="{{ data.mainInfo.photo }}"
+    alt="{{ data.mainInfo.alt }}"
+    class="main-info__photo"
+  />
+  <h1>{{ data.mainInfo.name }}</h1>
+  <h2>{{ data.mainInfo.position }}</h2>
+  <p class="section__p">{{ data.mainInfo.description }}</p>
+</section>

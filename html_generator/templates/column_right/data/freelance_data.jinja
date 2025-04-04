@@ -1,0 +1,85 @@
+{% set projects = [
+  {
+    "title": "Legacy Django Mailer",
+    "description": """
+      Это сервис для создания и отправки рассылок с использованием
+      HTML-макетов, отложенных рассылок, переменных в макетах и
+      отслеживания открытий писем. Активно применялись legacy-инструменты,
+      такие как Python 2.7 и другие устаревшие технологии. Администраторы
+      настраивают рассылки через модальное окно с AJAX-запросами.
+      Автоматизация и работа с очередями реализованы с помощью Redis,
+      Celery и других инструментов, что подчеркивает сочетание устаревших
+      и современных решений.
+    """,
+    "icon": "./images/previews/legacy_mailer.svg#legacy_mailer",
+    "viewBox": "0 0 512 512",
+    "links": [
+      {
+        "href": "https://github.com/meteopavel/Legacy_Django_Mailer",
+        "text": "РЕПОЗИТОРИЙ",
+        "icon": "./images/previews/git_repo.svg#git_repo",
+        "viewBox": "0 -10 256 128"
+      },
+      {
+        "href": "https://legacymailer.meteopavel.space/newsletters/create-newsletter/",
+        "text": "ВЕРСИЯ",
+        "icon": "./images/previews/demo.svg#demo",
+        "viewBox": "0 0 512 512"
+      }
+    ],
+    "shields": "./column_right/shields/legacy_django_mailer.html"
+  },
+  {
+    "title": "Froggygram",
+    "description": """
+      Платформа для любителей лягушек, где пользователи могут делиться
+      информацией о своих питомцах. Авторизация через REST API обеспечивает
+      доступ к добавлению, редактированию и удалению карточек с лягушками,
+      а также к просмотру чужих профилей. После входа пользователь получает
+      токен, который позволяет управлять только своими данными.
+    """,
+    "icon": "./images/previews/froggygram.svg#froggygram",
+    "viewBox": "0 0 437 438",
+    "links": [
+      {
+        "href": "https://github.com/meteopavel/Froggygram",
+        "text": "РЕПОЗИТОРИЙ",
+        "icon": "./images/previews/git_repo.svg#git_repo",
+        "viewBox": "0 -10 256 128"
+      },
+      {
+        "href": "https://froggygram.meteopavel.space/",
+        "text": "ВЕРСИЯ",
+        "icon": "./images/previews/demo.svg#demo",
+        "viewBox": "0 0 512 512"
+      }
+    ],
+    "shields": "./column_right/shields/froggygram.html"
+  },
+  {
+    "title": "Fitgram",
+    "description": """
+      Платформа для любителей фитнеса, где пользователи могут делиться
+      своими планами тренировок, добавлять понравившиеся планы в избранное
+      и подписываться на других авторов. Авторизация через REST API
+      обеспечивает доступ к управлению личными данными.
+    """,
+    "icon": "./images/previews/fitgram.svg#fitgram",
+    "viewBox": "0 0 800 800",
+    "links": [
+      {
+        "href": "https://github.com/meteopavel/Fitgram",
+        "text": "РЕПОЗИТОРИЙ",
+        "icon": "./images/previews/git_repo.svg#git_repo",
+        "viewBox": "0 -10 256 128"
+      },
+      {
+        "href": "https://fitgram.meteopavel.space/",
+        "text": "ВЕРСИЯ",
+        "icon": "./images/previews/demo.svg#demo",
+        "viewBox": "0 0 512 512"
+      }
+    ],
+    "shields": "./column_right/shields/fitgram.html"
+  }
+] %}

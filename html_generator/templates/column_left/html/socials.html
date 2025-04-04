@@ -1,0 +1,22 @@
+<!-- Ссылки на контакты и соцсети -->
+<section class="social section">
+  <ul class="socials__list">
+    {% import './column_left/data/socials_data.jinja' as data %}
+
+    {% for social in data.socials %}
+      <li class="socials__item">
+        <a
+          class="container__link"
+          href="{{ social.href }}"
+          target="_blank"
+          aria-label="{{ social.ariaLabel }}"
+          title="{{ social.title }}"
+        >
+          <svg class="contact-icon" viewBox="{{ social.viewBox }}">
+            <use href="{{ social.icon }}" class="contact-icon" />
+          </svg>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

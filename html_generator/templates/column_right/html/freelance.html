@@ -1,0 +1,38 @@
+<!-- Фриланс -->
+<section class="projects section">
+  <h3 class="section__header">Фриланс</h3>
+  <ul class="section__list">
+    {% import './column_right/data/freelance_data.jinja' as data %}
+    
+    {% for project in data.projects %}
+      <li class="section__item highlightable">
+        <div class="section__item--left">
+          <svg class="preview-icon" viewBox="{{ project.viewBox }}">
+            <use href="{{ project.icon }}" class="preview-icon" />
+          </svg>
+        </div>
+        <div class="section__item--right">
+          <p class="section__p section__p--smaller">
+            <span>{{ project.title }}</span>
+          </p>
+          <p class="section__p section__p--smaller">
+            {{ project.description }}
+          </p>
+          <div class="project__links">
+            {% for link in project.links %}
+              <a href="{{ link.href }}">
+                <div class="project__links-link">
+                  <svg class="project__link-icon" viewBox="{{ link.viewBox }}">
+                    <use href="{{ link.icon }}" class="project__link-icon" />
+                  </svg>
+                  — {{ link.text }}
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          {% include project.shields %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
