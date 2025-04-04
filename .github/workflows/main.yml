@@ -52,6 +52,7 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         source: "static/"
         target: "meteopavel"
+        clean: true
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
