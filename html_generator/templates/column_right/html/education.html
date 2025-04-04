@@ -1,0 +1,27 @@
+<!-- Образование -->
+<section class="education section">
+  <h3 class="section__header">Образование</h3>
+  <ul class="section__list">
+    {% import './column_right/data/education_data.jinja' as data %}
+
+    {% for education in data.educations %}
+      <li class="section__item highlightable">
+        <div class="section__item--left">
+          <svg class="preview-icon" viewBox="{{ education.viewBox }}">
+            <use href="{{ education.icon }}" class="preview-icon" />
+          </svg>
+        </div>
+        <div class="section__item--right">
+          <p class="section__p">
+            <a href="{{ education.url }}" target="_blank">
+              {{ education.title }}
+            </a>
+          </p>
+          <p class="section__p">
+            {{ education.details }}
+          </p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

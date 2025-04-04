@@ -1,0 +1,34 @@
+<!-- Собеседования -->
+<section class="interviews section">
+  <h3 class="section__header">Собеседования</h3>
+  <ul class="section__list">
+    {% import './column_right/data/interviews_data.jinja' as data %}
+
+    {% for interview in data.interviews %}
+      <li class="section__item highlightable">
+        <div class="section__item--left">
+          <div class="video-container">
+            <iframe
+              width="320"
+              height="180"
+              src="{{ interview.videoUrl }}"
+              frameborder="0"
+              allow="clipboard-write; autoplay"
+              webkitAllowFullScreen
+              mozallowfullscreen
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <div class="section__item--right">
+          <p class="section__p section__p--smaller">
+            <span>{{ interview.title }}</span>
+          </p>
+          <p class="section__p section__p--smaller">
+            {{ interview.description }}
+          </p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

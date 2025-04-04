@@ -1,0 +1,25 @@
+<!-- Опыт работы -->
+<section class="experience section">
+  <h3 class="section__header">Опыт работы</h3>
+  <ul class="section__list">
+    {% import './column_right/data/experience_data.jinja' as data %}
+
+    {% for experience in data.experiences %}
+      <li class="section__item highlightable">
+        <div class="section__item--left">
+          <svg class="preview-icon" viewBox="{{ experience.viewBox }}">
+            <use href="{{ experience.icon }}" class="preview-icon" />
+          </svg>
+        </div>
+        <div class="section__item--right">
+          <p class="section__p section__p--smaller">
+            <span>{{ experience.title }}</span>
+          </p>
+          <p class="section__p section__p--smaller">
+            {{ experience.description }}
+          </p>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
