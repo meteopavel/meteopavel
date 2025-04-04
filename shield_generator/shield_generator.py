@@ -7,10 +7,12 @@ NEW_WIDTH_SCALE_FACTOR = 0.9
 TEXT_LENGTH_SCALE_FACTOR = 0.85
 X_SCALE_FACTOR = 0.87
 Y_SCALE_FACTOR = 0.9
-DIRECTORY = 'readme'
-DATA_DIRECTORY = './' + DIRECTORY
-TARGET_DIRECTORY = '../static/images/shields/' + DIRECTORY
-DATA_FILE = 'data.csv'
+
+PROJECT = 'fitgram'
+DATA_DIRECTORY = './csv_data'
+DATA_FILE = PROJECT + '.csv'
+TARGET_DIRECTORY = '../static/images/shields/' + PROJECT
+
 TIME_SLEEP = 0
 
 
