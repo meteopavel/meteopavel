@@ -1,7 +1,7 @@
 import csv
 import string
 import time
-from shieldsio import fetch_shield_data, parse_svg
+from shield_generator.api.shieldsio import fetch_shield_data, parse_svg
 
 NEW_WIDTH_SCALE_FACTOR = 0.9
 TEXT_LENGTH_SCALE_FACTOR = 0.85
@@ -11,7 +11,7 @@ Y_SCALE_FACTOR = 0.9
 PROJECT = 'fitgram'
 DATA_DIRECTORY = './csv_data'
 DATA_FILE = PROJECT + '.csv'
-TARGET_DIRECTORY = '../static/images/shields/' + PROJECT
+TARGET_DIRECTORY = '../../static/images/shields/' + PROJECT
 
 TIME_SLEEP = 0
 
