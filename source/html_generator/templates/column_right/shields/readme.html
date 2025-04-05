@@ -1,0 +1,30 @@
+<div class="project__shields">
+  {% set shields = [
+    "python_2.svg",
+    "python_3.svg",
+    "django.svg",
+    "postgresql.svg",
+    "pillow.svg",
+    "uvicorn.svg",
+    "python_telegram_bot.svg",
+    "redis.svg",
+    "celery.svg",
+    "docker.svg",
+    "nginx.svg",
+    "github_actions.svg",
+    "flask.svg",
+    "fastapi.svg",
+    "sqlalchemy.svg",
+    "requests.svg",
+    "tensorflow.svg",
+    "pandas.svg",
+    "numpy.svg",
+  ] %}
+  
+  {% for shield in shields %}
+    <object
+      type="image/svg+xml"
+      data="./images/shields/readme/{{ shield }}"
+    ></object>
+  {% endfor %}
+</div>

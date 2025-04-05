@@ -22,29 +22,16 @@ def render_template(template_name,
 def generate_index_page(output_dir,
                         template_dir,
                         index_file,
-                        mode='minify'):
+                        mode):
     """
     Генерирует страницу index.html.
-    :param output_dir: Путь к выходной директории.
-    :param template_dir: Путь к папке с шаблонами.
-    :param index_file: Имя выходного HTML-файла.
-    :param mode: Режим обработки ('prettier' или 'minify').
     """
-    # Создаем выходную директорию, если она не существует
     os.makedirs(output_dir, exist_ok=True)
-
-    # Рендеринг HTML
     rendered_html = render_template('base.html',
                                     template_dir=template_dir)
-
-    # Путь к выходному файлу
     file_path = os.path.join(output_dir, index_file)
-
-    # Сохраняем рендеренный HTML во временный файл
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(rendered_html)
-
-    # Выбираем режим обработки
     if mode == 'prettier':
         format_with_prettier(file_path)
     elif mode == 'minify':
@@ -58,10 +45,8 @@ def format_with_prettier(file_path):
     """Форматирует файл с помощью Prettier."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f'Файл {file_path} не найден.')
-
     npx_path = 'C:/Program Files/nodejs/npx.cmd'
     prettier_command = [npx_path, 'prettier', '--write', file_path]
-
     try:
         subprocess.run(
             prettier_command,

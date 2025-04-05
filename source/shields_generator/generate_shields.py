@@ -1,19 +1,8 @@
 import csv
 import string
-import time
-from shield_generator.api.shieldsio import fetch_shield_data, parse_svg
-
-NEW_WIDTH_SCALE_FACTOR = 0.9
-TEXT_LENGTH_SCALE_FACTOR = 0.85
-X_SCALE_FACTOR = 0.87
-Y_SCALE_FACTOR = 0.9
-
-PROJECT = 'fitgram'
-DATA_DIRECTORY = './csv_data'
-DATA_FILE = PROJECT + '.csv'
-TARGET_DIRECTORY = '../../static/images/shields/' + PROJECT
-
-TIME_SLEEP = 0
+import re
+import os
+from shields_generator.api.shieldsio import fetch_shield_data, parse_svg
 
 
 def fetch_and_parse_svg(title, color, logo, logo_color):
@@ -24,16 +13,16 @@ def fetch_and_parse_svg(title, color, logo, logo_color):
     if not svg_content:
         print('Не удалось получить SVG-данные.')
         return None
-
     parsed_data = parse_svg(svg_content)
     if not parsed_data:
         print('Не удалось распарсить SVG.')
         return None
-
     return parsed_data
 
 
-def scale_parameters(parsed_data, new_height=None):
+def scale_parameters(parsed_data, new_height,
+                     width_scale_factor, text_length_scale_factor,
+                     x_scale_factor, y_scale_factor):
     """
     Пересчитывает параметры SVG с учетом масштабирования.
     """
@@ -41,25 +30,23 @@ def scale_parameters(parsed_data, new_height=None):
     original_height = parsed_data['height']
     texts = parsed_data['texts']
     svg_image_href = parsed_data['svg_image_href']
-
     scale_factor = 1.0
     if new_height:
         scale_factor = int(new_height) / int(original_height)
         new_width = int(
-            float(original_width) * scale_factor * NEW_WIDTH_SCALE_FACTOR
+            float(original_width) * scale_factor * width_scale_factor
         )
         new_height = int(new_height)
     else:
         new_width = int(original_width)
         new_height = int(original_height)
-
     text_data = []
     for text in texts:
         text_length = int(
-            float(text['textLength']) * scale_factor * TEXT_LENGTH_SCALE_FACTOR
+            float(text['textLength']) * scale_factor * text_length_scale_factor
         )
-        x = int(float(text['x']) * scale_factor * X_SCALE_FACTOR)
-        y = int(float(text['y']) * scale_factor * Y_SCALE_FACTOR)
+        x = int(float(text['x']) * scale_factor * x_scale_factor)
+        y = int(float(text['y']) * scale_factor * y_scale_factor)
         text_data.append({
             'textLength': str(text_length),
             'x': str(x),
@@ -67,7 +54,6 @@ def scale_parameters(parsed_data, new_height=None):
             'x_offset': str(x + int(15)),
             'y_offset': str(y + int(15)),
         })
-
     return {
         'width': str(new_width),
         'texts': text_data,
@@ -92,25 +78,37 @@ def prepare_template_data(title, docs_href, scaled_data):
     }
 
 
+def minify_svg(svg_code):
+    """
+    Минифицирует SVG-код с помощью регулярных выражений.
+    """
+    svg_code = re.sub(r'<!--.*?-->', '', svg_code, flags=re.DOTALL)
+    svg_code = re.sub(r'\s+', ' ', svg_code)
+    svg_code = re.sub(r'\s*([><])\s*', r'\1', svg_code)
+    return svg_code
+
+
 def save_svg_to_file(template_data, template_path, output_directory, title):
     """
     Сохраняет SVG-файл на основе шаблона и данных.
     """
     with open(template_path, 'r', encoding='utf-8') as template_file:
         svg_template = template_file.read()
-
     template = string.Template(svg_template)
     svg_code = template.substitute(template_data)
-
+    minified_svg = minify_svg(svg_code)
+    filename = f'{output_directory}/{title.replace(" ", "_").lower()}.svg'
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     filename = f'{output_directory}/{title.replace(" ", "_").lower()}.svg'
     with open(filename, 'w', encoding='utf-8') as file:
-        file.write(svg_code)
-
-    print(f'SVG файл успешно создан: {filename}')
+        file.write(minified_svg)
+    print(f'SVG файл успешно создан и минифицирован: {filename}')
 
 
 def generate_custom_svg(title, color, logo, logo_color, docs_href,
-                        new_height=None):
+                        new_height, output_directory, template_path,
+                        width_scale_factor, text_length_scale_factor,
+                        x_scale_factor, y_scale_factor):
     """
     Генерирует SVG с измененными параметрами.
     """
@@ -118,15 +116,16 @@ def generate_custom_svg(title, color, logo, logo_color, docs_href,
     parsed_data = fetch_and_parse_svg(title, color, logo, logo_color)
     if not parsed_data:
         return
-
     # Шаг 2: Пересчет параметров
-    scaled_data = scale_parameters(parsed_data, new_height)
-
+    scaled_data = scale_parameters(
+        parsed_data, new_height,
+        width_scale_factor, text_length_scale_factor,
+        x_scale_factor, y_scale_factor
+    )
     # Шаг 3: Подготовка данных для шаблона
     template_data = prepare_template_data(title, docs_href, scaled_data)
-
     # Шаг 4: Сохранение файла
-    save_svg_to_file(template_data, 'template.svg', TARGET_DIRECTORY, title)
+    save_svg_to_file(template_data, template_path, output_directory, title)
 
 
 def read_params_from_csv(file_path):
@@ -143,19 +142,32 @@ def read_params_from_csv(file_path):
         print(f'Файл {file_path} не найден.')
     except Exception as e:
         print(f'Ошибка при чтении CSV: {e}')
-
     return params
 
 
-if __name__ == '__main__':
-    params = read_params_from_csv(f'{DATA_DIRECTORY}/{DATA_FILE}')
-
-    color = 'blue'
-    logo_color = '#21e7e7'
-    new_height = '30'
-
-    for title, logo, docs_href in params:
-        generate_custom_svg(
-            title, color, logo, logo_color, docs_href, new_height
-        )
-        time.sleep(TIME_SLEEP)
+def generate_shield_template(project_name, params, output_template_path):
+    """
+    Создает HTML-шаблон для щитов на основе данных из CSV.
+    """
+    template_content = (
+        '<div class="project__shields">\n'
+        '  {% set shields = [\n'
+    )
+    for title, _, _ in params:
+        shield_name = f"{title.replace(' ', '_').lower()}.svg"
+        template_content += f'    "{shield_name}",\n'
+    template_content += (
+        '  ] %}\n'
+        '  \n'
+        '  {% for shield in shields %}\n'
+        f'    <object\n'
+        f'      type="image/svg+xml"\n'
+        f'      data="./images/shields/{project_name}/{{{{ shield }}}}"\n'
+        '    ></object>\n'
+        '  {% endfor %}\n'
+        '</div>'
+    )
+    os.makedirs(os.path.dirname(output_template_path), exist_ok=True)
+    with open(output_template_path, 'w', encoding='utf-8') as file:
+        file.write(template_content)
+    print(f'Шаблон для щитов успешно создан: {output_template_path}')
