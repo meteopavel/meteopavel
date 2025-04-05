@@ -158,11 +158,17 @@ def generate_all(args):
     """
     print('Начинается генерация статических файлов...')
 
-    clear_directories([
+    directories_to_clear = [
         CONFIG['scripts']['output_directory'],
         CONFIG['css']['target_directory'],
-        CONFIG['shields']['target_base_directory'],
-    ])
+    ]
+
+    if args.shields:
+        directories_to_clear.append(
+            CONFIG['shields']['target_base_directory']
+        )
+
+    clear_directories(directories_to_clear)
 
     if args.shields:
         generate_shields()
