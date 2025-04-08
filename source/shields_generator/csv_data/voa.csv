@@ -1,0 +1,11 @@
+title,logo,docs_href
+Apache,apache,https://httpd.apache.org/docs/
+PHP,php,https://www.php.net/manual/en/
+MySQL,mysql,https://dev.mysql.com/doc/
+Joomla,joomla,https://docs.joomla.org/
+WordPress,wordpress,https://developer.wordpress.org/
+HTML5,html5,https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+CSS,css,https://developer.mozilla.org/en-US/docs/Web/CSS
+C,c,https://en.cppreference.com/w/c/language
+C++,cplusplus,https://en.cppreference.com/w/cpp/language
+Arduino,arduino,https://www.arduino.cc/reference/en/

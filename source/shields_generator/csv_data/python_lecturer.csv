@@ -1,0 +1,16 @@
+title,logo,docs_href
+Python,python,https://docs.python.org/3/
+C,c,https://en.cppreference.com/w/c/language
+C++,cplusplus,https://en.cppreference.com/w/cpp/language
+VBA,dotnet,https://documentation.help/MS-VBA-Tips/documentation.pdf
+Jupyter,jupyter,https://jupyter.org/documentation
+VSCode,vscodium,https://code.visualstudio.com/docs
+PyCharm,pycharm,https://www.jetbrains.com/pycharm/documentation/
+CodeWars,codewars,https://docs.codewars.com/
+LeetCode,leetcode,https://leetcode.com/problemset/all/
+NumPy,numpy,https://numpy.org/doc/
+Pandas,pandas,https://pandas.pydata.org/docs/
+Matplotlib,plotly,https://matplotlib.org/stable/contents.html
+TensorFlow,tensorflow,https://www.tensorflow.org/api_docs
+Scikit Learn,scikitlearn,https://scikit-learn.org/stable/documentation.html
+Seaborn,plotly,https://seaborn.pydata.org/

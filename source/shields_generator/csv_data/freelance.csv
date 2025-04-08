@@ -1,0 +1,18 @@
+title,logo,docs_href
+Python,python,https://docs.python.org/3/
+Django,django,https://docs.djangoproject.com/en/stable/
+Flask,flask,https://flask.palletsprojects.com/
+FastAPI,fastapi,https://fastapi.tiangolo.com/
+DRF,django,https://www.django-rest-framework.org/
+SQLAlchemy,sqlalchemy,https://www.sqlalchemy.org/
+Alembic,python,https://alembic.sqlalchemy.org/
+PostgreSQL,postgresql,https://www.postgresql.org/docs/
+Python Telegram Bot,telegram,https://python-telegram-bot.org/
+Docker,docker,https://docs.docker.com/
+React,react,https://reactjs.org/
+Jinja,jinja,https://devdoc.net/python/jinja-2.10.1-doc/
+HTML5,html5,https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
+CSS,css,https://developer.mozilla.org/en-US/docs/Web/CSS
+Yandex Cloud,yandexcloud,https://yandex.cloud/ru/docs
+Google Cloud,googlecloud,https://cloud.google.com/docs
+GitHub Actions,githubactions,https://docs.github.com/en/actions
