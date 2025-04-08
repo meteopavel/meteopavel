@@ -17,7 +17,7 @@
       <!-- PHP --><a href="https://www.php.net/manual/en/"><img src="./static/images/shields/readme/php.svg"></a>
       <!-- C --><a href="https://en.cppreference.com/w/c/language"><img src="./static/images/shields/readme/c.svg"></a>
       <!-- C++ --><a href="https://en.cppreference.com/w/cpp/language"><img src="./static/images/shields/readme/c++.svg"></a>
-      <!-- VBA --><a href="https://documentation.help/MS-VBA-Tips/documentation.pdf"><img src="./static/images/shields/readme/dotnet.svg"></a>
+      <!-- VBA --><a href="https://documentation.help/MS-VBA-Tips/documentation.pdf"><img src="./static/images/shields/readme/vba.svg"></a>
     </td>
   </tr>
   <tr>
@@ -38,14 +38,14 @@
       <!-- PostgreSQL --><a href="https://www.postgresql.org/docs/"><img src="./static/images/shields/readme/postgresql.svg"></a>
       <!-- Redis --><a href="https://redis.io/documentation"><img src="./static/images/shields/readme/redis.svg"></a>
       <!-- SQLAlchemy --><a href="https://www.sqlalchemy.org/"><img src="./static/images/shields/readme/sqlalchemy.svg"></a>
-      <!-- Alembic --><a href="https://alembic.sqlalchemy.org/"><img src="./static/images/shields/readme/python.svg"></a>
+      <!-- Alembic --><a href="https://alembic.sqlalchemy.org/"><img src="./static/images/shields/readme/alembic.svg"></a>
     </td>
   </tr>
   <tr>
     <td>🎯⏳ Асинхронность и задачи</td>
     <td>
       <!-- Celery --><a href="https://docs.celeryproject.org/en/stable/"><img src="./static/images/shields/readme/celery.svg"></a>
-      <!-- Uvicorn --><a href="https://www.uvicorn.org/release-notes/"><img src="./static/images/shields/readme/gunicorn.svg"></a>
+      <!-- Uvicorn --><a href="https://www.uvicorn.org/release-notes/"><img src="./static/images/shields/readme/uvicorn.svg"></a>
     </td>
   </tr>
   <tr>
@@ -53,10 +53,10 @@
     <td>
       <!-- NumPy --><a href="https://numpy.org/doc/"><img src="./static/images/shields/readme/numpy.svg"></a>
       <!-- Pandas --><a href="https://pandas.pydata.org/docs/"><img src="./static/images/shields/readme/pandas.svg"></a>
-      <!-- Matplotlib --><a href="https://matplotlib.org/stable/contents.html"><img src="./static/images/shields/readme/plotly.svg"></a>
+      <!-- Matplotlib --><a href="https://matplotlib.org/stable/contents.html"><img src="./static/images/shields/readme/matplotlib.svg"></a>
       <!-- TensorFlow --><a href="https://www.tensorflow.org/api_docs"><img src="./static/images/shields/readme/tensorflow.svg"></a>
-      <!-- Scikit Learn --><a href="https://scikit-learn.org/stable/documentation.html"><img src="./static/images/shields/readme/scikitlearn.svg"></a>
-      <!-- Seaborn --><a href="https://seaborn.pydata.org/"><img src="./static/images/shields/readme/plotly.svg"></a>
+      <!-- Scikit Learn --><a href="https://scikit-learn.org/stable/documentation.html"><img src="./static/images/shields/readme/scikit_learn.svg"></a>
+      <!-- Seaborn --><a href="https://seaborn.pydata.org/"><img src="./static/images/shields/readme/seaborn.svg"></a>
     </td>
   </tr>
   <tr>
@@ -65,15 +65,15 @@
       <!-- Docker --><a href="https://docs.docker.com/"><img src="./static/images/shields/readme/docker.svg"></a>
       <!-- Nginx --><a href="https://nginx.org/en/docs/"><img src="./static/images/shields/readme/nginx.svg"></a>
       <!-- Apache --><a href="https://httpd.apache.org/docs/"><img src="./static/images/shields/readme/apache.svg"></a>
-      <!-- GitHub Actions --><a href="https://docs.github.com/en/actions"><img src="./static/images/shields/readme/githubactions.svg"></a>
+      <!-- GitHub Actions --><a href="https://docs.github.com/en/actions"><img src="./static/images/shields/readme/github_actions.svg"></a>
     </td>
   </tr>
   <tr>
     <td>📚🔗 Другие библиотеки</td>
     <td>
       <!-- Pillow --><a href="https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html"><img src="./static/images/shields/readme/pillow.svg"></a>
-      <!-- Requests --><a href="https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1"><img src="./static/images/shields/readme/python.svg"></a>
-      <!-- Python Telegram Bot --><a href="https://docs.python-telegram-bot.org/en/v21.2/"><img src="./static/images/shields/readme/telegram.svg"></a>
+      <!-- Requests --><a href="https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1"><img src="./static/images/shields/readme/requests.svg"></a>
+      <!-- Python Telegram Bot --><a href="https://docs.python-telegram-bot.org/en/v21.2/"><img src="./static/images/shields/readme/python_telegram_bot.svg"></a>
       <!-- Jinja --><a href="https://devdoc.net/python/jinja-2.10.1-doc/"><img src="./static/images/shields/readme/jinja.svg"></a>
     </td>
   </tr>
@@ -94,8 +94,8 @@
   <tr>
     <td>🌐☁️ Облачные платформы</td>
     <td>
-      <!-- Yandex Cloud --><a href="https://yandex.cloud/ru/docs"><img src="./static/images/shields/readme/yandexcloud.svg"></a>
-      <!-- Google Cloud --><a href="https://cloud.google.com/docs"><img src="./static/images/shields/readme/googlecloud.svg"></a>
+      <!-- Yandex Cloud --><a href="https://yandex.cloud/ru/docs"><img src="./static/images/shields/readme/yandex_cloud.svg"></a>
+      <!-- Google Cloud --><a href="https://cloud.google.com/docs"><img src="./static/images/shields/readme/google_cloud.svg"></a>
     </td>
   </tr>
 </table>
