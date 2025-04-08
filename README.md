@@ -5,8 +5,10 @@
 <!-- GREETING -->
 <!-- Greeting --><a href="https://meteopavel.space"><img src="./static/images/animated_greeting.svg" style="width: 100%;"></a>
 
+### 🛠️ Технологический стек
+
 <!-- SHIELDS -->
-<table style="width: 80%;">
+<table>
   <tr>
     <td>Языки программирования</td>
     <td>
