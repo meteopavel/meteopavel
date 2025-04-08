@@ -6,7 +6,7 @@
 <!-- Greeting --><a href="https://meteopavel.space"><img src="./static/images/animated_greeting.svg" style="width: 100%;"></a>
 
 <!-- SHIELDS -->
-<table>
+<table style="width: 80%;">
   <tr>
     <td>Языки программирования</td>
     <td>
