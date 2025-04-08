@@ -1,20 +1,29 @@
 title,logo,docs_href
 Python 2,python,https://www.python.org/download/releases/2.7/
 Python 3,python,https://www.python.org/downloads/release/python-31010/
+C,c,https://en.cppreference.com/w/c/language
+C++,cplusplus,https://en.cppreference.com/w/cpp/language
 Django,django,https://docs.djangoproject.com/en/5.1/releases/5.0/
+Flask,flask,https://flask.palletsprojects.com/en/2.2.x/changes/
+FastAPI,fastapi,https://fastapi.tiangolo.com/release-notes/
 PostgreSQL,postgresql,https://www.postgresql.org/docs/13/index.html
-Pillow,python,https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html
-Uvicorn,gunicorn,https://www.unicorn-engine.org/docs/
-Python Telegram Bot,telegram,https://docs.python-telegram-bot.org/en/v21.2/telegram.bot.html
 Redis,redis,https://redis.io/documentation
+SQLAlchemy,sqlalchemy,https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html
 Celery,celery,https://docs.celeryproject.org/en/stable/
+Uvicorn,uvicorn,https://www.uvicorn.org/release-notes/
+NumPy,numpy,https://numpy.org/doc/
+Pandas,pandas,https://pandas.pydata.org/docs/
+Matplotlib,plotly,https://matplotlib.org/stable/contents.html
+TensorFlow,tensorflow,https://www.tensorflow.org/api_docs
+Scikit Learn,scikitlearn,https://scikit-learn.org/stable/documentation.html
+Seaborn,plotly,https://seaborn.pydata.org/
 Docker,docker,https://docs.docker.com/
 Nginx,nginx,https://nginx.org/en/docs/
 GitHub Actions,githubactions,https://docs.github.com/en/actions
-Flask,flask,https://flask.palletsprojects.com/en/2.2.x/changes/
-FastAPI,fastapi,https://fastapi.tiangolo.com/release-notes/
-SQLAlchemy,sqlalchemy,https://docs.sqlalchemy.org/en/20/changelog/changelog_20.html
+Pillow,python,https://pillow.readthedocs.io/en/stable/releasenotes/10.3.0.html
 Requests,python,https://docs.python-requests.org/en/latest/community/updates/#version-2-27-1
-TensorFlow,tensorflow,https://www.tensorflow.org/release_notes">
-Pandas,pandas,https://pandas.pydata.org/pandas-docs/stable/whatsnew/index.html
-Numpy,numpy,https://numpy.org/doc/stable/release.html
+Python Telegram Bot,telegram,https://docs.python-telegram-bot.org/en/v21.2/
+CodeWars,codewars,https://docs.codewars.com/
+LeetCode,leetcode,https://leetcode.com/problemset/all/
+Arduino,arduino,https://www.arduino.cc/reference/en/
+Jupyter,jupyter,https://jupyter.org/documentation

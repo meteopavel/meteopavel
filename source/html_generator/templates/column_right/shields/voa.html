@@ -1,0 +1,21 @@
+<div class="project__shields">
+  {% set shields = [
+    "apache.svg",
+    "php.svg",
+    "mysql.svg",
+    "joomla.svg",
+    "wordpress.svg",
+    "html5.svg",
+    "css.svg",
+    "c.svg",
+    "c++.svg",
+    "arduino.svg",
+  ] %}
+  
+  {% for shield in shields %}
+    <object
+      type="image/svg+xml"
+      data="./images/shields/voa/{{ shield }}"
+    ></object>
+  {% endfor %}
+</div>
