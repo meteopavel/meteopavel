@@ -1,4 +1,5 @@
 
+// Инициализация Яндекс.Метрики
 (function (m, e, t, r, i, k, a) {
   m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
   m[i].l = 1 * new Date();
@@ -12,4 +13,45 @@ ym(100677938, "init", {
   trackLinks: true,
   accurateTrackBounce: true,
   webvisor: true
+});
+
+
+// Логика подсветки элементов при скролле
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.innerWidth >= 460) {
+    return;
+  }
+
+  const elements = document.querySelectorAll('.highlightable');
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.75,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        elements.forEach(el => el.classList.remove('highlighted'));
+        entry.target.classList.add('highlighted');
+      } else {
+        entry.target.classList.remove('highlighted');
+      }
+    });
+  }, options);
+
+  elements.forEach(element => {
+    observer.observe(element);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 460) {
+      elements.forEach(el => el.classList.remove('highlighted'));
+    } else {
+      elements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+  });
 });
