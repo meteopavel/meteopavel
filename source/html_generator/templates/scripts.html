@@ -1,11 +1,8 @@
-<!-- Ленивая загрузка object -->
-<script src="./scripts/lazy-load.js" type="text/javascript"></script>
+<!-- Ленивая загрузка object 
+<script src="./scripts/lazy-load.js" type="text/javascript"></script>-->
 
-<!-- Отложенная загрузка метрики и подсветки -->
-<script>
-  window.addEventListener('load', function () {
-    const script = document.createElement('script');
-    script.src = './scripts/deferred_scripts.js';
-    document.body.appendChild(script);
-  });
-</script>
+<!-- Подсветка элементов при скроле на телефоне -->
+<script src="./scripts/intersection.js" type="text/javascript" defer></script>
+
+<!-- Счётчик Яндекс.Метрика -->
+<script src="./scripts/metrika.js" type="text/javascript" defer></script>
