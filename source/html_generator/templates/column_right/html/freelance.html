@@ -20,7 +20,7 @@
           </p>
           <div class="project__links">
             {% for link in project.links %}
-              <a href="{{ link.href }}" target="_blank rel="noopener noreferrer">
+              <a href="{{ link.href }}" target="_blank" rel="noopener noreferrer">
                 <div class="project__links-link">
                   <svg class="project__link-icon" viewBox="{{ link.viewBox }}">
                     <use href="{{ link.icon }}" class="project__link-icon" />
