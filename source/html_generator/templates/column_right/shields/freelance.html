@@ -22,7 +22,7 @@
   {% for shield in shields %}
     <object
       type="image/svg+xml"
-      data="./images/shields/freelance/{{ shield }}"
-    ></object>
+      data-src="./images/shields/freelance/{{ shield }}"
+       class="lazy-object"    ></object>
   {% endfor %}
 </div>

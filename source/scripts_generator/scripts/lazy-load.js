@@ -1,0 +1,17 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyObjects = document.querySelectorAll(".lazy-object");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const obj = entry.target;
+        obj.setAttribute("data", obj.getAttribute("data-src"));
+        observer.unobserve(obj);
+      }
+    });
+  });
+
+  lazyObjects.forEach(obj => {
+    observer.observe(obj);
+  });
+});
