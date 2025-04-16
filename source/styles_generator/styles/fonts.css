@@ -1,16 +1,16 @@
 @font-face {
-  src: url(../fonts/interregular.ttf) format('truetype'),
+  src: url(../fonts/interregular.woff2) format('woff2'),
        url(../fonts/interregular.woff) format('woff'),
-       url(../fonts/interregular.woff2) format('woff2');
+       url(../fonts/interregular.ttf) format('truetype');
   font-family: 'Inter Regular';
   font-weight: 600;
   font-display: swap;
 }
 
 @font-face {
-  src: url(../fonts/interbold.ttf) format('truetype'),
+  src: url(../fonts/interbold.woff2) format('woff2'),
        url(../fonts/interbold.woff) format('woff'),
-       url(../fonts/interbold.woff2) format('woff2');
+       url(../fonts/interbold.ttf) format('truetype');
   font-family: 'Inter Bold';
   font-weight: 700;
   font-display: swap;
