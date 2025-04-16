@@ -12,7 +12,7 @@
   {% for shield in shields %}
     <object
       type="image/svg+xml"
-      data="./images/shields/yamdb/{{ shield }}"
-    ></object>
+      data-src="./images/shields/yamdb/{{ shield }}"
+       class="lazy-object"    ></object>
   {% endfor %}
 </div>
