@@ -1,0 +1,47 @@
+{
+  "title": "Team Projects",
+  "items": [
+    {
+      "title": "Telegram Bot (Hackathon Winner)",
+      "description": "This bot is designed to simplify the search for commercial real estate for rent or purchase. It allows users to quickly find suitable properties based on specified criteria, receive detailed information about each property, get contact information for owners or agents, and subscribe to notifications about new listings.",
+      "icon": "./images/previews/premium_product.svg#premium_product",
+      "viewBox": "0 0 512 512",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/Premium_product_bot",
+          "text": "REPOSITORY",
+          "icon": "./images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        },
+        {
+          "href": "https://disk.yandex.ru/i/Wc8ZcIK27k2ORA",
+          "text": "PRESENTATION",
+          "icon": "./images/previews/video.svg#video",
+          "viewBox": "0 0 24 24"
+        }
+      ],
+      "shields": "./column_right/shields/premium_product.html"
+    },
+    {
+      "title": "API YaMDb (Team Lead)",
+      "description": "This is a platform where users can leave reviews, rate, and comment on works from categories such as Books, Movies, Music, and others, forming their overall rating. Administrators manage the addition of titles, genres, and categories, while authenticated users can leave reviews and comments, and guests can only browse the content.",
+      "icon": "./images/previews/yamdb.svg#yamdb",
+      "viewBox": "0 0 64 64",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/api_yamdb",
+          "text": "REPOSITORY",
+          "icon": "./images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        }
+      ],
+      "shields": "./column_right/shields/yamdb.html"
+    }
+  ],
+  "allProjects": {
+    "href": "https://github.com/meteopavel?tab=repositories",
+    "text": "ALL PROJECTS ❯❯❯❯",
+    "icon": "./images/previews/portfolio.svg#portfolio",
+    "viewBox": "0 0 512 512"
+  }
+}
