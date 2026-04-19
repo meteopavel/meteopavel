@@ -1,11 +1,11 @@
 .interviews .section__item--left {
-  width: 78%;
+  width: 50%;
 }
 
 .video-container {
   position: relative;
-  width: 560px;
-  height: 315px;
+  width: 320px;
+  height: 180px;
 }
 
 .video-container iframe {
