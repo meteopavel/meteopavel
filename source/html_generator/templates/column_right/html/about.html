@@ -1,9 +1,7 @@
-<!-- Обо мне -->
+<!-- About -->
 <section class="about section">
-  <h3 class="section__header">Обо мне</h3>
-  {% import './column_right/data/about_data.jinja' as data %}
-
-  {% for paragraph in data.paragraphs %}
+  <h3 class="section__header">{{ about.title }}</h3>
+  {% for paragraph in about.paragraphs %}
     <p class="section__p">{{ paragraph }}</p>
   {% endfor %}
 </section>

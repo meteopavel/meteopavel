@@ -1,24 +1,22 @@
-<!-- Опыт работы -->
+<!-- Work Experience -->
 <section class="experience section">
-  <h3 class="section__header">Опыт работы</h3>
+  <h3 class="section__header">{{ experience["title"] }}</h3>
   <ul class="section__list">
-    {% import './column_right/data/experience_data.jinja' as data %}
-
-    {% for experience in data.experiences %}
+    {% for experience_item in experience["items"] %}
       <li class="section__item highlightable">
         <div class="section__item--left">
-          <svg class="preview-icon" viewBox="{{ experience.viewBox }}">
-            <use href="{{ experience.icon }}" class="preview-icon" />
+          <svg class="preview-icon" viewBox="{{ experience_item.viewBox }}">
+            <use href="{{ experience_item.icon }}" class="preview-icon" />
           </svg>
         </div>
         <div class="section__item--right">
           <p class="section__p section__p--smaller">
-            <span>{{ experience.title }}</span>
+            <span>{{ experience_item.title }}</span>
           </p>
           <p class="section__p section__p--smaller">
-            {{ experience.description }}
+            {{ experience_item.description }}
           </p>
-          {% include experience.shields %}
+          {% include experience_item.shields %}
         </div>
       </li>
     {% endfor %}

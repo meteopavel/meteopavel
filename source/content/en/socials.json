@@ -1,4 +1,4 @@
-{% set socials = [
+[
   {
     "href": "tel:+79027659319",
     "ariaLabel": "Tel (opens in a new tab)",
@@ -48,4 +48,4 @@
     "icon": "./images/socials/instagram.svg#instagram",
     "viewBox": "0 0 20 20"
   }
-] %}
+]

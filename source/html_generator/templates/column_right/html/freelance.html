@@ -1,10 +1,8 @@
-<!-- Фриланс -->
+<!-- Freelance Projects -->
 <section class="projects section">
-  <h3 class="section__header">Фриланс</h3>
+  <h3 class="section__header">{{ freelance["title"] }}</h3>
   <ul class="section__list">
-    {% import './column_right/data/freelance_data.jinja' as data %}
-    
-    {% for project in data.projects %}
+    {% for project in freelance["items"] %}
       <li class="section__item highlightable">
         <div class="section__item--left">
           <svg class="preview-icon" viewBox="{{ project.viewBox }}">
