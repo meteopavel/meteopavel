@@ -3,29 +3,14 @@ set -euo pipefail
 
 REPO_REQUIRED_REMOTE='git@github.com:meteopavel/meteopavel.git'
 REPO_REQUIRED_REMOTE_HTTPS='https://github.com/meteopavel/meteopavel.git'
-DEFAULT_BRANCH_NAME='main'
-REPO_ROOT="$(git rev-parse --show-toplevel)"
-ENV_FILE="${REPO_ROOT}/.env"
+BRANCH_NAME='main'
 
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 SOURCE_DIR="${REPO_ROOT}/source"
 PYTHON_BIN="${SOURCE_DIR}/.venv/bin/python"
-STATIC_SCRIPT="generate_static.py"
+STATIC_SCRIPT='generate_static.py'
 
 DEFAULT_COMMIT_MESSAGE='Update project'
-DEFAULT_HTML_MODE='minify'
-DEFAULT_SHIELDS_MODE='no'
-
-get_env() {
-  local var_name="$1"
-  local env_file="$2"
-
-  if [[ ! -f "$env_file" ]]; then
-    echo ""
-    return
-  fi
-
-  grep -E "^${var_name}=" "$env_file" 2>/dev/null | head -1 | cut -d'=' -f2-
-}
 
 require_command() {
   local command_name="$1"
@@ -53,11 +38,11 @@ confirm() {
 
 build_static() {
   local html_mode="$1"
-  local shields_mode="$2"
+  local use_no_shields="$2"
 
   local cmd=("${PYTHON_BIN}" "${STATIC_SCRIPT}" --html-mode "$html_mode")
 
-  if [[ "$shields_mode" == "no" ]]; then
+  if [[ "$use_no_shields" == "yes" ]]; then
     cmd+=(--no-shields)
   fi
 
@@ -102,60 +87,48 @@ if [[ ! -f "${SOURCE_DIR}/${STATIC_SCRIPT}" ]]; then
   exit 1
 fi
 
-echo '🔍 Загружаем настройки из .env, если он есть...'
-
-ENV_HTML_MODE="$(get_env "DEPLOY_HTML_MODE" "$ENV_FILE")"
-ENV_SHIELDS_MODE="$(get_env "DEPLOY_NO_SHIELDS" "$ENV_FILE")"
-ENV_BRANCH_NAME="$(get_env "DEPLOY_BRANCH" "$ENV_FILE")"
-
-HTML_MODE="${ENV_HTML_MODE:-$DEFAULT_HTML_MODE}"
-SHIELDS_MODE="$DEFAULT_SHIELDS_MODE"
-BRANCH_NAME="${ENV_BRANCH_NAME:-$DEFAULT_BRANCH_NAME}"
-
-if [[ -n "${ENV_SHIELDS_MODE}" ]]; then
-  case "${ENV_SHIELDS_MODE}" in
-    1|true|TRUE|yes|YES|y|Y)
-      SHIELDS_MODE='no'
-      ;;
-    0|false|FALSE|no|NO|n|N)
-      SHIELDS_MODE='yes'
-      ;;
-  esac
-fi
-
 echo
 echo '⚙️ Режимы сборки:'
-echo '   1) Продакшн по умолчанию: --html-mode minify --no-shields'
-echo '   2) Сборка с shields:      --html-mode minify'
-echo '   3) Читаемый HTML:         --html-mode pretty --no-shields'
+echo '   1) По умолчанию: minify + --no-shields'
+echo '   2) minify + со shields'
+echo '   3) pretty + --no-shields'
 echo '   4) Свой вариант'
 echo
 
 read -r -p 'Выбери режим сборки [1]: ' BUILD_MODE
 BUILD_MODE="${BUILD_MODE:-1}"
 
+HTML_MODE='minify'
+USE_NO_SHIELDS='yes'
+
 case "$BUILD_MODE" in
   1)
     HTML_MODE='minify'
-    SHIELDS_MODE='no'
+    USE_NO_SHIELDS='yes'
     ;;
   2)
     HTML_MODE='minify'
-    SHIELDS_MODE='yes'
+    USE_NO_SHIELDS='no'
     ;;
   3)
     HTML_MODE='pretty'
-    SHIELDS_MODE='no'
+    USE_NO_SHIELDS='yes'
     ;;
   4)
-    read -r -p "HTML mode [${HTML_MODE}]: " CUSTOM_HTML_MODE
-    CUSTOM_HTML_MODE="${CUSTOM_HTML_MODE:-$HTML_MODE}"
+    read -r -p 'HTML mode [minify]: ' CUSTOM_HTML_MODE
+    CUSTOM_HTML_MODE="${CUSTOM_HTML_MODE:-minify}"
 
-    read -r -p "Отключить shields? (yes/no) [${SHIELDS_MODE}]: " CUSTOM_SHIELDS_MODE
-    CUSTOM_SHIELDS_MODE="${CUSTOM_SHIELDS_MODE:-$SHIELDS_MODE}"
+    read -r -p 'Добавить --no-shields? [Y/n]: ' CUSTOM_NO_SHIELDS
+    case "${CUSTOM_NO_SHIELDS:-Y}" in
+      n|N|no|NO)
+        USE_NO_SHIELDS='no'
+        ;;
+      *)
+        USE_NO_SHIELDS='yes'
+        ;;
+    esac
 
-    HTML_MODE="$CUSTOM_HTML_MODE"
-    SHIELDS_MODE="$CUSTOM_SHIELDS_MODE"
+    HTML_MODE="${CUSTOM_HTML_MODE}"
     ;;
   *)
     echo '❌ Ошибка: некорректный режим.'
@@ -165,16 +138,16 @@ esac
 
 echo
 echo '🧾 Выбраны параметры сборки:'
-echo "   html mode  = ${HTML_MODE}"
-echo "   no shields = ${SHIELDS_MODE}"
-echo "   branch     = ${BRANCH_NAME}"
+echo "   html mode    = ${HTML_MODE}"
+echo "   --no-shields = ${USE_NO_SHIELDS}"
+echo "   branch       = ${BRANCH_NAME}"
 
 if ! confirm 'Продолжить сборку?'; then
   echo '⏹ Операция отменена.'
   exit 0
 fi
 
-build_static "${HTML_MODE}" "${SHIELDS_MODE}"
+build_static "${HTML_MODE}" "${USE_NO_SHIELDS}"
 
 echo
 echo '📋 Текущий git status:'
