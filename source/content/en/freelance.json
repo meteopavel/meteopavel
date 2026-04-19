@@ -4,65 +4,65 @@
     {
       "title": "Legacy Django Mailer",
       "description": "This is a service for creating and sending email campaigns using HTML templates, scheduled mailings, template variables, and email open tracking. Legacy tools such as Python 2.7 and other outdated technologies were actively used. Administrators configure campaigns through a modal window with AJAX requests. Automation and queue processing are implemented with Redis, Celery, and other tools, highlighting a combination of legacy and modern solutions.",
-      "icon": "./images/previews/legacy_mailer.svg#legacy_mailer",
+      "icon": "/images/previews/legacy_mailer.svg#legacy_mailer",
       "viewBox": "0 0 512 512",
       "links": [
         {
           "href": "https://github.com/meteopavel/Legacy_Django_Mailer",
           "text": "REPOSITORY",
-          "icon": "./images/previews/git_repo.svg#git_repo",
+          "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
           "href": "https://legacymailer.meteopavel.space/newsletters/create-newsletter/",
           "text": "LIVE VERSION",
-          "icon": "./images/previews/demo.svg#demo",
+          "icon": "/images/previews/demo.svg#demo",
           "viewBox": "0 0 512 512"
         }
       ],
-      "shields": "./column_right/shields/legacy_django_mailer.html"
+      "shields": "/column_right/shields/legacy_django_mailer.html"
     },
     {
       "title": "Froggygram",
       "description": "A platform for frog lovers where users can share information about their pets. Authorization via REST API provides access to adding, editing, and deleting frog cards, as well as viewing other users' profiles. After signing in, a user receives a token that allows them to manage only their own data.",
-      "icon": "./images/previews/froggygram.svg#froggygram",
+      "icon": "/images/previews/froggygram.svg#froggygram",
       "viewBox": "0 0 437 438",
       "links": [
         {
           "href": "https://github.com/meteopavel/Froggygram",
           "text": "REPOSITORY",
-          "icon": "./images/previews/git_repo.svg#git_repo",
+          "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
           "href": "https://froggygram.meteopavel.space/",
           "text": "LIVE VERSION",
-          "icon": "./images/previews/demo.svg#demo",
+          "icon": "/images/previews/demo.svg#demo",
           "viewBox": "0 0 512 512"
         }
       ],
-      "shields": "./column_right/shields/froggygram.html"
+      "shields": "/column_right/shields/froggygram.html"
     },
     {
       "title": "Fitgram",
       "description": "A platform for fitness enthusiasts where users can share their workout plans, add favorite plans to bookmarks, and subscribe to other authors. Authorization via REST API provides access to managing personal data.",
-      "icon": "./images/previews/fitgram.svg#fitgram",
+      "icon": "/images/previews/fitgram.svg#fitgram",
       "viewBox": "0 0 800 800",
       "links": [
         {
           "href": "https://github.com/meteopavel/Fitgram",
           "text": "REPOSITORY",
-          "icon": "./images/previews/git_repo.svg#git_repo",
+          "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
           "href": "https://fitgram.meteopavel.space/recipes",
           "text": "LIVE VERSION",
-          "icon": "./images/previews/demo.svg#demo",
+          "icon": "/images/previews/demo.svg#demo",
           "viewBox": "0 0 512 512"
         }
       ],
-      "shields": "./column_right/shields/fitgram.html"
+      "shields": "/column_right/shields/fitgram.html"
     }
   ]
 }

@@ -25,8 +25,10 @@
   --letter-spacing-normal-text: 0.05rem;
   --letter-spacing-smaller-text: 0.05rem;
   --border-radius: 20px;
-  --container-padding-vertical: 7vh;
+  --container-padding-vertical: 3vh;
   --container-padding-horizontal: 5vw;
+  --header-padding-vertical: 10px;
+  --header-padding-horizontal: 20px;
   --transition-time: 0.3s;
   --transition-timing-function: ease;
 }

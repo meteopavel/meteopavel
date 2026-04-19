@@ -1,0 +1,52 @@
+{
+  "charset": "UTF-8",
+  "viewport": "width=device-width, initial-scale=1.0",
+  "x_ua_compatible": "ie=edge",
+
+  "title": "Pavel Naydenov | Python Developer",
+  "description": "I build accessible solutions where a powerful backend supports an elegant interface",
+  "keywords": "Python, Django, Flask, FastAPI, developer, resume, portfolio",
+  "author": "Pavel Andreyevich Naydenov",
+  "robots": "index, follow",
+  "apple_mobile_web_app_title": "Meteopavel",
+
+  "yandex_verification": "efd037b409851ed2",
+
+  "canonical": "https://meteopavel.space/en/",
+  "alternates": [
+    {
+      "hreflang": "ru",
+      "href": "https://meteopavel.space/ru/"
+    },
+    {
+      "hreflang": "en",
+      "href": "https://meteopavel.space/en/"
+    },
+    {
+      "hreflang": "x-default",
+      "href": "https://meteopavel.space/ru/"
+    }
+  ],
+
+  "og": {
+    "title": "Pavel Naydenov | Python Developer",
+    "description": "I build accessible solutions where a powerful backend supports an elegant interface",
+    "image": "https://meteopavel.space/images/site_preview.jpg",
+    "url": "https://meteopavel.space/en/",
+    "type": "website",
+    "site_name": "Pavel Naydenov Portfolio",
+    "locale": "en_US",
+    "image_alt": "Preview of Pavel Naydenov portfolio",
+    "image_width": "1200",
+    "image_height": "630"
+  },
+
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Pavel Naydenov | Python Developer",
+    "description": "I build accessible solutions where a powerful backend supports an elegant interface",
+    "image": "https://meteopavel.space/images/site_preview.jpg",
+    "site": "@meteopavel",
+    "creator": "@meteopavel"
+  }
+}

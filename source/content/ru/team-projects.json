@@ -4,44 +4,44 @@
     {
       "title": "Telegram-бот (победа в хакатоне)",
       "description": "Бот предназначен для упрощения поиска коммерческой недвижимости для аренды или покупки. Бот предоставляет пользователям возможность быстро находить подходящие объекты недвижимости по заданным критериям, а также получать подробную информацию о каждом объекте, контактную информацию владельцев или агентов и подписываться на уведомления о новых предложениях.",
-      "icon": "./images/previews/premium_product.svg#premium_product",
+      "icon": "/images/previews/premium_product.svg#premium_product",
       "viewBox": "0 0 512 512",
       "links": [
         {
           "href": "https://github.com/meteopavel/Premium_product_bot",
           "text": "РЕПОЗИТОРИЙ",
-          "icon": "./images/previews/git_repo.svg#git_repo",
+          "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
           "href": "https://disk.yandex.ru/i/Wc8ZcIK27k2ORA",
           "text": "ПРЕЗЕНТАЦИЯ",
-          "icon": "./images/previews/video.svg#video",
+          "icon": "/images/previews/video.svg#video",
           "viewBox": "0 0 24 24"
         }
       ],
-      "shields": "./column_right/shields/premium_product.html"
+      "shields": "/column_right/shields/premium_product.html"
     },
     {
       "title": "API YaMDb (тимлид)",
       "description": "Это платформа, где пользователи могут оставлять отзывы, ставить оценки и комментировать произведения из категорий «Книги», «Фильмы», «Музыка» и других, формируя их рейтинг. Администраторы управляют добавлением произведений, жанров и категорий, в то время как аутентифицированные пользователи могут оставлять отзывы и комментарии, а гости могут только просматривать контент.",
-      "icon": "./images/previews/yamdb.svg#yamdb",
+      "icon": "/images/previews/yamdb.svg#yamdb",
       "viewBox": "0 0 64 64",
       "links": [
         {
           "href": "https://github.com/meteopavel/api_yamdb",
           "text": "РЕПОЗИТОРИЙ",
-          "icon": "./images/previews/git_repo.svg#git_repo",
+          "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         }
       ],
-      "shields": "./column_right/shields/yamdb.html"
+      "shields": "/column_right/shields/yamdb.html"
     }
   ],
   "allProjects": {
     "href": "https://github.com/meteopavel?tab=repositories",
     "text": "ВСЕ ПРОЕКТЫ ❯❯❯❯",
-    "icon": "./images/previews/portfolio.svg#portfolio",
+    "icon": "/images/previews/portfolio.svg#portfolio",
     "viewBox": "0 0 512 512"
   }
 }

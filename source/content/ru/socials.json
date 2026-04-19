@@ -3,49 +3,49 @@
     "href": "tel:+79027659319",
     "ariaLabel": "Tel (opens in a new tab)",
     "title": "Tel",
-    "icon": "./images/socials/tel.svg#tel",
+    "icon": "/images/socials/tel.svg#tel",
     "viewBox": "0 0 24 24"
   },
   {
     "href": "mailto:isu@meteopavel.ru",
     "ariaLabel": "Email (opens in a new tab)",
     "title": "Email",
-    "icon": "./images/socials/email.svg#email",
+    "icon": "/images/socials/email.svg#email",
     "viewBox": "0 0 512 512"
   },
   {
     "href": "https://github.com/meteopavel",
     "ariaLabel": "GitHub (opens in a new tab)",
     "title": "GitHub",
-    "icon": "./images/socials/github.svg#github",
+    "icon": "/images/socials/github.svg#github",
     "viewBox": "0 0 20 20"
   },
   {
     "href": "https://t.me/meteopavel",
     "ariaLabel": "Telegram (opens in a new tab)",
     "title": "Telegram",
-    "icon": "./images/socials/telegram.svg#telegram",
+    "icon": "/images/socials/telegram.svg#telegram",
     "viewBox": "0 0 24 24"
   },
   {
     "href": "https://leetcode.com/u/meteopavel/",
     "ariaLabel": "Leetcode (opens in a new tab)",
     "title": "Leetcode",
-    "icon": "./images/socials/leetcode.svg#leetcode",
+    "icon": "/images/socials/leetcode.svg#leetcode",
     "viewBox": "0 0 24 24"
   },
   {
     "href": "https://www.linkedin.com/in/meteopavel/",
     "ariaLabel": "LinkedIn (opens in a new tab)",
     "title": "LinkedIn",
-    "icon": "./images/socials/linkedin.svg#linkedin",
+    "icon": "/images/socials/linkedin.svg#linkedin",
     "viewBox": "0 0 24 24"
   },
   {
     "href": "https://www.instagram.com/meteopavel/",
     "ariaLabel": "Instagram (opens in a new tab)",
     "title": "Instagram",
-    "icon": "./images/socials/instagram.svg#instagram",
+    "icon": "/images/socials/instagram.svg#instagram",
     "viewBox": "0 0 20 20"
   }
 ]

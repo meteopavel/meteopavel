@@ -1,0 +1,52 @@
+{
+  "charset": "UTF-8",
+  "viewport": "width=device-width, initial-scale=1.0",
+  "x_ua_compatible": "ie=edge",
+
+  "title": "Павел Найденов | Python-разработчик",
+  "description": "Создаю доступные решения, где мощный бэкенд поддерживает элегантный интерфейс",
+  "keywords": "Python, Django, Flask, FastAPI, разработчик, резюме",
+  "author": "Найденов Павел Андреевич",
+  "robots": "index, follow",
+  "apple_mobile_web_app_title": "Meteopavel",
+
+  "yandex_verification": "efd037b409851ed2",
+
+  "canonical": "https://meteopavel.space/ru/",
+  "alternates": [
+    {
+      "hreflang": "ru",
+      "href": "https://meteopavel.space/ru/"
+    },
+    {
+      "hreflang": "en",
+      "href": "https://meteopavel.space/en/"
+    },
+    {
+      "hreflang": "x-default",
+      "href": "https://meteopavel.space/ru/"
+    }
+  ],
+
+  "og": {
+    "title": "Павел Найденов | Python-разработчик",
+    "description": "Создаю доступные решения, где мощный бэкенд поддерживает элегантный интерфейс",
+    "image": "https://meteopavel.space/images/site_preview.jpg",
+    "url": "https://meteopavel.space/ru/",
+    "type": "website",
+    "site_name": "Портфолио Павла Найденова",
+    "locale": "ru_RU",
+    "image_alt": "Превью портфолио Павла Найденова",
+    "image_width": "1200",
+    "image_height": "630"
+  },
+
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Павел Найденов | Python-разработчик",
+    "description": "Создаю доступные решения, где мощный бэкенд поддерживает элегантный интерфейс",
+    "image": "https://meteopavel.space/images/site_preview.jpg",
+    "site": "@meteopavel",
+    "creator": "@meteopavel"
+  }
+}

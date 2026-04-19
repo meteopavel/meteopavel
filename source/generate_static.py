@@ -18,6 +18,9 @@ CONFIG = {
         'output_directory': '../static',
         'template_directory': './html_generator/templates',
         'index_file': 'index.html',
+        'content_directory': './content',
+        'languages': ['ru', 'en'],
+        'default_language': 'ru',
     },
     'scripts': {
         'input_directory': './scripts_generator/scripts',
@@ -138,18 +141,55 @@ def generate_css():
     combine_and_minify_css(css_files, minified_css_path)
 
 
+def generate_root_redirect(output_dir, default_language):
+    """
+    Генерирует корневой index.html с редиректом на язык по умолчанию.
+    """
+    redirect_path = f'/{default_language}/'
+    content = f"""<!doctype html>
+<html lang="{default_language}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={redirect_path}">
+  <title>Redirecting...</title>
+  <script>
+    window.location.replace('{redirect_path}');
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="{redirect_path}">{redirect_path}</a></p>
+</body>
+</html>
+"""
+    file_path = os.path.join(output_dir, 'index.html')
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+
+    print(f'Корневой редирект создан: {file_path}')
+
+
 def generate_html(mode):
     """
-    Генерирует HTML-файл.
-    :param mode: Режим генерации ('minify' или 'prettier').
+    Генерирует HTML-файлы для всех языков.
     """
     print(f"Генерация HTML в режиме {mode}...")
-    generate_index_page(
-        output_dir=CONFIG['html']['output_directory'],
-        template_dir=CONFIG['html']['template_directory'],
-        index_file=CONFIG['html']['index_file'],
-        mode=mode
-    )
+
+    base_output_dir = CONFIG['html']['output_directory']
+    default_language = CONFIG['html']['default_language']
+
+    for lang in ('ru', 'en'):
+        lang_output_dir = os.path.join(CONFIG['html']['output_directory'], lang)
+        os.makedirs(lang_output_dir, exist_ok=True)
+
+        generate_index_page(
+            output_dir=lang_output_dir,
+            template_dir=CONFIG['html']['template_directory'],
+            index_file=CONFIG['html']['index_file'],
+            mode=mode,
+            locale=lang
+        )
+
+    generate_root_redirect(base_output_dir, default_language)
 
 
 def generate_all(args):

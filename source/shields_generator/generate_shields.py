@@ -162,7 +162,7 @@ def generate_shield_template(project_name, params, output_template_path):
         '  {% for shield in shields %}\n'
         f'    <object\n'
         f'      type="image/svg+xml"\n'
-        f'      data="./images/shields/{project_name}/{{{{ shield }}}}"\n'
+        f'      data="/images/shields/{project_name}/{{{{ shield }}}}"\n'
         '    ></object>\n'
         '  {% endfor %}\n'
         '</div>'

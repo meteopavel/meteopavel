@@ -1,27 +1,39 @@
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<meta name="yandex-verification" content="efd037b409851ed2" />
-<meta property="og:title" content="Павел Найденов | Python-разработчик" />
-<meta property="og:description" content="Cоздаю доступные решения, где мощный бэкенд поддерживает элегантный интерфейс" />
-<meta property="og:image" content="https://meteopavel.space/images/site_preview.jpg" />
-<meta property="og:url" content="https://meteopavel.space/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Портфолио Павла Найденова" />
-<meta property="og:locale" content="ru_RU" />
-<meta property="og:image:alt" content="Превью портфолио Павла Найденова" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Павел Найденов | Python-разработчик" />
-<meta name="twitter:description" content="Cоздаю доступные решения, где мощный бэкенд поддерживает элегантный интерфейс" />
-<meta name="twitter:image" content="https://meteopavel.space/images/site_preview.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@meteopavel" />
-<meta name="twitter:creator" content="@meteopavel" />
-<meta name="apple-mobile-web-app-title" content="Meteopavel">
-<meta name="description" content="Павел Найденов | Python-разработчик" />
-<meta name="keywords" content="Python, Django, Flask, Fast API, разработчик, резюме" />
-<meta name="author" content="Найденов Павел Андреевич" />
-<meta name="robots" content="index, follow" />
-<title>Павел Найденов | Python-разработчик</title>
+<meta charset="{{ meta.charset }}" />
+<meta name="viewport" content="{{ meta.viewport }}" />
+<meta http-equiv="X-UA-Compatible" content="{{ meta.x_ua_compatible }}" />
+
+{% if meta.yandex_verification %}
+<meta name="yandex-verification" content="{{ meta.yandex_verification }}" />
+{% endif %}
+
+<title>{{ meta.title }}</title>
+
+<meta name="description" content="{{ meta.description }}" />
+<meta name="keywords" content="{{ meta.keywords }}" />
+<meta name="author" content="{{ meta.author }}" />
+<meta name="robots" content="{{ meta.robots }}" />
+<meta name="apple-mobile-web-app-title" content="{{ meta.apple_mobile_web_app_title }}" />
+
+<link rel="canonical" href="{{ meta.canonical }}" />
+
+{% for alternate in meta.alternates %}
+<link rel="alternate" hreflang="{{ alternate.hreflang }}" href="{{ alternate.href }}" />
+{% endfor %}
+
+<meta property="og:title" content="{{ meta.og.title }}" />
+<meta property="og:description" content="{{ meta.og.description }}" />
+<meta property="og:image" content="{{ meta.og.image }}" />
+<meta property="og:url" content="{{ meta.og.url }}" />
+<meta property="og:type" content="{{ meta.og.type }}" />
+<meta property="og:site_name" content="{{ meta.og.site_name }}" />
+<meta property="og:locale" content="{{ meta.og.locale }}" />
+<meta property="og:image:alt" content="{{ meta.og.image_alt }}" />
+<meta property="og:image:width" content="{{ meta.og.image_width }}" />
+<meta property="og:image:height" content="{{ meta.og.image_height }}" />
+
+<meta name="twitter:card" content="{{ meta.twitter.card }}" />
+<meta name="twitter:title" content="{{ meta.twitter.title }}" />
+<meta name="twitter:description" content="{{ meta.twitter.description }}" />
+<meta name="twitter:image" content="{{ meta.twitter.image }}" />
+<meta name="twitter:site" content="{{ meta.twitter.site }}" />
+<meta name="twitter:creator" content="{{ meta.twitter.creator }}" />

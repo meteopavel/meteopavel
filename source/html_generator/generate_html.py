@@ -32,15 +32,26 @@ def generate_index_page(output_dir,
     Генерирует страницу index.html.
     """
     os.makedirs(output_dir, exist_ok=True)
+
     context = build_context(locale)
+
+    context.update({
+        'locale': locale,
+        'current_lang': locale,
+        'ru_url': '/ru/',
+        'en_url': '/en/',
+    })
+
     rendered_html = render_template(
         'base.html',
         context=context,
         template_dir=template_dir
     )
+
     file_path = os.path.join(output_dir, index_file)
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(rendered_html)
+
     if mode == 'prettier':
         format_with_prettier(file_path)
     elif mode == 'minify':

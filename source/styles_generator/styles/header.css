@@ -1,0 +1,10 @@
+header a {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-color);
+  transition: color var(--transition-time) var(--transition-timing-function);
+}
+
+header a:hover {
+  color: var(--primary-color);
+}
