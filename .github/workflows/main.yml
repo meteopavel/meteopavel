@@ -66,32 +66,32 @@ jobs:
           sudo docker compose -f docker-compose.production.yml down
           sudo docker compose -f docker-compose.production.yml up -d
 
-  send_message:
-    name: Send Message
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-    - name: Send message
-      uses: appleboy/telegram-action@master
-      with:
-        to: ${{ secrets.TELEGRAM_TO }}
-        token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: |
-          Зафиксирован push в ${{ github.server_url }}/${{ github.repository }}
-
-          Отчёт по push:
-
-          ${{ github.actor }} запушил ${{ github.ref_name }}. Последний commit:
-
-          "${{ github.event.head_commit.message }}"
-
-          Ссылка на commit: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
-
-          Workflow выполнен успешно, включая следующее:
-          - Running tests;
-          - Pushing fresh images of repository to Dockerhub;
-          - Deploying images to production server.
-
-          Этот отчёт инициирован следующим workflow:
-        
-          ${{ github.workflow }}: ${{ github.server_url }}/${{ github.repository }}/.github/workflows/main.yml
+#  send_message:
+#    name: Send Message
+#    runs-on: ubuntu-latest
+#    needs: deploy
+#    steps:
+#    - name: Send message
+#      uses: appleboy/telegram-action@master
+#      with:
+#        to: ${{ secrets.TELEGRAM_TO }}
+#        token: ${{ secrets.TELEGRAM_TOKEN }}
+#        message: |
+#          Зафиксирован push в ${{ github.server_url }}/${{ github.repository }}
+#
+#          Отчёт по push:
+#
+#          ${{ github.actor }} запушил ${{ github.ref_name }}. Последний commit:
+#
+#          "${{ github.event.head_commit.message }}"
+#
+#          Ссылка на commit: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+#
+#          Workflow выполнен успешно, включая следующее:
+#          - Running tests;
+#          - Pushing fresh images of repository to Dockerhub;
+#          - Deploying images to production server.
+#
+#          Этот отчёт инициирован следующим workflow:
+#
+#          ${{ github.workflow }}: ${{ github.server_url }}/${{ github.repository }}/.github/workflows/main.yml
