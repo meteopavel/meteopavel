@@ -1,5 +1,5 @@
 {
-  "photo": "./images/my_photo.webp",
+  "photo": "/images/my_photo.webp",
   "alt": "Pavel Naydenov",
   "name": "Pavel Naydenov",
   "position": "Python Developer",

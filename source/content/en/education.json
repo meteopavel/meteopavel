@@ -5,35 +5,35 @@
       "title": "Yandex Practicum",
       "url": "https://practicum.yandex.ru",
       "details": "2024. Python Backend Developer (advanced course with a final project that won a hackathon)",
-      "icon": "./images/education/practicum.svg#practicum",
+      "icon": "/images/education/practicum.svg#practicum",
       "viewBox": "0 0 136 136"
     },
     {
       "title": "Yandex Practicum",
       "url": "https://practicum.yandex.ru",
       "details": "2024. React Frontend Developer (with a large final project built with Moleculer and MongoDB)",
-      "icon": "./images/education/practicum.svg#practicum",
+      "icon": "/images/education/practicum.svg#practicum",
       "viewBox": "0 0 136 136"
     },
     {
       "title": "Irkutsk State University",
       "url": "https://isu.ru",
       "details": "2022. Master’s Degree in Meteorology (with honors)",
-      "icon": "./images/education/isu.svg#isu",
+      "icon": "/images/education/isu.svg#isu",
       "viewBox": "0 0 70 70"
     },
     {
       "title": "Irkutsk State University",
       "url": "https://isu.ru",
       "details": "2017. Postgraduate Studies in Meteorology (with dissertation submission)",
-      "icon": "./images/education/isu.svg#isu",
+      "icon": "/images/education/isu.svg#isu",
       "viewBox": "0 0 70 70"
     },
     {
       "title": "Irkutsk State University",
       "url": "https://isu.ru",
       "details": "2011. Specialist Degree in Engineering Meteorology (with honors)",
-      "icon": "./images/education/isu.svg#isu",
+      "icon": "/images/education/isu.svg#isu",
       "viewBox": "0 0 70 70"
     }
   ]

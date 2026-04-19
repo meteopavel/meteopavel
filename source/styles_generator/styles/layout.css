@@ -1,9 +1,16 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--header-padding-vertical) var(--header-padding-horizontal);
 }
 
 .container {

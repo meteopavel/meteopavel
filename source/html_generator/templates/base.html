@@ -1,13 +1,18 @@
 <!doctype html>
-<html lang="ru">
+<html lang="{{ locale }}">
   <head>
-    {% include "meta.html" %} {% include "links.html" %}
+    {% include "meta.html" %}
+    {% include "links.html" %}
   </head>
   <body>
+    <header class="header">
+      <a href="{{ ru_url }}" {% if current_lang == 'ru' %}class="active"{% endif %}>RU</a> ||
+      <a href="{{ en_url }}" {% if current_lang == 'en' %}class="active"{% endif %}>EN</a>
+    </header>
     <div class="container">
-        {% include "./column_left/column_left.html" %}
-        {% include "./column_right/column_right.html" %}
+      {% include "./column_left/column_left.html" %}
+      {% include "./column_right/column_right.html" %}
     </div>
+    {% include "scripts.html" %}
   </body>
-  {% include "scripts.html" %}
 </html>
