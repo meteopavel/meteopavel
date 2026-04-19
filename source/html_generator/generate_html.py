@@ -1,7 +1,8 @@
 import os
+import shutil
+import subprocess
 from htmlmin import minify
 from jinja2 import Environment, FileSystemLoader
-import subprocess
 
 
 def render_template(template_name,
@@ -45,18 +46,23 @@ def format_with_prettier(file_path):
     """Форматирует файл с помощью Prettier."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f'Файл {file_path} не найден.')
-    npx_path = 'C:/Program Files/nodejs/npx.cmd'
+    npx_path = shutil.which('npx')
+    if not npx_path:
+        raise FileNotFoundError(
+            "Команда 'npx' не найдена. Установи Node.js и npm, затем выполни 'npm install' в папке source."
+        )
     prettier_command = [npx_path, 'prettier', '--write', file_path]
     try:
         subprocess.run(
             prettier_command,
             check=True,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE
+            stderr=subprocess.PIPE,
+            text=True
         )
         print('Файл успешно отформатирован с помощью Prettier.')
     except subprocess.CalledProcessError as e:
-        print(f'Ошибка при форматировании файла: {e.stderr.decode()}')
+        print(f'Ошибка при форматировании файла: {e.stderr}')
 
 
 def minify_html(file_path, rendered_html):
