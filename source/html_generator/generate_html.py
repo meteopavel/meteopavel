@@ -1,8 +1,11 @@
 import os
 import shutil
 import subprocess
+
 from htmlmin import minify
 from jinja2 import Environment, FileSystemLoader
+
+from content.content_loader import build_context
 
 
 def render_template(template_name,
@@ -23,13 +26,18 @@ def render_template(template_name,
 def generate_index_page(output_dir,
                         template_dir,
                         index_file,
-                        mode):
+                        mode,
+                        locale='ru'):
     """
     Генерирует страницу index.html.
     """
     os.makedirs(output_dir, exist_ok=True)
-    rendered_html = render_template('base.html',
-                                    template_dir=template_dir)
+    context = build_context(locale)
+    rendered_html = render_template(
+        'base.html',
+        context=context,
+        template_dir=template_dir
+    )
     file_path = os.path.join(output_dir, index_file)
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(rendered_html)
@@ -38,8 +46,10 @@ def generate_index_page(output_dir,
     elif mode == 'minify':
         minify_html(file_path, rendered_html)
     else:
-        raise ValueError(f'Неизвестный режим: {mode}. '
-                         'Используйте "prettier" или "minify".')
+        raise ValueError(
+            f'Неизвестный режим: {mode}. '
+            'Используйте "prettier" или "minify".'
+        )
 
 
 def format_with_prettier(file_path):

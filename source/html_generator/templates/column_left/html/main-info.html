@@ -1,14 +1,13 @@
-<!-- Главная информация -->
+<!-- Main Info -->
 <section class="main-info section">
-  {% import './column_left/data/main-info_data.jinja' as data %}
   <img
-    src="{{ data.mainInfo.photo }}"
-    alt="{{ data.mainInfo.alt }}"
+    src="{{ main_info.photo }}"
+    alt="{{ main_info.alt }}"
     class="main-info__photo"
     width="300"
     height="300"
   />
-  <h1>{{ data.mainInfo.name }}</h1>
-  <h2>{{ data.mainInfo.position }}</h2>
-  <p class="section__p">{{ data.mainInfo.description }}</p>
+  <h1>{{ main_info.name }}</h1>
+  <h2>{{ main_info.position }}</h2>
+  <p class="section__p">{{ main_info.description }}</p>
 </section>

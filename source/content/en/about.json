@@ -1,0 +1,10 @@
+{
+  "title": "About Me",
+  "paragraphs": [
+    "I am a Junior+ web developer who creates accessible and efficient solutions, combining the power of backend development with elegant frontend implementation. My strong knowledge of HTML, CSS, TypeScript, and React allows me to build systems that deliver high performance, reliability, and intuitive user interfaces.",
+    "In backend development, I actively use frameworks such as Django, Flask, and FastAPI. They make it possible to quickly develop scalable RESTful API solutions and simplify working with databases. I never forget about query optimization to ensure applications run efficiently. When needed, I can also use pure SQL.",
+    "At the moment, I focus on complex systems where the backend ensures stable service operation, while the frontend makes them as convenient to use as possible. My goal is to create solutions that meet accessibility standards and provide an excellent user experience.",
+    "In my free time, I enjoy fitness, mountain hiking, cycling, and motorsports. These activities help me stay in good shape and maintain a healthy balance between work and rest.",
+    "I am always open to new opportunities and ready to collaborate on interesting projects that will help me grow as a specialist."
+  ]
+}

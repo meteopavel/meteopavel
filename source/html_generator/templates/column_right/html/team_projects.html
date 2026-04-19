@@ -1,10 +1,8 @@
-<!-- Командные проекты -->
+<!-- Team Projects -->
 <section class="projects section">
-  <h3 class="section__header">Командные проекты</h3>
+  <h3 class="section__header">{{ team_projects["title"] }}</h3>
   <ul class="section__list">
-    {% import './column_right/data/team_projects_data.jinja' as data %}
-
-    {% for project in data.projects %}
+    {% for project in team_projects["items"] %}
       <li class="section__item highlightable">
         <div class="section__item--left">
           <svg class="preview-icon" viewBox="{{ project.viewBox }}">
@@ -36,14 +34,14 @@
     {% endfor %}
   </ul>
 
-  <!-- Ссылка на все проекты -->
+  <!-- Link to all projects -->
   <div class="project__links project__links-view_all">
-    <a href="https://github.com/meteopavel?tab=repositories">
+    <a href="{{ team_projects.allProjects.href }}">
       <div class="project__links-link">
-        <svg class="project__link-icon" viewBox="0 0 512 512">
-          <use href="./images/previews/portfolio.svg#portfolio" class="project__link-icon" />
+        <svg class="project__link-icon" viewBox="{{ team_projects.allProjects.viewBox }}">
+          <use href="{{ team_projects.allProjects.icon }}" class="project__link-icon" />
         </svg>
-        — ВСЕ ПРОЕКТЫ ❯❯❯❯
+        — {{ team_projects.allProjects.text }}
       </div>
     </a>
   </div>

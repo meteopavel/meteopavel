@@ -1,10 +1,8 @@
-<!-- Собеседования -->
+<!-- Interviews -->
 <section class="interviews section">
-  <h3 class="section__header">Собеседования</h3>
+  <h3 class="section__header">{{ interviews["title"] }}</h3>
   <ul class="section__list">
-    {% import './column_right/data/interviews_data.jinja' as data %}
-
-    {% for interview in data.interviews %}
+    {% for interview in interviews["items"] %}
       <li class="section__item highlightable">
         <div class="section__item--left">
           <div class="video-container">
