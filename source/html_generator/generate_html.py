@@ -27,7 +27,8 @@ def generate_index_page(output_dir,
                         template_dir,
                         index_file,
                         mode,
-                        locale='ru'):
+                        locale='ru',
+                        static_version=''):
     """
     Генерирует страницу index.html.
     """
@@ -40,6 +41,7 @@ def generate_index_page(output_dir,
         'current_lang': locale,
         'ru_url': '/ru/',
         'en_url': '/en/',
+        'static_version': static_version,
     })
 
     rendered_html = render_template(
