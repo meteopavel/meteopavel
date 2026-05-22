@@ -168,16 +168,17 @@ def generate_root_redirect(output_dir, default_language):
     print(f'Корневой редирект создан: {file_path}')
 
 
-def generate_html(mode):
+def generate_html(mode, static_version):
     """
     Генерирует HTML-файлы для всех языков.
     """
-    print(f"Генерация HTML в режиме {mode}...")
+    print(f'Генерация HTML в режиме {mode}...')
+    print(f'Версия статики: {static_version}')
 
     base_output_dir = CONFIG['html']['output_directory']
     default_language = CONFIG['html']['default_language']
 
-    for lang in ('ru', 'en'):
+    for lang in CONFIG['html']['languages']:
         lang_output_dir = os.path.join(CONFIG['html']['output_directory'], lang)
         os.makedirs(lang_output_dir, exist_ok=True)
 
@@ -186,7 +187,8 @@ def generate_html(mode):
             template_dir=CONFIG['html']['template_directory'],
             index_file=CONFIG['html']['index_file'],
             mode=mode,
-            locale=lang
+            locale=lang,
+            static_version=static_version
         )
 
     generate_root_redirect(base_output_dir, default_language)
@@ -197,6 +199,8 @@ def generate_all(args):
     Главная функция для генерации всех статических файлов.
     """
     print('Начинается генерация статических файлов...')
+    static_version = str(int(time.time()))
+    print(f'Сгенерирована версия статики: {static_version}')
 
     directories_to_clear = [
         CONFIG['scripts']['output_directory'],
@@ -214,7 +218,7 @@ def generate_all(args):
         generate_shields()
     generate_scripts()
     generate_css()
-    generate_html(args.html_mode)
+    generate_html(args.html_mode, static_version)
     print('Все файлы успешно сгенерированы.')
 
 
