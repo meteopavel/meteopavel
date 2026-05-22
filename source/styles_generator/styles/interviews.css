@@ -1,26 +1,85 @@
+.interviews .section__item {
+  display: flex;
+  align-items: flex-start;
+}
+
 .interviews .section__item--left {
+  width: 50%;
+  flex-shrink: 0;
+}
+
+.interviews .section__item--right {
   width: 50%;
 }
 
 .video-container {
   position: relative;
-  width: 320px;
-  height: 180px;
+  width: min(320px, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #000;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.video-preview {
+  position: relative;
+  display: block;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   border-radius: 20px;
+  cursor: pointer;
+  background-color: #000;
+  text-decoration: none;
+}
+
+.video-preview__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.video-preview:hover .video-preview__image {
+  transform: scale(1.03);
+  filter: brightness(0.8);
+}
+
+.video-preview__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  background-color: rgba(255, 0, 0, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.video-preview__play::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid #fff;
 }
 
 @media (max-width: 1165px) {
   .interviews .section__item {
     flex-direction: column;
   }
+
+  .interviews .section__item--left {
+    width: 100%;
+  }
+
   .interviews .section__item--right {
     width: 100%;
   }
@@ -30,17 +89,32 @@
   .interviews .section__item {
     flex-direction: row;
   }
+
+  .interviews .section__item--left {
+    width: 50%;
+  }
+
+  .interviews .section__item--right {
+    width: 50%;
+  }
 }
 
 @media (max-width: 745px) {
   .interviews .section__item {
     flex-direction: column;
   }
+
+  .interviews .section__item--left {
+    width: 100%;
+  }
+
+  .interviews .section__item--right {
+    width: 100%;
+  }
 }
 
 @media (max-width: 460px) {
-  .video-container iframe {
-    width: 94%;
-    height: 94%;
+  .video-container {
+    width: 100%;
   }
 }

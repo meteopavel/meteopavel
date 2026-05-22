@@ -6,16 +6,21 @@
       <li class="section__item highlightable">
         <div class="section__item--left">
           <div class="video-container">
-            <iframe
-              width="560"
-              height="315"
-              src="{{ interview.videoUrl }}"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <a
+              class="video-preview"
+              href="{{ interview.youtubeUrl }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Открыть видео на YouTube: {{ interview.title }}"
+            >
+              <img
+                class="video-preview__image"
+                src="{{ interview.thumbnail }}"
+                alt="{{ interview.title }}"
+                loading="lazy"
+              />
+              <span class="video-preview__play" aria-hidden="true"></span>
+            </a>
           </div>
         </div>
         <div class="section__item--right">

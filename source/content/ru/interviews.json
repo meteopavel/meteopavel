@@ -4,7 +4,10 @@
     {
       "title": "Интервью на канале Евгения Бартенева",
       "description": "Евгений — техлид Яндекс.Практикум с более чем 20-летним опытом в IT. На интервью я уверенно отвечаю на вопросы, показываю, как думаю, как решаю задачи — и даже когда ошибаюсь, это становится поводом для классного разбора. Мок-интервью получилось живым, честным и полезным.",
-      "videoUrl": "https://www.youtube.com/embed/MbiBisgsGBU?si=kozPSRIdzbJwt_EU"
+      "videoId": "MbiBisgsGBU",
+      "videoUrl": "https://www.youtube.com/embed/MbiBisgsGBU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MbiBisgsGBU",
+      "thumbnail": "https://i.ytimg.com/vi/MbiBisgsGBU/maxresdefault.jpg"
     }
   ]
 }
