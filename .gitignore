@@ -1,2 +1,6 @@
 .idea/
 .env
+.claude/
+CLAUDE.md
+docs/
+**/.DS_Store
