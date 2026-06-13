@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T10:24:38.140099+00:00",
+  "generated_at": "2026-06-13T10:42:51.078689+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "meteopavel",
   "title": "meteopavel.space — Static Site Generator",
@@ -136,7 +136,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-06-13T10:21:13.623103+00:00",
+    "api_map_generated_at": "2026-06-13T10:24:38.225700+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": false,
     "meta_review_status": "reviewed"

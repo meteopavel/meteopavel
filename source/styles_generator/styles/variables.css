@@ -33,6 +33,7 @@
   --header-height: 43px;
   --transition-time: 0.3s;
   --transition-timing-function: ease;
+  --skeleton-color: #1d2e48;
 }
 
 @media (max-width: 460px) {

@@ -1,0 +1,2 @@
+function setupImgSkeleton(img){if(img.complete&&img.naturalWidth>0){img.classList.add('img-loaded');}else{img.addEventListener('load',function(){img.classList.add('img-loaded');});img.addEventListener('error',function(){img.classList.add('img-loaded');});}}
+document.querySelectorAll('.main-info__photo, .project__shields img, .video-preview__image').forEach(setupImgSkeleton);window.addEventListener('load',function(){document.body.classList.remove('loading');});

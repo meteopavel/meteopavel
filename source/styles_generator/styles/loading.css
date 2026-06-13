@@ -1,0 +1,30 @@
+@keyframes skeleton-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* img: shimmer до загрузки, убирается классом img-loaded через JS */
+.main-info__photo:not(.img-loaded),
+.project__shields img:not(.img-loaded),
+.video-preview__image:not(.img-loaded) {
+  background: linear-gradient(90deg, var(--hover-color) 25%, var(--skeleton-color) 50%, var(--hover-color) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+/* svg-иконки: убираем фон после window.load через body.loading */
+body.loading svg.contact-icon,
+body.loading svg.preview-icon {
+  display: block;
+  background: linear-gradient(90deg, var(--hover-color) 25%, var(--skeleton-color) 50%, var(--hover-color) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+body.loading svg.contact-icon {
+  border-radius: 50%;
+}
+
+body.loading svg.preview-icon {
+  border-radius: 8px;
+}
