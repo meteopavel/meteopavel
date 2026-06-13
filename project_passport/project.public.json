@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T09:48:54.016810+00:00",
+  "generated_at": "2026-06-13T09:51:17.405657+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "meteopavel",
   "title": "meteopavel.space — Static Site Generator",
@@ -47,9 +47,9 @@
     "scanned_python_files": 12,
     "classes": 0,
     "dataclasses": 0,
-    "functions": 31,
+    "functions": 35,
     "methods": 0,
-    "constants": 2,
+    "constants": 3,
     "has_cli": false,
     "has_redmine_integration": false,
     "has_document_generation": false,
@@ -61,6 +61,17 @@
     "layers": [],
     "key_modules": [
       {
+        "path": "source/generate_static.py",
+        "summary": "Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 11,
+          "methods": 0,
+          "constants": 2
+        }
+      },
+      {
         "path": "source/shields_generator/generate_shields.py",
         "summary": "Генерация кастомных SVG-шилдов: масштабирование, шаблон, сохранение.",
         "stats": {
@@ -69,17 +80,6 @@
           "functions": 8,
           "methods": 0,
           "constants": 0
-        }
-      },
-      {
-        "path": "source/generate_static.py",
-        "summary": "Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.",
-        "stats": {
-          "classes": 0,
-          "dataclasses": 0,
-          "functions": 7,
-          "methods": 0,
-          "constants": 1
         }
       },
       {
@@ -136,7 +136,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-06-13T08:28:05.266730+00:00",
+    "api_map_generated_at": "2026-06-13T09:48:54.111909+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": false,
     "meta_review_status": "reviewed"
