@@ -50,7 +50,7 @@
 }
 
 @media (max-width: 460px) {
-  .section__item:hover {
+  .section__item:hover:not(.highlighted) {
     background-color: transparent;
     box-shadow: none;
   }
