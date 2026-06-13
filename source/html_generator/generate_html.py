@@ -12,6 +12,18 @@ from jinja2 import Environment, FileSystemLoader
 from content.content_loader import build_context
 
 
+def _ru_plural(n: int, one: str, few: str, many: str) -> str:
+    """Возвращает правильную форму русского существительного по числу."""
+    mod10, mod100 = n % 10, n % 100
+    if mod100 in range(11, 20):
+        return many
+    if mod10 == 1:
+        return one
+    if mod10 in range(2, 5):
+        return few
+    return many
+
+
 def render_template(
     template_name: str,
     context: dict[str, Any] | None = None,
@@ -23,6 +35,7 @@ def render_template(
         lstrip_blocks=True,
         trim_blocks=True
     )
+    env.filters['ru_tasks'] = lambda n: f"{n} {_ru_plural(n, 'задача', 'задачи', 'задач')}"
     template = env.get_template(template_name)
     if context is None:
         context = {}

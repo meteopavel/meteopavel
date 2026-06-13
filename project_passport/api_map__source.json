@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T11:05:52.814994+00:00",
+  "generated_at": "2026-06-13T12:27:05.200741+00:00",
   "generator": "tools/extract_api_map.py",
   "target": "source",
   "scanned_python_files": 12,
@@ -17,7 +17,7 @@
     "modules": 7,
     "classes": 0,
     "dataclasses": 0,
-    "functions": 35,
+    "functions": 36,
     "methods": 0,
     "constants": 3
   },
@@ -231,14 +231,24 @@
       "classes": [],
       "functions": [
         {
+          "name": "_ru_plural",
+          "signature": "_ru_plural(n: int, one: str, few: str, many: str) -> str",
+          "docstring": "Возвращает правильную форму русского существительного по числу.",
+          "summary": "Возвращает правильную форму русского существительного по числу.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 15,
+          "end_lineno": 24
+        },
+        {
           "name": "render_template",
           "signature": "render_template(template_name: str, context: dict[str, Any] | None = None, template_dir: str = './html_generator/templates') -> str",
           "docstring": "Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.",
           "summary": "Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.",
           "kind": "function",
           "decorators": [],
-          "lineno": 15,
-          "end_lineno": 29
+          "lineno": 27,
+          "end_lineno": 42
         },
         {
           "name": "generate_index_page",
@@ -247,8 +257,8 @@
           "summary": "Рендерит и сохраняет index.html для указанной локали и режима.",
           "kind": "function",
           "decorators": [],
-          "lineno": 32,
-          "end_lineno": 71
+          "lineno": 45,
+          "end_lineno": 84
         },
         {
           "name": "format_with_prettier",
@@ -257,8 +267,8 @@
           "summary": "Форматирует HTML-файл через Prettier (требует npx в PATH).",
           "kind": "function",
           "decorators": [],
-          "lineno": 74,
-          "end_lineno": 94
+          "lineno": 87,
+          "end_lineno": 107
         },
         {
           "name": "minify_html",
@@ -267,15 +277,15 @@
           "summary": "Минифицирует HTML и перезаписывает файл.",
           "kind": "function",
           "decorators": [],
-          "lineno": 97,
-          "end_lineno": 102
+          "lineno": 110,
+          "end_lineno": 115
         }
       ],
       "constants": [],
       "stats": {
         "classes": 0,
         "dataclasses": 0,
-        "functions": 4,
+        "functions": 5,
         "methods": 0,
         "constants": 0
       }
