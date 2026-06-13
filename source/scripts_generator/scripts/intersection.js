@@ -1,36 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth >= 460) {
-    return;
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.innerWidth >= 460) return;
 
-  const elements = document.querySelectorAll('.highlightable');
+  var elements = Array.from(document.querySelectorAll('.highlightable'));
 
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.75,
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        elements.forEach(el => el.classList.remove('highlighted'));
-        entry.target.classList.add('highlighted');
+  function updateHighlight() {
+    var bestEl = null;
+    var bestRatio = 0;
+    var viewH = window.innerHeight;
+    elements.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var visible = Math.max(0, Math.min(rect.bottom, viewH) - Math.max(rect.top, 0));
+      var ratio = rect.height > 0 ? visible / rect.height : 0;
+      if (ratio > bestRatio) {
+        bestRatio = ratio;
+        bestEl = el;
       }
     });
-  }, options);
+    elements.forEach(function (el) { el.classList.remove('highlighted'); });
+    if (bestEl && bestRatio >= 0.5) bestEl.classList.add('highlighted');
+  }
 
-  elements.forEach(element => {
-    observer.observe(element);
-  });
-
-  window.addEventListener('resize', () => {
+  window.addEventListener('scroll', updateHighlight, { passive: true });
+  window.addEventListener('resize', function () {
     if (window.innerWidth >= 460) {
-      elements.forEach(el => el.classList.remove('highlighted'));
+      elements.forEach(function (el) { el.classList.remove('highlighted'); });
     } else {
-      elements.forEach(element => {
-        observer.observe(element);
-      });
+      updateHighlight();
     }
   });
+
+  updateHighlight();
 });
