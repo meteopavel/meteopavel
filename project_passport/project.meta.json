@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-13T08:05:40.463936+00:00",
+  "generated_by": "tools/build_project_passport.py",
+  "auto_generated": false,
+  "review_status": "reviewed",
+  "id": "meteopavel",
+  "title": "meteopavel.space — Static Site Generator",
+  "tagline": "Python-генератор статического портфолио-сайта с CI/CD и двуязычным контентом.",
+  "summary": "Собственный генератор статического сайта на Python. Читает JSON-контент (ru/en), рендерит Jinja2-шаблоны, минифицирует HTML/CSS/JS, генерирует SVG-бейджи через shields.io API. Деплой через GitHub Actions: push → статика → nginx. Двуязычный контент полностью разделён на уровне JSON-файлов.",
+  "status": "active",
+  "visibility": "public_code",
+  "role": "solo_developer",
+  "domain": [
+    "static-site-generator",
+    "portfolio",
+    "automation",
+    "devops"
+  ],
+  "stack": [
+    "Python",
+    "Jinja2",
+    "htmlmin",
+    "csscompressor",
+    "jsmin",
+    "shields.io API",
+    "Docker",
+    "Nginx",
+    "GitHub Actions"
+  ],
+  "links": {
+    "repo": "https://github.com/meteopavel/meteopavel",
+    "demo": "https://meteopavel.space",
+    "details": "/projects/meteopavel"
+  },
+  "highlights": [
+    "Собственный генератор без тяжёлых SSG-фреймворков — чистый Python + Jinja2.",
+    "Двуязычный контент (ru/en) полностью разделён на уровне JSON — нет смешения в коде.",
+    "Полный CI/CD: git push → GitHub Actions → статика на nginx без ручного деплоя.",
+    "SVG-бейджи генерируются локально через shields.io API с масштабированием и кастомизацией.",
+    "Минификация HTML, CSS и JS встроена в пайплайн генерации."
+  ],
+  "public_artifacts": [
+    "api_map_json",
+    "api_map_markdown",
+    "project_meta_json",
+    "project_public_json"
+  ],
+  "notes": {
+    "project_root": ".",
+    "source_target": "source",
+    "scanned_python_files": 12
+  }
+}

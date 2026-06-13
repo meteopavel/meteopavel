@@ -1,6 +1,10 @@
+"""Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier)."""
+from __future__ import annotations
+
 import os
 import shutil
 import subprocess
+from typing import Any
 
 from htmlmin import minify
 from jinja2 import Environment, FileSystemLoader
@@ -8,10 +12,12 @@ from jinja2 import Environment, FileSystemLoader
 from content.content_loader import build_context
 
 
-def render_template(template_name,
-                    context=None,
-                    template_dir='./html_generator/templates'):
-    """Рендерит шаблон с контекстом."""
+def render_template(
+    template_name: str,
+    context: dict[str, Any] | None = None,
+    template_dir: str = './html_generator/templates',
+) -> str:
+    """Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку."""
     env = Environment(
         loader=FileSystemLoader(template_dir),
         lstrip_blocks=True,
@@ -23,15 +29,15 @@ def render_template(template_name,
     return template.render(context)
 
 
-def generate_index_page(output_dir,
-                        template_dir,
-                        index_file,
-                        mode,
-                        locale='ru',
-                        static_version=''):
-    """
-    Генерирует страницу index.html.
-    """
+def generate_index_page(
+    output_dir: str,
+    template_dir: str,
+    index_file: str,
+    mode: str,
+    locale: str = 'ru',
+    static_version: str = '',
+) -> None:
+    """Рендерит и сохраняет index.html для указанной локали и режима."""
     os.makedirs(output_dir, exist_ok=True)
 
     context = build_context(locale)
@@ -65,8 +71,8 @@ def generate_index_page(output_dir,
         )
 
 
-def format_with_prettier(file_path):
-    """Форматирует файл с помощью Prettier."""
+def format_with_prettier(file_path: str) -> None:
+    """Форматирует HTML-файл через Prettier (требует npx в PATH)."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f'Файл {file_path} не найден.')
     npx_path = shutil.which('npx')
@@ -88,8 +94,8 @@ def format_with_prettier(file_path):
         print(f'Ошибка при форматировании файла: {e.stderr}')
 
 
-def minify_html(file_path, rendered_html):
-    """Минифицирует HTML-файл."""
+def minify_html(file_path: str, rendered_html: str) -> None:
+    """Минифицирует HTML и перезаписывает файл."""
     minified_html = minify(rendered_html)
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(minified_html)
