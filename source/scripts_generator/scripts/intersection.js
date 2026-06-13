@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         elements.forEach(el => el.classList.remove('highlighted'));
         entry.target.classList.add('highlighted');
-      } else {
-        entry.target.classList.remove('highlighted');
       }
     });
   }, options);
