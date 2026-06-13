@@ -1,0 +1,9 @@
+title,logo,docs_href
+Python,python,https://docs.python.org/3/
+Django,django,https://docs.djangoproject.com/en/stable/
+PostgreSQL,postgresql,https://www.postgresql.org/docs/
+JavaScript,javascript,https://developer.mozilla.org/en-US/docs/Web/JavaScript
+Celery,celery,https://docs.celeryproject.org/en/stable/
+Redis,redis,https://redis.io/documentation
+Nginx,nginx,https://nginx.org/en/docs/
+Docker,docker,https://docs.docker.com/

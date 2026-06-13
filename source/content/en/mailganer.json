@@ -1,0 +1,14 @@
+{
+  "section_title": "Commercial Experience",
+  "role": "Developer",
+  "company": "Mailganer",
+  "tagline": "Email marketing platform",
+  "period": "May 2025 — present",
+  "paragraphs": [
+    "Django backend: feature development, security auditing, complex bug investigations, performance optimization. Delivered WYSIWYG editor integration, SPF/email validation, a codebase-wide XSS and unsafe-pattern audit, and a 8–10x speedup on critical queries.",
+    "Grew from intern to Junior Developer in 8 months. Since June 2026 — lead developer on an internal AI/RAG project."
+  ],
+  "icon": "/images/experience/mailganer.svg#mailganer",
+  "viewBox": "0 0 80 75",
+  "shields": "/column_right/shields/mailganer.html"
+}

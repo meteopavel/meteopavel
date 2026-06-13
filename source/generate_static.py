@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import os
 import time
 
@@ -14,6 +16,42 @@ from styles_generator.generate_styles import (
     find_css_files, combine_and_minify_css
 )
 from scripts_generator.generate_scripts import process_scripts
+
+
+SHIELDS_CACHE_PATH = './shields_generator/.shields_cache.json'
+
+
+def _csv_hash(csv_path: str) -> str:
+    h = hashlib.md5()
+    with open(csv_path, 'rb') as f:
+        h.update(f.read())
+    return h.hexdigest()
+
+
+def _load_shields_cache() -> dict:
+    try:
+        with open(SHIELDS_CACHE_PATH, encoding='utf-8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def _save_shields_cache(cache: dict) -> None:
+    with open(SHIELDS_CACHE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, indent=2)
+
+
+def _shields_up_to_date(project_name: str, csv_path: str, shield_dir: str, template_path: str, cache: dict) -> bool:
+    """True если CSV не изменился, все SVG на месте и HTML-шаблон существует."""
+    if project_name not in cache:
+        return False
+    if _csv_hash(csv_path) != cache[project_name]:
+        return False
+    if not os.path.isfile(template_path):
+        return False
+    if not os.path.isdir(shield_dir) or not os.listdir(shield_dir):
+        return False
+    return True
 
 
 CONFIG = {
@@ -71,7 +109,7 @@ def clear_directories(directories: list[str]) -> None:
 
 
 def generate_shields() -> None:
-    """Генерирует SVG-шилды для всех CSV-файлов в папке данных."""
+    """Генерирует SVG-шилды для всех CSV-файлов в папке данных (с кэшем по хэшу CSV)."""
     print('Генерация щитов...')
     csv_files = [
         f for f in os.listdir(CONFIG['shields']['data_directory'])
@@ -81,8 +119,10 @@ def generate_shields() -> None:
         print(f'В папке {CONFIG["shields"]["data_directory"]} '
               'не найдено CSV-файлов.')
         return
+    cache = _load_shields_cache()
     for csv_file in csv_files:
         project_name = os.path.splitext(csv_file)[0]
+        csv_path = os.path.join(CONFIG['shields']['data_directory'], csv_file)
         shield_target_directory = os.path.join(
             CONFIG['shields']['target_base_directory'], project_name
         )
@@ -90,9 +130,10 @@ def generate_shields() -> None:
             './html_generator/templates/column_right/shields',
             f'{project_name}.html'
         )
-        params = read_params_from_csv(
-            os.path.join(CONFIG['shields']['data_directory'], csv_file)
-        )
+        if _shields_up_to_date(project_name, csv_path, shield_target_directory, shield_html_template_path, cache):
+            print(f'[кэш] {project_name} — без изменений, пропускаем.')
+            continue
+        params = read_params_from_csv(csv_path)
         for title, logo, docs_href in params:
             generate_custom_svg(
                 title=title,
@@ -109,6 +150,8 @@ def generate_shields() -> None:
         generate_shield_template(
             project_name, params, shield_html_template_path
         )
+        cache[project_name] = _csv_hash(csv_path)
+    _save_shields_cache(cache)
 
 
 def generate_scripts() -> None:
@@ -191,17 +234,10 @@ def generate_all(args: argparse.Namespace) -> None:
     static_version = str(int(time.time()))
     print(f'Сгенерирована версия статики: {static_version}')
 
-    directories_to_clear = [
+    clear_directories([
         CONFIG['scripts']['output_directory'],
         CONFIG['css']['target_directory'],
-    ]
-
-    if args.shields:
-        directories_to_clear.append(
-            CONFIG['shields']['target_base_directory']
-        )
-
-    clear_directories(directories_to_clear)
+    ])
 
     if args.shields:
         generate_shields()

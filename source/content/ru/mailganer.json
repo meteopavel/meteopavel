@@ -1,0 +1,14 @@
+{
+  "section_title": "Коммерческий опыт",
+  "role": "Developer",
+  "company": "Mailganer",
+  "tagline": "Платформа email-маркетинга",
+  "period": "май 2025 — настоящее время",
+  "paragraphs": [
+    "Django backend: разработка новых возможностей, security-аудит, расследование сложных багов, оптимизация производительности. Реализовал интеграцию внешнего WYSIWYG-редактора, SPF/email-валидацию, аудит кодовой базы на XSS и небезопасные паттерны, ускорение критических запросов в 8–10 раз.",
+    "Вырос от стажёра до Junior Developer за 8 месяцев. С июня 2026 — lead developer на внутреннем AI/RAG-проекте."
+  ],
+  "icon": "/images/experience/mailganer.svg#mailganer",
+  "viewBox": "0 0 80 75",
+  "shields": "/column_right/shields/mailganer.html"
+}
