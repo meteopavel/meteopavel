@@ -180,20 +180,23 @@ def generate_css() -> None:
 
 
 def generate_root_redirect(output_dir: str, default_language: str) -> None:
-    """Создаёт корневой index.html с мета-редиректом на язык по умолчанию."""
-    redirect_path = f'/{default_language}/'
+    """Создаёт корневой index.html с детекцией языка браузера и памятью выбора."""
     content = f"""<!doctype html>
-<html lang="{default_language}">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url={redirect_path}">
   <title>Redirecting...</title>
   <script>
-    window.location.replace('{redirect_path}');
+    var lang = localStorage.getItem('preferred_lang');
+    if (!lang) {{
+      var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      lang = browserLang.startsWith('ru') ? 'ru' : 'en';
+    }}
+    window.location.replace('/' + lang + '/');
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="{redirect_path}">{redirect_path}</a></p>
+  <p>Redirecting...</p>
 </body>
 </html>
 """

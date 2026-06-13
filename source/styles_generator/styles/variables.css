@@ -27,8 +27,10 @@
   --border-radius: 20px;
   --container-padding-vertical: 3vh;
   --container-padding-horizontal: 5vw;
+  --column-left-width: 300px;
   --header-padding-vertical: 10px;
   --header-padding-horizontal: 20px;
+  --header-height: 43px;
   --transition-time: 0.3s;
   --transition-timing-function: ease;
 }

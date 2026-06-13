@@ -1,14 +1,18 @@
 <!doctype html>
-<html lang="ru">
+<html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0; url=/ru/">
   <title>Redirecting...</title>
   <script>
-    window.location.replace('/ru/');
+    var lang = localStorage.getItem('preferred_lang');
+    if (!lang) {
+      var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      lang = browserLang.startsWith('ru') ? 'ru' : 'en';
+    }
+    window.location.replace('/' + lang + '/');
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="/ru/">/ru/</a></p>
+  <p>Redirecting...</p>
 </body>
 </html>
