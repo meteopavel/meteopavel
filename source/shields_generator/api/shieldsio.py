@@ -1,11 +1,14 @@
-import requests
+"""HTTP-клиент shields.io: запрос SVG-бейджа и первичный парсинг данных."""
+from __future__ import annotations
+
+from typing import Any
 from xml.etree import ElementTree as ET
 
+import requests
 
-def fetch_shield_data(title, color, logo, logo_color):
-    """
-    Выполняет GET-запрос к shields.io и возвращает SVG-данные.
-    """
+
+def fetch_shield_data(title: str, color: str, logo: str, logo_color: str) -> str | None:
+    """Выполняет GET-запрос к shields.io и возвращает SVG-контент или None при ошибке."""
     url = (
         f'https://shields.io/badge/{title.replace(" ", "%20")}-{color}'
         f'?logo={logo}&logoColor={logo_color.replace("#", "%23")}'
@@ -20,10 +23,8 @@ def fetch_shield_data(title, color, logo, logo_color):
         return None
 
 
-def parse_svg(svg_content):
-    """
-    Парсит SVG-контент и извлекает необходимые данные.
-    """
+def parse_svg(svg_content: str) -> dict[str, Any] | None:
+    """Парсит SVG-строку и возвращает словарь с размерами, текстами и href изображения."""
     try:
         root = ET.fromstring(svg_content)
 

@@ -1,14 +1,17 @@
+"""Генерация кастомных SVG-шилдов: масштабирование, шаблон, сохранение."""
+from __future__ import annotations
+
 import csv
-import string
-import re
 import os
+import re
+import string
+from typing import Any
+
 from shields_generator.api.shieldsio import fetch_shield_data, parse_svg
 
 
-def fetch_and_parse_svg(title, color, logo, logo_color):
-    """
-    Выполняет запрос к API и парсит SVG-данные.
-    """
+def fetch_and_parse_svg(title: str, color: str, logo: str, logo_color: str) -> dict[str, Any] | None:
+    """Запрашивает SVG у shields.io и возвращает распарсенные данные или None."""
     svg_content = fetch_shield_data(title, color, logo, logo_color)
     if not svg_content:
         print('Не удалось получить SVG-данные.')
@@ -20,12 +23,15 @@ def fetch_and_parse_svg(title, color, logo, logo_color):
     return parsed_data
 
 
-def scale_parameters(parsed_data, new_height,
-                     width_scale_factor, text_length_scale_factor,
-                     x_scale_factor, y_scale_factor):
-    """
-    Пересчитывает параметры SVG с учетом масштабирования.
-    """
+def scale_parameters(
+    parsed_data: dict[str, Any],
+    new_height: str,
+    width_scale_factor: float,
+    text_length_scale_factor: float,
+    x_scale_factor: float,
+    y_scale_factor: float,
+) -> dict[str, Any]:
+    """Пересчитывает размеры и координаты SVG с применением коэффициентов масштабирования."""
     original_width = parsed_data['width']
     original_height = parsed_data['height']
     texts = parsed_data['texts']
@@ -61,10 +67,8 @@ def scale_parameters(parsed_data, new_height,
     }
 
 
-def prepare_template_data(title, docs_href, scaled_data):
-    """
-    Подготавливает данные для подстановки в шаблон.
-    """
+def prepare_template_data(title: str, docs_href: str, scaled_data: dict[str, Any]) -> dict[str, str]:
+    """Формирует словарь подстановочных значений для SVG-шаблона."""
     return {
         'width': scaled_data['width'],
         'title': title,
@@ -78,20 +82,21 @@ def prepare_template_data(title, docs_href, scaled_data):
     }
 
 
-def minify_svg(svg_code):
-    """
-    Минифицирует SVG-код с помощью регулярных выражений.
-    """
+def minify_svg(svg_code: str) -> str:
+    """Удаляет комментарии и лишние пробелы из SVG-строки."""
     svg_code = re.sub(r'<!--.*?-->', '', svg_code, flags=re.DOTALL)
     svg_code = re.sub(r'\s+', ' ', svg_code)
     svg_code = re.sub(r'\s*([><])\s*', r'\1', svg_code)
     return svg_code
 
 
-def save_svg_to_file(template_data, template_path, output_directory, title):
-    """
-    Сохраняет SVG-файл на основе шаблона и данных.
-    """
+def save_svg_to_file(
+    template_data: dict[str, str],
+    template_path: str,
+    output_directory: str,
+    title: str,
+) -> None:
+    """Подставляет данные в SVG-шаблон, минифицирует и сохраняет файл."""
     with open(template_path, 'r', encoding='utf-8') as template_file:
         svg_template = template_file.read()
     template = string.Template(svg_template)
@@ -105,13 +110,21 @@ def save_svg_to_file(template_data, template_path, output_directory, title):
     print(f'SVG файл успешно создан и минифицирован: {filename}')
 
 
-def generate_custom_svg(title, color, logo, logo_color, docs_href,
-                        new_height, output_directory, template_path,
-                        width_scale_factor, text_length_scale_factor,
-                        x_scale_factor, y_scale_factor):
-    """
-    Генерирует SVG с измененными параметрами.
-    """
+def generate_custom_svg(
+    title: str,
+    color: str,
+    logo: str,
+    logo_color: str,
+    docs_href: str,
+    new_height: str,
+    output_directory: str,
+    template_path: str,
+    width_scale_factor: float,
+    text_length_scale_factor: float,
+    x_scale_factor: float,
+    y_scale_factor: float,
+) -> None:
+    """Полный цикл генерации одного SVG-шилда: запрос → масштаб → шаблон → файл."""
     # Шаг 1: Получение и парсинг данных
     parsed_data = fetch_and_parse_svg(title, color, logo, logo_color)
     if not parsed_data:
@@ -128,10 +141,8 @@ def generate_custom_svg(title, color, logo, logo_color, docs_href,
     save_svg_to_file(template_data, template_path, output_directory, title)
 
 
-def read_params_from_csv(file_path):
-    """
-    Читает параметры из CSV-файла и возвращает список кортежей.
-    """
+def read_params_from_csv(file_path: str) -> list[tuple[str, str, str]]:
+    """Читает CSV с колонками title/logo/docs_href и возвращает список кортежей."""
     params = []
     try:
         with open(file_path, newline='', encoding='utf-8') as csvfile:
@@ -145,10 +156,12 @@ def read_params_from_csv(file_path):
     return params
 
 
-def generate_shield_template(project_name, params, output_template_path):
-    """
-    Создает HTML-шаблон для щитов на основе данных из CSV.
-    """
+def generate_shield_template(
+    project_name: str,
+    params: list[tuple[str, str, str]],
+    output_template_path: str,
+) -> None:
+    """Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта."""
     template_content = (
         '<div class="project__shields">\n'
         '  {% set shields = [\n'

@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-13T08:06:15.717543+00:00",
+  "generated_by": "tools/build_project_passport.py",
+  "id": "meteopavel",
+  "title": "meteopavel.space — Static Site Generator",
+  "tagline": "Python-генератор статического портфолио-сайта с CI/CD и двуязычным контентом.",
+  "summary": "Собственный генератор статического сайта на Python. Читает JSON-контент (ru/en), рендерит Jinja2-шаблоны, минифицирует HTML/CSS/JS, генерирует SVG-бейджи через shields.io API. Деплой через GitHub Actions: push → статика → nginx. Двуязычный контент полностью разделён на уровне JSON-файлов.",
+  "status": "active",
+  "visibility": "public_code",
+  "role": "solo_developer",
+  "domain": [
+    "static-site-generator",
+    "portfolio",
+    "automation",
+    "devops"
+  ],
+  "stack": [
+    "Python",
+    "Jinja2",
+    "htmlmin",
+    "csscompressor",
+    "jsmin",
+    "shields.io API",
+    "Docker",
+    "Nginx",
+    "GitHub Actions"
+  ],
+  "links": {
+    "repo": "https://github.com/meteopavel/meteopavel",
+    "demo": "https://meteopavel.space",
+    "details": "/projects/meteopavel"
+  },
+  "highlights": [
+    "Собственный генератор без тяжёлых SSG-фреймворков — чистый Python + Jinja2.",
+    "Двуязычный контент (ru/en) полностью разделён на уровне JSON — нет смешения в коде.",
+    "Полный CI/CD: git push → GitHub Actions → статика на nginx без ручного деплоя.",
+    "SVG-бейджи генерируются локально через shields.io API с масштабированием и кастомизацией.",
+    "Минификация HTML, CSS и JS встроена в пайплайн генерации."
+  ],
+  "signals": [
+    "csv_export",
+    "json_artifacts"
+  ],
+  "tech_profile": {
+    "python_files": 7,
+    "scanned_python_files": 12,
+    "classes": 0,
+    "dataclasses": 0,
+    "functions": 31,
+    "methods": 0,
+    "constants": 2,
+    "has_cli": false,
+    "has_redmine_integration": false,
+    "has_document_generation": false,
+    "has_llm_workflow": false,
+    "has_api_map": true
+  },
+  "architecture": {
+    "target": "source",
+    "layers": [],
+    "key_modules": [
+      {
+        "path": "source/shields_generator/generate_shields.py",
+        "summary": "Генерация кастомных SVG-шилдов: масштабирование, шаблон, сохранение.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 8,
+          "methods": 0,
+          "constants": 0
+        }
+      },
+      {
+        "path": "source/generate_static.py",
+        "summary": "Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 7,
+          "methods": 0,
+          "constants": 1
+        }
+      },
+      {
+        "path": "source/content/content_loader.py",
+        "summary": "Загрузка и агрегация JSON-контента для рендеринга по локали.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 4,
+          "methods": 0,
+          "constants": 1
+        }
+      },
+      {
+        "path": "source/scripts_generator/generate_scripts.py",
+        "summary": "Минификация и сохранение JavaScript-файлов через jsmin.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 4,
+          "methods": 0,
+          "constants": 0
+        }
+      },
+      {
+        "path": "source/html_generator/generate_html.py",
+        "summary": "Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 4,
+          "methods": 0,
+          "constants": 0
+        }
+      },
+      {
+        "path": "source/styles_generator/generate_styles.py",
+        "summary": "Поиск, объединение и минификация CSS-файлов.",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 2,
+          "methods": 0,
+          "constants": 0
+        }
+      }
+    ]
+  },
+  "artifacts": {
+    "api_map_json": "project_passport/api_map__source.json",
+    "api_map_markdown": "project_passport/api_map__source.md",
+    "project_meta_json": "project_passport/project.meta.json",
+    "project_public_json": "project_passport/project.public.json"
+  },
+  "source": {
+    "api_map_schema_version": "1.0",
+    "api_map_generated_at": "2026-06-13T08:05:26.386195+00:00",
+    "api_map_generator": "tools/extract_api_map.py",
+    "meta_auto_generated": false,
+    "meta_review_status": "reviewed"
+  }
+}

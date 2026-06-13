@@ -1,6 +1,9 @@
+"""Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды."""
+from __future__ import annotations
+
+import argparse
 import os
 import time
-import argparse
 
 from html_generator.generate_html import generate_index_page
 from shields_generator.generate_shields import (
@@ -49,10 +52,8 @@ CONFIG = {
 }
 
 
-def clear_directories(directories):
-    """
-    Очищает указанные директории.
-    """
+def clear_directories(directories: list[str]) -> None:
+    """Удаляет и пересоздаёт указанные директории."""
     for directory in directories:
         try:
             if os.path.exists(directory):
@@ -69,10 +70,8 @@ def clear_directories(directories):
             print(f'Ошибка при работе с директорией {directory}: {e}')
 
 
-def generate_shields():
-    """
-    Генерирует щиты (shields) для всех CSV-файлов в папке.
-    """
+def generate_shields() -> None:
+    """Генерирует SVG-шилды для всех CSV-файлов в папке данных."""
     print('Генерация щитов...')
     csv_files = [
         f for f in os.listdir(CONFIG['shields']['data_directory'])
@@ -112,10 +111,8 @@ def generate_shields():
         )
 
 
-def generate_scripts():
-    """
-    Минифицирует и сохраняет JavaScript-файлы.
-    """
+def generate_scripts() -> None:
+    """Минифицирует JS-файлы и сохраняет их в выходную директорию."""
     print('Генерация скриптов...')
     process_scripts(
         CONFIG['scripts']['input_directory'],
@@ -123,10 +120,8 @@ def generate_scripts():
     )
 
 
-def generate_css():
-    """
-    Объединяет и минифицирует CSS-файлы.
-    """
+def generate_css() -> None:
+    """Объединяет CSS-файлы и сохраняет минифицированный результат."""
     print('Генерация CSS...')
     css_files = find_css_files(CONFIG['css']['directory'])
     if not css_files:
@@ -141,10 +136,8 @@ def generate_css():
     combine_and_minify_css(css_files, minified_css_path)
 
 
-def generate_root_redirect(output_dir, default_language):
-    """
-    Генерирует корневой index.html с редиректом на язык по умолчанию.
-    """
+def generate_root_redirect(output_dir: str, default_language: str) -> None:
+    """Создаёт корневой index.html с мета-редиректом на язык по умолчанию."""
     redirect_path = f'/{default_language}/'
     content = f"""<!doctype html>
 <html lang="{default_language}">
@@ -168,10 +161,8 @@ def generate_root_redirect(output_dir, default_language):
     print(f'Корневой редирект создан: {file_path}')
 
 
-def generate_html(mode, static_version):
-    """
-    Генерирует HTML-файлы для всех языков.
-    """
+def generate_html(mode: str, static_version: str) -> None:
+    """Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier)."""
     print(f'Генерация HTML в режиме {mode}...')
     print(f'Версия статики: {static_version}')
 
@@ -194,10 +185,8 @@ def generate_html(mode, static_version):
     generate_root_redirect(base_output_dir, default_language)
 
 
-def generate_all(args):
-    """
-    Главная функция для генерации всех статических файлов.
-    """
+def generate_all(args: argparse.Namespace) -> None:
+    """Запускает полный цикл генерации: очистка → шилды → JS → CSS → HTML."""
     print('Начинается генерация статических файлов...')
     static_version = str(int(time.time()))
     print(f'Сгенерирована версия статики: {static_version}')

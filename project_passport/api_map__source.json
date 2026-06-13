@@ -1,0 +1,462 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-13T08:05:26.386195+00:00",
+  "generator": "tools/extract_api_map.py",
+  "target": "source",
+  "scanned_python_files": 12,
+  "files_count": 7,
+  "skipped_files_count": 5,
+  "skipped_files": [
+    "source/content/__init__.py",
+    "source/html_generator/__init__.py",
+    "source/scripts_generator/__init__.py",
+    "source/shields_generator/__init__.py",
+    "source/styles_generator/__init__.py"
+  ],
+  "stats": {
+    "modules": 7,
+    "classes": 0,
+    "dataclasses": 0,
+    "functions": 31,
+    "methods": 0,
+    "constants": 2
+  },
+  "modules": [
+    {
+      "path": "source/content/content_loader.py",
+      "module_docstring": "Загрузка и агрегация JSON-контента для рендеринга по локали.",
+      "module_summary": "Загрузка и агрегация JSON-контента для рендеринга по локали.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "load_json",
+          "signature": "load_json(file_path: Path | str) -> Any",
+          "docstring": "Загружает JSON-файл и возвращает его содержимое.",
+          "summary": "Загружает JSON-файл и возвращает его содержимое.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 12,
+          "end_lineno": 15
+        },
+        {
+          "name": "normalize_key",
+          "signature": "normalize_key(file_name: str) -> str",
+          "docstring": "Преобразует имя файла в ключ контекста (дефис → подчёркивание).",
+          "summary": "Преобразует имя файла в ключ контекста (дефис → подчёркивание).",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 18,
+          "end_lineno": 20
+        },
+        {
+          "name": "load_locale_content",
+          "signature": "load_locale_content(locale: str = 'ru') -> dict[str, Any]",
+          "docstring": "Загружает все JSON-файлы локали и возвращает словарь ключ→данные.",
+          "summary": "Загружает все JSON-файлы локали и возвращает словарь ключ→данные.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 23,
+          "end_lineno": 32
+        },
+        {
+          "name": "build_context",
+          "signature": "build_context(locale: str = 'ru') -> dict[str, Any]",
+          "docstring": "Возвращает полный контекст рендеринга для указанной локали.",
+          "summary": "Возвращает полный контекст рендеринга для указанной локали.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 35,
+          "end_lineno": 37
+        }
+      ],
+      "constants": [
+        {
+          "name": "CONTENT_DIR",
+          "annotation": null,
+          "value_repr": "Path(__file__).resolve().parent",
+          "lineno": 9
+        }
+      ],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 4,
+        "methods": 0,
+        "constants": 1
+      }
+    },
+    {
+      "path": "source/generate_static.py",
+      "module_docstring": "Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.",
+      "module_summary": "Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "clear_directories",
+          "signature": "clear_directories(directories: list[str]) -> None",
+          "docstring": "Удаляет и пересоздаёт указанные директории.",
+          "summary": "Удаляет и пересоздаёт указанные директории.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 55,
+          "end_lineno": 70
+        },
+        {
+          "name": "generate_shields",
+          "signature": "generate_shields() -> None",
+          "docstring": "Генерирует SVG-шилды для всех CSV-файлов в папке данных.",
+          "summary": "Генерирует SVG-шилды для всех CSV-файлов в папке данных.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 73,
+          "end_lineno": 111
+        },
+        {
+          "name": "generate_scripts",
+          "signature": "generate_scripts() -> None",
+          "docstring": "Минифицирует JS-файлы и сохраняет их в выходную директорию.",
+          "summary": "Минифицирует JS-файлы и сохраняет их в выходную директорию.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 114,
+          "end_lineno": 120
+        },
+        {
+          "name": "generate_css",
+          "signature": "generate_css() -> None",
+          "docstring": "Объединяет CSS-файлы и сохраняет минифицированный результат.",
+          "summary": "Объединяет CSS-файлы и сохраняет минифицированный результат.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 123,
+          "end_lineno": 136
+        },
+        {
+          "name": "generate_root_redirect",
+          "signature": "generate_root_redirect(output_dir: str, default_language: str) -> None",
+          "docstring": "Создаёт корневой index.html с мета-редиректом на язык по умолчанию.",
+          "summary": "Создаёт корневой index.html с мета-редиректом на язык по умолчанию.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 139,
+          "end_lineno": 161
+        },
+        {
+          "name": "generate_html",
+          "signature": "generate_html(mode: str, static_version: str) -> None",
+          "docstring": "Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).",
+          "summary": "Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 164,
+          "end_lineno": 185
+        },
+        {
+          "name": "generate_all",
+          "signature": "generate_all(args: argparse.Namespace) -> None",
+          "docstring": "Запускает полный цикл генерации: очистка → шилды → JS → CSS → HTML.",
+          "summary": "Запускает полный цикл генерации: очистка → шилды → JS → CSS → HTML.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 188,
+          "end_lineno": 211
+        }
+      ],
+      "constants": [
+        {
+          "name": "CONFIG",
+          "annotation": null,
+          "value_repr": "{'html': {'output_directory': '../static', 'template_directory': './html_generator/templates', 'index_file': 'index.html', 'content_directory': './content', 'languages': ['ru', 'en'], 'default_language': 'ru'}, 'scripts': {'input_directory': './scripts_generator/scripts', 'output_directory': '../static/scripts'}, 'css': {'directory': './styles_generator/styles/', 'target_directory': '../static/styles/', 'minified_file': 'main.css'}, 'shields': {'data_directory': './shields_generator/csv_data', 'target_base_directory': '../static/images/shields', 'template_path': './shields_generator/template.svg', 'color': 'blue', 'logo_color': '#21e7e7', 'new_height': '30', 'time_sleep': 0, 'scale_factors': {'width_scale_factor': 0.9, 'text_length_scale_factor': 0.85, 'x_scale_factor': 0.87, 'y_scale_factor': 0.9}}}",
+          "lineno": 19
+        }
+      ],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 7,
+        "methods": 0,
+        "constants": 1
+      }
+    },
+    {
+      "path": "source/html_generator/generate_html.py",
+      "module_docstring": "Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).",
+      "module_summary": "Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).",
+      "classes": [],
+      "functions": [
+        {
+          "name": "render_template",
+          "signature": "render_template(template_name: str, context: dict[str, Any] | None = None, template_dir: str = './html_generator/templates') -> str",
+          "docstring": "Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.",
+          "summary": "Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 15,
+          "end_lineno": 29
+        },
+        {
+          "name": "generate_index_page",
+          "signature": "generate_index_page(output_dir: str, template_dir: str, index_file: str, mode: str, locale: str = 'ru', static_version: str = '') -> None",
+          "docstring": "Рендерит и сохраняет index.html для указанной локали и режима.",
+          "summary": "Рендерит и сохраняет index.html для указанной локали и режима.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 32,
+          "end_lineno": 71
+        },
+        {
+          "name": "format_with_prettier",
+          "signature": "format_with_prettier(file_path: str) -> None",
+          "docstring": "Форматирует HTML-файл через Prettier (требует npx в PATH).",
+          "summary": "Форматирует HTML-файл через Prettier (требует npx в PATH).",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 74,
+          "end_lineno": 94
+        },
+        {
+          "name": "minify_html",
+          "signature": "minify_html(file_path: str, rendered_html: str) -> None",
+          "docstring": "Минифицирует HTML и перезаписывает файл.",
+          "summary": "Минифицирует HTML и перезаписывает файл.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 97,
+          "end_lineno": 102
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 4,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "source/scripts_generator/generate_scripts.py",
+      "module_docstring": "Минификация и сохранение JavaScript-файлов через jsmin.",
+      "module_summary": "Минификация и сохранение JavaScript-файлов через jsmin.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "minify_script",
+          "signature": "minify_script(script_content: str) -> str | None",
+          "docstring": "Минифицирует JS-строку и возвращает результат или None при ошибке.",
+          "summary": "Минифицирует JS-строку и возвращает результат или None при ошибке.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 9,
+          "end_lineno": 15
+        },
+        {
+          "name": "read_script",
+          "signature": "read_script(file_path: str) -> str | None",
+          "docstring": "Читает JS-файл и возвращает его содержимое или None при ошибке.",
+          "summary": "Читает JS-файл и возвращает его содержимое или None при ошибке.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 18,
+          "end_lineno": 27
+        },
+        {
+          "name": "save_minified_script",
+          "signature": "save_minified_script(minified_content: str, output_path: str) -> None",
+          "docstring": "Сохраняет минифицированный JS в файл, создавая директории при необходимости.",
+          "summary": "Сохраняет минифицированный JS в файл, создавая директории при необходимости.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 30,
+          "end_lineno": 38
+        },
+        {
+          "name": "process_scripts",
+          "signature": "process_scripts(input_directory: str, output_directory: str) -> None",
+          "docstring": "Минифицирует все JS-файлы из входной директории и сохраняет в выходную.",
+          "summary": "Минифицирует все JS-файлы из входной директории и сохраняет в выходную.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 41,
+          "end_lineno": 59
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 4,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "source/shields_generator/api/shieldsio.py",
+      "module_docstring": "HTTP-клиент shields.io: запрос SVG-бейджа и первичный парсинг данных.",
+      "module_summary": "HTTP-клиент shields.io: запрос SVG-бейджа и первичный парсинг данных.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "fetch_shield_data",
+          "signature": "fetch_shield_data(title: str, color: str, logo: str, logo_color: str) -> str | None",
+          "docstring": "Выполняет GET-запрос к shields.io и возвращает SVG-контент или None при ошибке.",
+          "summary": "Выполняет GET-запрос к shields.io и возвращает SVG-контент или None при ошибке.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 10,
+          "end_lineno": 23
+        },
+        {
+          "name": "parse_svg",
+          "signature": "parse_svg(svg_content: str) -> dict[str, Any] | None",
+          "docstring": "Парсит SVG-строку и возвращает словарь с размерами, текстами и href изображения.",
+          "summary": "Парсит SVG-строку и возвращает словарь с размерами, текстами и href изображения.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 26,
+          "end_lineno": 54
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 2,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "source/shields_generator/generate_shields.py",
+      "module_docstring": "Генерация кастомных SVG-шилдов: масштабирование, шаблон, сохранение.",
+      "module_summary": "Генерация кастомных SVG-шилдов: масштабирование, шаблон, сохранение.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "fetch_and_parse_svg",
+          "signature": "fetch_and_parse_svg(title: str, color: str, logo: str, logo_color: str) -> dict[str, Any] | None",
+          "docstring": "Запрашивает SVG у shields.io и возвращает распарсенные данные или None.",
+          "summary": "Запрашивает SVG у shields.io и возвращает распарсенные данные или None.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 13,
+          "end_lineno": 23
+        },
+        {
+          "name": "scale_parameters",
+          "signature": "scale_parameters(parsed_data: dict[str, Any], new_height: str, width_scale_factor: float, text_length_scale_factor: float, x_scale_factor: float, y_scale_factor: float) -> dict[str, Any]",
+          "docstring": "Пересчитывает размеры и координаты SVG с применением коэффициентов масштабирования.",
+          "summary": "Пересчитывает размеры и координаты SVG с применением коэффициентов масштабирования.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 26,
+          "end_lineno": 67
+        },
+        {
+          "name": "prepare_template_data",
+          "signature": "prepare_template_data(title: str, docs_href: str, scaled_data: dict[str, Any]) -> dict[str, str]",
+          "docstring": "Формирует словарь подстановочных значений для SVG-шаблона.",
+          "summary": "Формирует словарь подстановочных значений для SVG-шаблона.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 70,
+          "end_lineno": 82
+        },
+        {
+          "name": "minify_svg",
+          "signature": "minify_svg(svg_code: str) -> str",
+          "docstring": "Удаляет комментарии и лишние пробелы из SVG-строки.",
+          "summary": "Удаляет комментарии и лишние пробелы из SVG-строки.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 85,
+          "end_lineno": 90
+        },
+        {
+          "name": "save_svg_to_file",
+          "signature": "save_svg_to_file(template_data: dict[str, str], template_path: str, output_directory: str, title: str) -> None",
+          "docstring": "Подставляет данные в SVG-шаблон, минифицирует и сохраняет файл.",
+          "summary": "Подставляет данные в SVG-шаблон, минифицирует и сохраняет файл.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 93,
+          "end_lineno": 110
+        },
+        {
+          "name": "generate_custom_svg",
+          "signature": "generate_custom_svg(title: str, color: str, logo: str, logo_color: str, docs_href: str, new_height: str, output_directory: str, template_path: str, width_scale_factor: float, text_length_scale_factor: float, x_scale_factor: float, y_scale_factor: float) -> None",
+          "docstring": "Полный цикл генерации одного SVG-шилда: запрос → масштаб → шаблон → файл.",
+          "summary": "Полный цикл генерации одного SVG-шилда: запрос → масштаб → шаблон → файл.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 113,
+          "end_lineno": 141
+        },
+        {
+          "name": "read_params_from_csv",
+          "signature": "read_params_from_csv(file_path: str) -> list[tuple[str, str, str]]",
+          "docstring": "Читает CSV с колонками title/logo/docs_href и возвращает список кортежей.",
+          "summary": "Читает CSV с колонками title/logo/docs_href и возвращает список кортежей.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 144,
+          "end_lineno": 156
+        },
+        {
+          "name": "generate_shield_template",
+          "signature": "generate_shield_template(project_name: str, params: list[tuple[str, str, str]], output_template_path: str) -> None",
+          "docstring": "Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта.",
+          "summary": "Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 159,
+          "end_lineno": 186
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 8,
+        "methods": 0,
+        "constants": 0
+      }
+    },
+    {
+      "path": "source/styles_generator/generate_styles.py",
+      "module_docstring": "Поиск, объединение и минификация CSS-файлов.",
+      "module_summary": "Поиск, объединение и минификация CSS-файлов.",
+      "classes": [],
+      "functions": [
+        {
+          "name": "find_css_files",
+          "signature": "find_css_files(directory: str) -> list[str]",
+          "docstring": "Рекурсивно находит все CSS-файлы в указанной директории.",
+          "summary": "Рекурсивно находит все CSS-файлы в указанной директории.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 9,
+          "end_lineno": 16
+        },
+        {
+          "name": "combine_and_minify_css",
+          "signature": "combine_and_minify_css(input_files: list[str], output_file: str) -> None",
+          "docstring": "Объединяет CSS-файлы в один и сохраняет минифицированный результат.",
+          "summary": "Объединяет CSS-файлы в один и сохраняет минифицированный результат.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 19,
+          "end_lineno": 31
+        }
+      ],
+      "constants": [],
+      "stats": {
+        "classes": 0,
+        "dataclasses": 0,
+        "functions": 2,
+        "methods": 0,
+        "constants": 0
+      }
+    }
+  ]
+}
