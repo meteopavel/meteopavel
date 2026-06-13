@@ -152,13 +152,14 @@ if [[ -f "${ARCHIVE_PATH}" ]]; then
   rm -f "${ARCHIVE_PATH}"
 fi
 
-echo '🔐 Создаём зашифрованный архив (docs/, CLAUDE.md, .claude/)...'
+echo '🔐 Создаём зашифрованный архив (docs/, CLAUDE.md, .claude/, .env)...'
 (
   cd "${REPO_ROOT}"
   7z a -p"${ARCHIVE_PASSWORD}" -mhe=on "${ARCHIVE_PATH}" \
     "docs" \
     "CLAUDE.md" \
-    ".claude"
+    ".claude" \
+    ".env"
 )
 echo '✅ Архив успешно создан.'
 
