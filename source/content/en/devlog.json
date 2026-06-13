@@ -1,0 +1,151 @@
+{
+  "button_label": "DEV LOG",
+  "tasks_label": "tasks",
+  "months": [
+    {
+      "period": "2026-05",
+      "label": "May 2026",
+      "tasks": 24,
+      "entries": [
+        "Security: GET→POST migration of endpoint with side effects, backward-compatible",
+        "Critical SMTP bug: root cause in config incompatibility, diagnosed and fixed in 1 working day",
+        "Closed the year-long external editor integration cycle (June 2025 → May 2026)",
+        "distinct() without ORDER BY: non-deterministic results at production scale",
+        "Webhook integration: data mapping, error handling, retry logic"
+      ]
+    },
+    {
+      "period": "2026-04",
+      "label": "April 2026",
+      "tasks": 29,
+      "note": "record month",
+      "entries": [
+        "Proxy architecture for external editor: runtime XHR/fetch interception, domain substitution without modifying third-party code",
+        "SPF/DNS score API: aggregating multiple DNS checks into a single metric",
+        "SPF chain visualization page with step-by-step breakdown",
+        "XSS via sanitize-bypass in non-standard field type: discovery, fix, audit of similar locations"
+      ]
+    },
+    {
+      "period": "2026-03",
+      "label": "March 2026",
+      "tasks": 29,
+      "entries": [
+        "Geo-filtering by city/country in segments: string data normalization, composite conditions",
+        "Root cause of 500-error in send mechanism: chain of three individually-correct conditions",
+        "Template mechanism refactor: universal include to eliminate duplication",
+        "RFC email validation finalization: form integration with inline errors"
+      ]
+    },
+    {
+      "period": "2026-02",
+      "label": "February 2026",
+      "tasks": 10,
+      "entries": [
+        "Deep audit and refactor of JS modal component",
+        "Root cause of counter bug series: incorrect aggregation with multiple JOINs",
+        "Popup via iframe: CSS isolation, context passing",
+        "Static assets migration from CDN to self-hosted (nginx)"
+      ]
+    },
+    {
+      "period": "2026-01",
+      "label": "January 2026",
+      "tasks": 20,
+      "note": "Junior Developer",
+      "entries": [
+        "Regex validation with inline UI errors",
+        "RFC email parser: non-standard formats, edge cases",
+        "XSS discovery via legacy rendering mechanism (mark_safe + user-controlled input)"
+      ]
+    },
+    {
+      "period": "2025-12",
+      "label": "December 2025",
+      "tasks": 36,
+      "entries": [
+        "Three critical bugs in one day — all resolved same day",
+        "XSS vulnerability discovered and patched in legacy code, similar locations audited",
+        "Celery investigation: root cause identified, context handed to team",
+        "Manual testing of 25+ email templates after infrastructure changes"
+      ]
+    },
+    {
+      "period": "2025-11",
+      "label": "November 2025",
+      "tasks": 25,
+      "entries": [
+        "Editor template system refactor: 8 templates → 1 universal, −300 lines of code",
+        "EOL dependency replacement 5 weeks before deadline",
+        "Dialog component centralization: 29+ duplicates → single control point, 37 files changed",
+        "302-redirect investigation: curl → incognito → cookies → Middleware"
+      ]
+    },
+    {
+      "period": "2025-10",
+      "label": "October 2025",
+      "tasks": 34,
+      "entries": [
+        "Full integration cycle with external system: production incident (rate limit 429) + cache solution",
+        "Frontend security audit: 10+ apps, CSV report with risk classification",
+        "Search query optimization via pyinstrument on prod replica: 8–10x speedup",
+        "Editor task series: CSS feature flag, auto-preview, adaptive height"
+      ]
+    },
+    {
+      "period": "2025-09",
+      "label": "September 2025",
+      "tasks": 27,
+      "note": "probation period",
+      "entries": [
+        "Compliance form with 3-day deadline — completed in 2",
+        "Undelivered emails investigation: Celery log analysis and 5 years of git history, 6x reduction",
+        "Comment mechanism refactor: 3 different implementations → one universal function",
+        "First solo stage deploy: migration incident, self-recovery"
+      ]
+    },
+    {
+      "period": "2025-08",
+      "label": "August 2025",
+      "tasks": 23,
+      "entries": [
+        "SLA timer: Celery periodic task, webhook on deadline",
+        "Statistics dashboard: finalization and production deploy",
+        "Bulk SPF parser for domain lists with report",
+        "Pagination audit: systemic N+1 and COUNT issues discovered"
+      ]
+    },
+    {
+      "period": "2025-07",
+      "label": "July 2025",
+      "tasks": 17,
+      "entries": [
+        "SPF hotfixes: 7 tasks in 2 days, edge cases on real-world data",
+        "Statistics dashboard: Django ORM aggregations, query optimization",
+        "External system integration: webhook, status sync"
+      ]
+    },
+    {
+      "period": "2025-06",
+      "label": "June 2025",
+      "tasks": 12,
+      "entries": [
+        "Visual editor integration: iframe proxying, CORS bypass, postMessage",
+        "Email validation module: RFC 5321/5322 parser, error classification",
+        "SPF validation: parser, DNS chain edge cases",
+        "Investigation and fix of backend error series"
+      ]
+    },
+    {
+      "period": "2025-05",
+      "label": "May 2025",
+      "tasks": 4,
+      "note": "first 3 weeks",
+      "entries": [
+        "Backend: test writing, first contribution to test coverage",
+        "Bugfix: date calculation error (timedelta)",
+        "First solo production deploy — day 5"
+      ]
+    }
+  ]
+}

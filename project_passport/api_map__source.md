@@ -8,7 +8,7 @@
 - модулей: 7
 - классов: 0
 - dataclass: 0
-- функций: 35
+- функций: 36
 - методов: 0
 - констант: 3
 
@@ -90,6 +90,9 @@
 Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).
 
 Функции:
+
+- `_ru_plural(n: int, one: str, few: str, many: str) -> str`
+  Возвращает правильную форму русского существительного по числу.
 
 - `render_template(template_name: str, context: dict[str, Any] | None = None, template_dir: str = './html_generator/templates') -> str`
   Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.

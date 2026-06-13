@@ -1,0 +1,161 @@
+/* Кнопка-тоггл: полный сброс + стили как у .container__column--right a */
+.devlog__toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-color);
+  font-size: inherit;
+  line-height: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color var(--transition-time) var(--transition-timing-function);
+}
+
+.devlog__toggle:hover,
+.devlog__toggle.devlog__toggle--open {
+  color: var(--primary-color);
+}
+
+/* Карточка: вертикальная раскладка с вложенным девлогом */
+.mailganer__card {
+  flex-direction: column;
+  gap: 0;
+}
+
+.mailganer__card.mailganer__card--open {
+  background-color: var(--hover-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.mailganer__card.mailganer__card--open .preview-icon {
+  color: var(--primary-color);
+}
+
+.mailganer__row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Панель девлога */
+.devlog {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--primary-color);
+}
+
+.devlog--open {
+  display: block;
+}
+
+/* Навигация: один-в-один как lang-switcher */
+.devlog__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.devlog__years,
+.devlog__months-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.devlog__year-btn,
+.devlog__month-btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px var(--primary-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color var(--transition-time) var(--transition-timing-function),
+              color var(--transition-time) var(--transition-timing-function);
+}
+
+.devlog__year-btn:hover:not(.devlog__year-btn--active),
+.devlog__month-btn:hover:not(.devlog__month-btn--active) {
+  background-color: var(--hover-color);
+}
+
+.devlog__year-btn--active,
+.devlog__month-btn--active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+/* Контент месяца */
+.devlog__month-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.devlog__month-title {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-smaller-text);
+  color: var(--secondary-color);
+}
+
+.devlog__month-meta {
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+.devlog__month-note {
+  font-size: 12px;
+  color: var(--primary-color);
+  padding: 2px 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.devlog__items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 0;
+}
+
+.devlog__item {
+  font-size: var(--font-size-smaller-text);
+  line-height: var(--line-height-smaller-text);
+  color: var(--text-color);
+  padding-left: 20px;
+  position: relative;
+}
+
+.devlog__item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary-color);
+  line-height: var(--line-height-smaller-text);
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-regular);
+}
