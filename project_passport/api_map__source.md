@@ -74,7 +74,7 @@
   Объединяет CSS-файлы и сохраняет минифицированный результат.
 
 - `generate_root_redirect(output_dir: str, default_language: str) -> None`
-  Создаёт корневой index.html с мета-редиректом на язык по умолчанию.
+  Создаёт корневой index.html с детекцией языка браузера и памятью выбора.
 
 - `generate_html(mode: str, static_version: str) -> None`
   Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).

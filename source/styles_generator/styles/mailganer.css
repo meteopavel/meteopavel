@@ -1,8 +1,3 @@
-.section__item--featured {
-  background-color: var(--hover-color);
-  box-shadow: 0 0 0 2px var(--primary-color);
-}
-
 .mailganer__meta {
   display: flex;
   flex-wrap: wrap;

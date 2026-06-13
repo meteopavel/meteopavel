@@ -1,10 +1,28 @@
-header a {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  color: var(--secondary-color);
-  transition: color var(--transition-time) var(--transition-timing-function);
+.lang-switcher {
+  display: flex;
+  gap: 11px;
 }
 
-header a:hover {
-  color: var(--primary-color);
+.lang-switcher__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px var(--primary-color);
+  transition: background-color var(--transition-time) var(--transition-timing-function),
+              color var(--transition-time) var(--transition-timing-function);
+}
+
+.lang-switcher__item--active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.lang-switcher__item:hover:not(.lang-switcher__item--active) {
+  background-color: var(--hover-color);
 }

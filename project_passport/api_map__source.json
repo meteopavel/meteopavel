@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T09:56:32.035613+00:00",
+  "generated_at": "2026-06-13T10:21:13.623103+00:00",
   "generator": "tools/extract_api_map.py",
   "target": "source",
   "scanned_python_files": 12,
@@ -174,12 +174,12 @@
         {
           "name": "generate_root_redirect",
           "signature": "generate_root_redirect(output_dir: str, default_language: str) -> None",
-          "docstring": "Создаёт корневой index.html с мета-редиректом на язык по умолчанию.",
-          "summary": "Создаёт корневой index.html с мета-редиректом на язык по умолчанию.",
+          "docstring": "Создаёт корневой index.html с детекцией языка браузера и памятью выбора.",
+          "summary": "Создаёт корневой index.html с детекцией языка браузера и памятью выбора.",
           "kind": "function",
           "decorators": [],
           "lineno": 182,
-          "end_lineno": 204
+          "end_lineno": 207
         },
         {
           "name": "generate_html",
@@ -188,8 +188,8 @@
           "summary": "Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).",
           "kind": "function",
           "decorators": [],
-          "lineno": 207,
-          "end_lineno": 228
+          "lineno": 210,
+          "end_lineno": 231
         },
         {
           "name": "generate_all",
@@ -198,8 +198,8 @@
           "summary": "Запускает полный цикл генерации: очистка → шилды → JS → CSS → HTML.",
           "kind": "function",
           "decorators": [],
-          "lineno": 231,
-          "end_lineno": 247
+          "lineno": 234,
+          "end_lineno": 250
         }
       ],
       "constants": [

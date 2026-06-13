@@ -6,8 +6,10 @@
   </head>
   <body>
     <header class="header">
-      <a href="{{ ru_url }}" {% if current_lang == 'ru' %}class="active"{% endif %}>RU</a> ||
-      <a href="{{ en_url }}" {% if current_lang == 'en' %}class="active"{% endif %}>EN</a>
+      <nav class="lang-switcher">
+        <a href="{{ ru_url }}" onclick="localStorage.setItem('preferred_lang','ru')" class="lang-switcher__item{% if current_lang == 'ru' %} lang-switcher__item--active{% endif %}">RU</a>
+        <a href="{{ en_url }}" onclick="localStorage.setItem('preferred_lang','en')" class="lang-switcher__item{% if current_lang == 'en' %} lang-switcher__item--active{% endif %}">EN</a>
+      </nav>
     </header>
     <div class="container">
       {% include "./column_left/column_left.html" %}
