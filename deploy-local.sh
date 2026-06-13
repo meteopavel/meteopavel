@@ -74,6 +74,18 @@ confirm() {
   esac
 }
 
+update_project_passport() {
+  echo '🪪 Обновляем паспорт проекта...'
+
+  (
+    cd "${REPO_ROOT}"
+    "${PYTHON_BIN}" tools/build_project_passport.py --project-root .
+    "${PYTHON_BIN}" tools/extract_api_map.py source --project-root . --exclude .venv __pycache__ node_modules
+  )
+
+  echo '✅ Паспорт проекта обновлён.'
+}
+
 build_static() {
   local html_mode="$1"
   local use_no_shields="$2"
@@ -169,6 +181,10 @@ rsync -avz --progress \
   --rsh="sshpass -e ssh" \
   "${ARCHIVE_PATH}" "${SECURE_RSYNC_USER}@${SECURE_RSYNC_HOST}:${SECURE_RSYNC_PATH}"
 echo '✅ Архив успешно отправлен на сервер.'
+
+# ================= PROJECT PASSPORT =================
+
+update_project_passport
 
 # ================= СБОРКА =================
 
