@@ -4,7 +4,7 @@
     {% include "meta.html" %}
     {% include "links.html" %}
   </head>
-  <body>
+  <body class="loading">
     <header class="header">
       <nav class="lang-switcher">
         <a href="{{ ru_url }}" onclick="localStorage.setItem('preferred_lang','ru')" class="lang-switcher__item{% if current_lang == 'ru' %} lang-switcher__item--active{% endif %}">RU</a>

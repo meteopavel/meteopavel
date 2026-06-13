@@ -31,6 +31,7 @@
 
 .project__shields img {
   height: 30px;
+  min-width: 60px;
   display: block;
 }
 
