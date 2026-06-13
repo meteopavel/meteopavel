@@ -2,8 +2,13 @@
 set -euo pipefail
 
 NON_INTERACTIVE=false
-for arg in "$@"; do
-  [[ "$arg" == "--non-interactive" ]] && NON_INTERACTIVE=true
+COMMIT_MESSAGE_ARG=''
+args=("$@")
+for ((i=0; i<${#args[@]}; i++)); do
+  case "${args[$i]}" in
+    --non-interactive) NON_INTERACTIVE=true ;;
+    --message|-m) COMMIT_MESSAGE_ARG="${args[$((i+1))]}"; i=$((i+1)) ;;
+  esac
 done
 
 REPO_REQUIRED_REMOTE='git@github.com:meteopavel/meteopavel.git'
@@ -267,7 +272,9 @@ echo '📋 Текущий git status:'
 )
 echo
 
-if [[ "$NON_INTERACTIVE" == true ]]; then
+if [[ -n "$COMMIT_MESSAGE_ARG" ]]; then
+  COMMIT_MESSAGE="$COMMIT_MESSAGE_ARG"
+elif [[ "$NON_INTERACTIVE" == true ]]; then
   COMMIT_MESSAGE="$DEFAULT_COMMIT_MESSAGE"
   echo "ℹ️ Режим без ввода: используется сообщение по умолчанию: ${COMMIT_MESSAGE}"
 else
