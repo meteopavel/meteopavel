@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T12:27:05.111882+00:00",
+  "generated_at": "2026-06-13T12:35:45.977478+00:00",
   "generated_by": "tools/build_project_passport.py",
   "id": "meteopavel",
   "title": "meteopavel.space — Static Site Generator",
@@ -47,7 +47,7 @@
     "scanned_python_files": 12,
     "classes": 0,
     "dataclasses": 0,
-    "functions": 35,
+    "functions": 36,
     "methods": 0,
     "constants": 3,
     "has_cli": false,
@@ -83,6 +83,17 @@
         }
       },
       {
+        "path": "source/html_generator/generate_html.py",
+        "summary": "Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).",
+        "stats": {
+          "classes": 0,
+          "dataclasses": 0,
+          "functions": 5,
+          "methods": 0,
+          "constants": 0
+        }
+      },
+      {
         "path": "source/content/content_loader.py",
         "summary": "Загрузка и агрегация JSON-контента для рендеринга по локали.",
         "stats": {
@@ -96,17 +107,6 @@
       {
         "path": "source/scripts_generator/generate_scripts.py",
         "summary": "Минификация и сохранение JavaScript-файлов через jsmin.",
-        "stats": {
-          "classes": 0,
-          "dataclasses": 0,
-          "functions": 4,
-          "methods": 0,
-          "constants": 0
-        }
-      },
-      {
-        "path": "source/html_generator/generate_html.py",
-        "summary": "Рендеринг Jinja2-шаблонов и постобработка HTML (minify / prettier).",
         "stats": {
           "classes": 0,
           "dataclasses": 0,
@@ -136,7 +136,7 @@
   },
   "source": {
     "api_map_schema_version": "1.0",
-    "api_map_generated_at": "2026-06-13T11:05:52.814994+00:00",
+    "api_map_generated_at": "2026-06-13T12:27:05.200741+00:00",
     "api_map_generator": "tools/extract_api_map.py",
     "meta_auto_generated": false,
     "meta_review_status": "reviewed"

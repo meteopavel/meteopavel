@@ -51,10 +51,7 @@
 
 @media (max-width: 460px) {
   .section__item:hover {
-    pointer-events: none;
-  }
-
-  .section__item:hover .preview-icon {
-    pointer-events: none;
+    background-color: transparent;
+    box-shadow: none;
   }
 }
