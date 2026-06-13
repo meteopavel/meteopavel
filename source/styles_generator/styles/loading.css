@@ -12,19 +12,16 @@
   animation: skeleton-shimmer 1.5s ease-in-out infinite;
 }
 
-/* svg-иконки: убираем фон после window.load через body.loading */
-body.loading svg.contact-icon,
-body.loading svg.preview-icon {
+.project__shields img:not(.img-loaded) {
+  border-radius: 15px;
+}
+
+/* svg-иконки: shimmer до загрузки SVG-файла, убирается через fetch + svg-loaded */
+svg.contact-icon:not(.svg-loaded),
+svg.preview-icon:not(.svg-loaded) {
   display: block;
   background: linear-gradient(90deg, var(--hover-color) 25%, var(--skeleton-color) 50%, var(--hover-color) 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.5s ease-in-out infinite;
-}
-
-body.loading svg.contact-icon {
-  border-radius: 50%;
-}
-
-body.loading svg.preview-icon {
   border-radius: 8px;
 }
