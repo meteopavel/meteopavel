@@ -24,6 +24,16 @@
   gap: 5px;
 }
 
+.project__shields a {
+  display: flex;
+  align-items: center;
+}
+
+.project__shields img {
+  height: 30px;
+  display: block;
+}
+
 .project__links-view_all {
   font-size: 16px;
   justify-content: end;

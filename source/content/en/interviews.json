@@ -1,10 +1,21 @@
 {
-  "title": "Interviews",
+  "title": "Public Interviews",
   "items": [
+    {
+      "title": "Interview on Andrey Pronin's Channel",
+      "description": "Andrey Pronin runs an outsourcing company and hosts public developer interviews on his YouTube channel. One hour to build a DRF project from scratch — live on camera. I participated alongside Daulet — we pulled it off.",
+      "videoId": "44Sm03k-bGc",
+      "videoUrl": "https://www.youtube.com/embed/44Sm03k-bGc",
+      "youtubeUrl": "https://www.youtube.com/watch?v=44Sm03k-bGc",
+      "thumbnail": "https://i.ytimg.com/vi/44Sm03k-bGc/maxresdefault.jpg"
+    },
     {
       "title": "Interview on Evgeny Bartenev's Channel",
       "description": "Evgeny is a Yandex Practicum tech lead with more than 20 years of experience in IT. In the interview, I confidently answer questions, show how I think, how I solve problems — and even when I make mistakes, it becomes a great opportunity for a valuable discussion. The mock interview turned out to be lively, honest, and useful.",
-      "videoUrl": "https://www.youtube.com/embed/MbiBisgsGBU?si=kozPSRIdzbJwt_EU"
+      "videoId": "MbiBisgsGBU",
+      "videoUrl": "https://www.youtube.com/embed/MbiBisgsGBU",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MbiBisgsGBU",
+      "thumbnail": "https://i.ytimg.com/vi/MbiBisgsGBU/maxresdefault.jpg"
     }
   ]
 }

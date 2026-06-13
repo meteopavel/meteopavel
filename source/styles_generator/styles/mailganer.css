@@ -1,0 +1,33 @@
+.section__item--featured {
+  background-color: var(--hover-color);
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.mailganer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.mailganer__period {
+  color: var(--text-color);
+  font-size: var(--font-size-smaller-text);
+  font-family: var(--font-family-regular);
+  font-weight: var(--font-weight-regular);
+}
+
+.mailganer__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 18px;
+  font-size: var(--font-size-smaller-text);
+  line-height: var(--line-height-smaller-text);
+  color: var(--text-color);
+  letter-spacing: var(--letter-spacing-smaller-text);
+}
+
+.mailganer__highlights li::marker {
+  color: var(--primary-color);
+}

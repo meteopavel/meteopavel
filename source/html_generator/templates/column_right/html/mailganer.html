@@ -1,0 +1,24 @@
+<!-- Commercial Experience: Mailganer -->
+<section class="mailganer section">
+  <h3 class="section__header">{{ mailganer["section_title"] }}</h3>
+  <div class="section__item highlightable">
+    <div class="section__item--left">
+      <svg class="preview-icon" viewBox="{{ mailganer.viewBox }}">
+        <use href="{{ mailganer.icon }}" class="preview-icon" />
+      </svg>
+    </div>
+    <div class="section__item--right">
+      <p class="section__p section__p--smaller">
+        <span class="mailganer__meta">
+          <span>{{ mailganer.role }} — {{ mailganer.company }}</span>
+          <span class="mailganer__period">{{ mailganer.period }}</span>
+        </span>
+      </p>
+      <p class="section__p section__p--smaller">{{ mailganer.tagline }}</p>
+      {% for paragraph in mailganer.paragraphs %}
+        <p class="section__p section__p--smaller">{{ paragraph }}</p>
+      {% endfor %}
+      {% include mailganer.shields %}
+    </div>
+  </div>
+</section>

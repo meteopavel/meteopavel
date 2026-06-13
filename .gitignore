@@ -5,3 +5,4 @@ CLAUDE.md
 docs/
 secure/
 **/.DS_Store
+source/shields_generator/.shields_cache.json

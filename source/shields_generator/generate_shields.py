@@ -161,25 +161,18 @@ def generate_shield_template(
     params: list[tuple[str, str, str]],
     output_template_path: str,
 ) -> None:
-    """Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта."""
-    template_content = (
-        '<div class="project__shields">\n'
-        '  {% set shields = [\n'
-    )
-    for title, _, _ in params:
+    """Генерирует статический HTML-фрагмент со шилдами проекта (img в ссылке)."""
+    lines = ['<div class="project__shields">']
+    for title, _, docs_href in params:
         shield_name = f"{title.replace(' ', '_').lower()}.svg"
-        template_content += f'    "{shield_name}",\n'
-    template_content += (
-        '  ] %}\n'
-        '  \n'
-        '  {% for shield in shields %}\n'
-        f'    <object\n'
-        f'      type="image/svg+xml"\n'
-        f'      data="/images/shields/{project_name}/{{{{ shield }}}}"\n'
-        '    ></object>\n'
-        '  {% endfor %}\n'
-        '</div>'
-    )
+        src = f'/images/shields/{project_name}/{shield_name}'
+        lines.append(
+            f'  <a href="{docs_href}" target="_blank" rel="noopener noreferrer">'
+            f'<img src="{src}" alt="{title}" loading="lazy">'
+            f'</a>'
+        )
+    lines.append('</div>')
+    template_content = '\n'.join(lines)
     os.makedirs(os.path.dirname(output_template_path), exist_ok=True)
     with open(output_template_path, 'w', encoding='utf-8') as file:
         file.write(template_content)

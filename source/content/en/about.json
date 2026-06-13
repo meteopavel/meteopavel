@@ -1,10 +1,10 @@
 {
   "title": "About Me",
   "paragraphs": [
-    "I am a Junior+ web developer who creates accessible and efficient solutions, combining the power of backend development with elegant frontend implementation. My strong knowledge of HTML, CSS, TypeScript, and React allows me to build systems that deliver high performance, reliability, and intuitive user interfaces.",
-    "In backend development, I actively use frameworks such as Django, Flask, and FastAPI. They make it possible to quickly develop scalable RESTful API solutions and simplify working with databases. I never forget about query optimization to ensure applications run efficiently. When needed, I can also use pure SQL.",
-    "At the moment, I focus on complex systems where the backend ensures stable service operation, while the frontend makes them as convenient to use as possible. My goal is to create solutions that meet accessibility standards and provide an excellent user experience.",
-    "In my free time, I enjoy fitness, mountain hiking, cycling, and motorsports. These activities help me stay in good shape and maintain a healthy balance between work and rest.",
-    "I am always open to new opportunities and ready to collaborate on interesting projects that will help me grow as a specialist."
+    "I am a Python developer with commercial backend experience. I have been working at Mailganer — an email marketing platform — since May 2025: I grew from intern to Junior Developer, and am now stepping into the role of lead developer on an internal AI project built on RAG.",
+    "My core stack: Python, Django, PostgreSQL, JavaScript. I work on feature development, security auditing, complex bug investigations, and performance optimization. I am comfortable reading and improving existing codebases and finding root causes where the symptoms are not obvious.",
+    "Before programming, I spent 11 years as a university lecturer and worked as a meteorological engineer. This background gives me a strong sense for data, the ability to explain complex things clearly, and precision in problem formulation — things that years in an IDE alone cannot replace.",
+    "Outside of work, I enjoy fitness, mountain hiking, cycling, and motorsports.",
+    "I am open to new challenges and ready to collaborate."
   ]
 }

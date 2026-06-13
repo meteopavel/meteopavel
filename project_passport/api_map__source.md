@@ -8,9 +8,9 @@
 - модулей: 7
 - классов: 0
 - dataclass: 0
-- функций: 31
+- функций: 35
 - методов: 0
-- констант: 2
+- констант: 3
 
 ---
 
@@ -44,15 +44,28 @@
 Точка входа генератора статического сайта: HTML, CSS, JS и SVG-шилды.
 
 Константы:
+- `SHIELDS_CACHE_PATH = './shields_generator/.shields_cache.json'`
 - `CONFIG = {'html': {'output_directory': '../static', 'template_directory': './html_generator/templates', 'ind…`
 
 Функции:
+
+- `_csv_hash(csv_path: str) -> str`
+  Нет докстринга.
+
+- `_load_shields_cache() -> dict`
+  Нет докстринга.
+
+- `_save_shields_cache(cache: dict) -> None`
+  Нет докстринга.
+
+- `_shields_up_to_date(project_name: str, csv_path: str, shield_dir: str, template_path: str, cache: dict) -> bool`
+  True если CSV не изменился, все SVG на месте и HTML-шаблон существует.
 
 - `clear_directories(directories: list[str]) -> None`
   Удаляет и пересоздаёт указанные директории.
 
 - `generate_shields() -> None`
-  Генерирует SVG-шилды для всех CSV-файлов в папке данных.
+  Генерирует SVG-шилды для всех CSV-файлов в папке данных (с кэшем по хэшу CSV).
 
 - `generate_scripts() -> None`
   Минифицирует JS-файлы и сохраняет их в выходную директорию.
@@ -157,7 +170,7 @@ HTTP-клиент shields.io: запрос SVG-бейджа и первичны�
   Читает CSV с колонками title/logo/docs_href и возвращает список кортежей.
 
 - `generate_shield_template(project_name: str, params: list[tuple[str, str, str]], output_template_path: str) -> None`
-  Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта.
+  Генерирует статический HTML-фрагмент со шилдами проекта (img в ссылке).
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-06-13T08:28:05.266730+00:00",
+  "generated_at": "2026-06-13T09:48:54.111909+00:00",
   "generator": "tools/extract_api_map.py",
   "target": "source",
   "scanned_python_files": 12,
@@ -17,9 +17,9 @@
     "modules": 7,
     "classes": 0,
     "dataclasses": 0,
-    "functions": 31,
+    "functions": 35,
     "methods": 0,
-    "constants": 2
+    "constants": 3
   },
   "modules": [
     {
@@ -92,24 +92,64 @@
       "classes": [],
       "functions": [
         {
+          "name": "_csv_hash",
+          "signature": "_csv_hash(csv_path: str) -> str",
+          "docstring": null,
+          "summary": null,
+          "kind": "function",
+          "decorators": [],
+          "lineno": 24,
+          "end_lineno": 28
+        },
+        {
+          "name": "_load_shields_cache",
+          "signature": "_load_shields_cache() -> dict",
+          "docstring": null,
+          "summary": null,
+          "kind": "function",
+          "decorators": [],
+          "lineno": 31,
+          "end_lineno": 36
+        },
+        {
+          "name": "_save_shields_cache",
+          "signature": "_save_shields_cache(cache: dict) -> None",
+          "docstring": null,
+          "summary": null,
+          "kind": "function",
+          "decorators": [],
+          "lineno": 39,
+          "end_lineno": 41
+        },
+        {
+          "name": "_shields_up_to_date",
+          "signature": "_shields_up_to_date(project_name: str, csv_path: str, shield_dir: str, template_path: str, cache: dict) -> bool",
+          "docstring": "True если CSV не изменился, все SVG на месте и HTML-шаблон существует.",
+          "summary": "True если CSV не изменился, все SVG на месте и HTML-шаблон существует.",
+          "kind": "function",
+          "decorators": [],
+          "lineno": 44,
+          "end_lineno": 54
+        },
+        {
           "name": "clear_directories",
           "signature": "clear_directories(directories: list[str]) -> None",
           "docstring": "Удаляет и пересоздаёт указанные директории.",
           "summary": "Удаляет и пересоздаёт указанные директории.",
           "kind": "function",
           "decorators": [],
-          "lineno": 55,
-          "end_lineno": 70
+          "lineno": 93,
+          "end_lineno": 108
         },
         {
           "name": "generate_shields",
           "signature": "generate_shields() -> None",
-          "docstring": "Генерирует SVG-шилды для всех CSV-файлов в папке данных.",
-          "summary": "Генерирует SVG-шилды для всех CSV-файлов в папке данных.",
+          "docstring": "Генерирует SVG-шилды для всех CSV-файлов в папке данных (с кэшем по хэшу CSV).",
+          "summary": "Генерирует SVG-шилды для всех CSV-файлов в папке данных (с кэшем по хэшу CSV).",
           "kind": "function",
           "decorators": [],
-          "lineno": 73,
-          "end_lineno": 111
+          "lineno": 111,
+          "end_lineno": 154
         },
         {
           "name": "generate_scripts",
@@ -118,8 +158,8 @@
           "summary": "Минифицирует JS-файлы и сохраняет их в выходную директорию.",
           "kind": "function",
           "decorators": [],
-          "lineno": 114,
-          "end_lineno": 120
+          "lineno": 157,
+          "end_lineno": 163
         },
         {
           "name": "generate_css",
@@ -128,8 +168,8 @@
           "summary": "Объединяет CSS-файлы и сохраняет минифицированный результат.",
           "kind": "function",
           "decorators": [],
-          "lineno": 123,
-          "end_lineno": 136
+          "lineno": 166,
+          "end_lineno": 179
         },
         {
           "name": "generate_root_redirect",
@@ -138,8 +178,8 @@
           "summary": "Создаёт корневой index.html с мета-редиректом на язык по умолчанию.",
           "kind": "function",
           "decorators": [],
-          "lineno": 139,
-          "end_lineno": 161
+          "lineno": 182,
+          "end_lineno": 204
         },
         {
           "name": "generate_html",
@@ -148,8 +188,8 @@
           "summary": "Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).",
           "kind": "function",
           "decorators": [],
-          "lineno": 164,
-          "end_lineno": 185
+          "lineno": 207,
+          "end_lineno": 228
         },
         {
           "name": "generate_all",
@@ -158,24 +198,30 @@
           "summary": "Запускает полный цикл генерации: очистка → шилды → JS → CSS → HTML.",
           "kind": "function",
           "decorators": [],
-          "lineno": 188,
-          "end_lineno": 211
+          "lineno": 231,
+          "end_lineno": 247
         }
       ],
       "constants": [
         {
+          "name": "SHIELDS_CACHE_PATH",
+          "annotation": null,
+          "value_repr": "'./shields_generator/.shields_cache.json'",
+          "lineno": 21
+        },
+        {
           "name": "CONFIG",
           "annotation": null,
           "value_repr": "{'html': {'output_directory': '../static', 'template_directory': './html_generator/templates', 'index_file': 'index.html', 'content_directory': './content', 'languages': ['ru', 'en'], 'default_language': 'ru'}, 'scripts': {'input_directory': './scripts_generator/scripts', 'output_directory': '../static/scripts'}, 'css': {'directory': './styles_generator/styles/', 'target_directory': '../static/styles/', 'minified_file': 'main.css'}, 'shields': {'data_directory': './shields_generator/csv_data', 'target_base_directory': '../static/images/shields', 'template_path': './shields_generator/template.svg', 'color': 'blue', 'logo_color': '#21e7e7', 'new_height': '30', 'time_sleep': 0, 'scale_factors': {'width_scale_factor': 0.9, 'text_length_scale_factor': 0.85, 'x_scale_factor': 0.87, 'y_scale_factor': 0.9}}}",
-          "lineno": 19
+          "lineno": 57
         }
       ],
       "stats": {
         "classes": 0,
         "dataclasses": 0,
-        "functions": 7,
+        "functions": 11,
         "methods": 0,
-        "constants": 1
+        "constants": 2
       }
     },
     {
@@ -405,12 +451,12 @@
         {
           "name": "generate_shield_template",
           "signature": "generate_shield_template(project_name: str, params: list[tuple[str, str, str]], output_template_path: str) -> None",
-          "docstring": "Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта.",
-          "summary": "Генерирует Jinja2 HTML-фрагмент со списком шилдов для проекта.",
+          "docstring": "Генерирует статический HTML-фрагмент со шилдами проекта (img в ссылке).",
+          "summary": "Генерирует статический HTML-фрагмент со шилдами проекта (img в ссылке).",
           "kind": "function",
           "decorators": [],
           "lineno": 159,
-          "end_lineno": 186
+          "end_lineno": 179
         }
       ],
       "constants": [],
