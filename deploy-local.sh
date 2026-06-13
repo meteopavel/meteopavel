@@ -1,16 +1,28 @@
 #!/bin/bash
 set -euo pipefail
 
+NON_INTERACTIVE=false
+for arg in "$@"; do
+  [[ "$arg" == "--non-interactive" ]] && NON_INTERACTIVE=true
+done
+
 REPO_REQUIRED_REMOTE='git@github.com:meteopavel/meteopavel.git'
 REPO_REQUIRED_REMOTE_HTTPS='https://github.com/meteopavel/meteopavel.git'
 BRANCH_NAME='main'
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
+ENV_FILE="${REPO_ROOT}/.env"
 SOURCE_DIR="${REPO_ROOT}/source"
 PYTHON_BIN="${SOURCE_DIR}/.venv/bin/python"
 STATIC_SCRIPT='generate_static.py'
 
+ARCHIVE_DIR='secure'
+ARCHIVE_NAME='sensitive_bundle.7z'
+ARCHIVE_PATH="${ARCHIVE_DIR}/${ARCHIVE_NAME}"
+
 DEFAULT_COMMIT_MESSAGE='Update project'
+
+# ================= ФУНКЦИИ =================
 
 require_command() {
   local command_name="$1"
@@ -21,9 +33,35 @@ require_command() {
   fi
 }
 
+get_env() {
+  local var_name="$1"
+  local env_file="$2"
+
+  if [[ ! -f "$env_file" ]]; then
+    echo ""
+    return
+  fi
+
+  grep -E "^${var_name}=" "$env_file" 2>/dev/null | head -1 | cut -d'=' -f2-
+}
+
+require_env() {
+  local var_name="$1"
+  local var_value="$2"
+
+  if [[ -z "$var_value" ]]; then
+    echo "❌ Ошибка: переменная ${var_name} не найдена или пуста в ${ENV_FILE}"
+    exit 1
+  fi
+}
+
 confirm() {
   local prompt="${1:-Продолжить?}"
   local answer
+
+  if [[ "$NON_INTERACTIVE" == true ]]; then
+    return 0
+  fi
 
   read -r -p "${prompt} [y/N]: " answer
   case "${answer:-}" in
@@ -60,11 +98,16 @@ build_static() {
   echo '✅ Сборка завершена.'
 }
 
+# ================= ПРОВЕРКИ =================
+
 echo '🔍 Проверяем, что мы внутри git-репозитория...'
 git rev-parse --is-inside-work-tree >/dev/null 2>&1
 
 echo '🔍 Проверяем обязательные команды...'
 require_command git
+require_command 7z
+require_command rsync
+require_command sshpass
 
 echo '🔍 Проверяем remote origin...'
 REMOTE_URL="$(git remote get-url origin)"
@@ -87,54 +130,102 @@ if [[ ! -f "${SOURCE_DIR}/${STATIC_SCRIPT}" ]]; then
   exit 1
 fi
 
-echo
-echo '⚙️ Режимы сборки:'
-echo '   1) По умолчанию: minify + --no-shields'
-echo '   2) minify + со shields'
-echo '   3) pretty + --no-shields'
-echo '   4) Свой вариант'
-echo
+echo '🔍 Загружаем переменные из .env...'
+ARCHIVE_PASSWORD="$(get_env "ARCHIVE_PASSWORD" "$ENV_FILE")"
+SECURE_RSYNC_USER="$(get_env "SECURE_RSYNC_USER" "$ENV_FILE")"
+SECURE_RSYNC_HOST="$(get_env "SECURE_RSYNC_HOST" "$ENV_FILE")"
+SECURE_RSYNC_PATH="$(get_env "SECURE_RSYNC_PATH" "$ENV_FILE")"
+SECURE_RSYNC_PASSWORD="$(get_env "SECURE_RSYNC_PASSWORD" "$ENV_FILE")"
 
-read -r -p 'Выбери режим сборки [1]: ' BUILD_MODE
-BUILD_MODE="${BUILD_MODE:-1}"
+require_env "ARCHIVE_PASSWORD" "$ARCHIVE_PASSWORD"
+require_env "SECURE_RSYNC_USER" "$SECURE_RSYNC_USER"
+require_env "SECURE_RSYNC_HOST" "$SECURE_RSYNC_HOST"
+require_env "SECURE_RSYNC_PATH" "$SECURE_RSYNC_PATH"
+require_env "SECURE_RSYNC_PASSWORD" "$SECURE_RSYNC_PASSWORD"
 
-HTML_MODE='minify'
-USE_NO_SHIELDS='yes'
+mkdir -p "${ARCHIVE_DIR}"
 
-case "$BUILD_MODE" in
-  1)
-    HTML_MODE='minify'
-    USE_NO_SHIELDS='yes'
-    ;;
-  2)
-    HTML_MODE='minify'
-    USE_NO_SHIELDS='no'
-    ;;
-  3)
-    HTML_MODE='pretty'
-    USE_NO_SHIELDS='yes'
-    ;;
-  4)
-    read -r -p 'HTML mode [minify]: ' CUSTOM_HTML_MODE
-    CUSTOM_HTML_MODE="${CUSTOM_HTML_MODE:-minify}"
+# ================= АРХИВАЦИЯ =================
 
-    read -r -p 'Добавить --no-shields? [Y/n]: ' CUSTOM_NO_SHIELDS
-    case "${CUSTOM_NO_SHIELDS:-Y}" in
-      n|N|no|NO)
-        USE_NO_SHIELDS='no'
-        ;;
-      *)
-        USE_NO_SHIELDS='yes'
-        ;;
-    esac
+if [[ -f "${ARCHIVE_PATH}" ]]; then
+  echo "🗑 Удаляем старый архив: ${ARCHIVE_PATH}"
+  rm -f "${ARCHIVE_PATH}"
+fi
 
-    HTML_MODE="${CUSTOM_HTML_MODE}"
-    ;;
-  *)
-    echo '❌ Ошибка: некорректный режим.'
-    exit 1
-    ;;
-esac
+echo '🔐 Создаём зашифрованный архив (docs/, CLAUDE.md, .claude/)...'
+(
+  cd "${REPO_ROOT}"
+  7z a -p"${ARCHIVE_PASSWORD}" -mhe=on "${ARCHIVE_PATH}" \
+    "docs" \
+    "CLAUDE.md" \
+    ".claude"
+)
+echo '✅ Архив успешно создан.'
+
+echo '📤 Отправляем архив на backup-сервер...'
+export SSHPASS="${SECURE_RSYNC_PASSWORD}"
+rsync -avz --progress \
+  --rsh="sshpass -e ssh" \
+  "${ARCHIVE_PATH}" "${SECURE_RSYNC_USER}@${SECURE_RSYNC_HOST}:${SECURE_RSYNC_PATH}"
+echo '✅ Архив успешно отправлен на сервер.'
+
+# ================= СБОРКА =================
+
+if [[ "$NON_INTERACTIVE" == true ]]; then
+  HTML_MODE='minify'
+  USE_NO_SHIELDS='yes'
+  echo
+  echo 'ℹ️ Режим без ввода: сборка с параметрами по умолчанию (minify + --no-shields)'
+else
+  echo
+  echo '⚙️ Режимы сборки:'
+  echo '   1) По умолчанию: minify + --no-shields'
+  echo '   2) minify + со shields'
+  echo '   3) pretty + --no-shields'
+  echo '   4) Свой вариант'
+  echo
+
+  read -r -p 'Выбери режим сборки [1]: ' BUILD_MODE
+  BUILD_MODE="${BUILD_MODE:-1}"
+
+  HTML_MODE='minify'
+  USE_NO_SHIELDS='yes'
+
+  case "$BUILD_MODE" in
+    1)
+      HTML_MODE='minify'
+      USE_NO_SHIELDS='yes'
+      ;;
+    2)
+      HTML_MODE='minify'
+      USE_NO_SHIELDS='no'
+      ;;
+    3)
+      HTML_MODE='pretty'
+      USE_NO_SHIELDS='yes'
+      ;;
+    4)
+      read -r -p 'HTML mode [minify]: ' CUSTOM_HTML_MODE
+      CUSTOM_HTML_MODE="${CUSTOM_HTML_MODE:-minify}"
+
+      read -r -p 'Добавить --no-shields? [Y/n]: ' CUSTOM_NO_SHIELDS
+      case "${CUSTOM_NO_SHIELDS:-Y}" in
+        n|N|no|NO)
+          USE_NO_SHIELDS='no'
+          ;;
+        *)
+          USE_NO_SHIELDS='yes'
+          ;;
+      esac
+
+      HTML_MODE="${CUSTOM_HTML_MODE}"
+      ;;
+    *)
+      echo '❌ Ошибка: некорректный режим.'
+      exit 1
+      ;;
+  esac
+fi
 
 echo
 echo '🧾 Выбраны параметры сборки:'
@@ -149,6 +240,8 @@ fi
 
 build_static "${HTML_MODE}" "${USE_NO_SHIELDS}"
 
+# ================= GIT =================
+
 echo
 echo '📋 Текущий git status:'
 (
@@ -157,8 +250,13 @@ echo '📋 Текущий git status:'
 )
 echo
 
-read -r -p "✍️ Введите сообщение коммита [${DEFAULT_COMMIT_MESSAGE}]: " COMMIT_MESSAGE
-COMMIT_MESSAGE="${COMMIT_MESSAGE:-$DEFAULT_COMMIT_MESSAGE}"
+if [[ "$NON_INTERACTIVE" == true ]]; then
+  COMMIT_MESSAGE="$DEFAULT_COMMIT_MESSAGE"
+  echo "ℹ️ Режим без ввода: используется сообщение по умолчанию: ${COMMIT_MESSAGE}"
+else
+  read -r -p "✍️ Введите сообщение коммита [${DEFAULT_COMMIT_MESSAGE}]: " COMMIT_MESSAGE
+  COMMIT_MESSAGE="${COMMIT_MESSAGE:-$DEFAULT_COMMIT_MESSAGE}"
+fi
 
 echo "📝 Сообщение коммита: ${COMMIT_MESSAGE}"
 
@@ -178,6 +276,7 @@ if (
   git diff --cached --quiet
 ); then
   echo 'ℹ️ Нет изменений для коммита.'
+  echo '🎉 Готово: архив отправлен на backup-сервер.'
   exit 0
 fi
 
@@ -193,4 +292,4 @@ echo "🚀 Выполняем push в origin/${BRANCH_NAME}..."
   git push origin "${BRANCH_NAME}"
 )
 
-echo '🎉 Готово.'
+echo '🎉 Готово: архив отправлен на backup-сервер, код запушен на GitHub.'
