@@ -10,7 +10,8 @@ body {
 .header {
   display: flex;
   justify-content: flex-end;
-  padding: var(--header-padding-vertical) var(--header-padding-horizontal);
+  padding: var(--header-padding-vertical) var(--container-padding-horizontal);
+  max-width: 1200px;
 }
 
 .container {
@@ -38,6 +39,11 @@ body {
 }
 
 @media (max-width: 900px) {
+  .header {
+    max-width: none;
+    padding: var(--header-padding-vertical) var(--header-padding-horizontal);
+  }
+
   .container {
     display: flex;
     flex-direction: column;
