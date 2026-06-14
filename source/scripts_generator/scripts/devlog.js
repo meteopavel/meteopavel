@@ -25,23 +25,26 @@ function initDevlog(panel) {
 
   var sortedYears = Object.keys(years).sort().reverse();
 
-  var yearsHtml = '<div class="devlog__years">';
+  var html = '';
   sortedYears.forEach(function (y) {
-    yearsHtml += '<button class="devlog__year-btn" data-year="' + y + '">' + y + '</button>';
-  });
-  yearsHtml += '</div>';
-
-  var monthsHtml = '';
-  sortedYears.forEach(function (y) {
-    monthsHtml += '<div class="devlog__months-row" data-year-row="' + y + '">';
+    html += '<div class="devlog__year-row">';
+    html += '<button class="devlog__year-btn" data-year="' + y + '">' + y + '</button>';
+    html += '<div class="devlog__months-row" data-year-row="' + y + '" hidden>';
     years[y].forEach(function (m) {
-      var shortLabel = m.dataset.label.split(' ')[0];
-      monthsHtml += '<button class="devlog__month-btn" data-period="' + m.dataset.period + '">' + shortLabel + '</button>';
+      var fullLabel = m.dataset.label.split(' ')[0];
+      var abbrLabel = fullLabel.slice(0, 3);
+      var numLabel = parseInt(m.dataset.period.slice(5, 7), 10);
+      html += '<button class="devlog__month-btn" data-period="' + m.dataset.period + '">';
+      html += '<span class="devlog__month-long">' + fullLabel + '</span>';
+      html += '<span class="devlog__month-abbr">' + abbrLabel + '</span>';
+      html += '<span class="devlog__month-num">' + numLabel + '</span>';
+      html += '</button>';
     });
-    monthsHtml += '</div>';
+    html += '</div>';
+    html += '</div>';
   });
 
-  nav.innerHTML = yearsHtml + monthsHtml;
+  nav.innerHTML = html;
 
   nav.querySelectorAll('.devlog__year-btn').forEach(function (btn) {
     btn.addEventListener('click', function () { selectYear(panel, nav, btn.dataset.year); });
