@@ -6,12 +6,16 @@
       "period": "2026-05",
       "label": "May 2026",
       "tasks": 24,
+      "note": "editor finale",
       "entries": [
-        "Security: GET→POST migration of endpoint with side effects, backward-compatible",
-        "Critical SMTP bug: root cause in config incompatibility, diagnosed and fixed in 1 working day",
-        "Closed the year-long external editor integration cycle (June 2025 → May 2026)",
-        "distinct() without ORDER BY: non-deterministic results at production scale",
-        "Webhook integration: data mapping, error handling, retry logic"
+        "First solo security fix: endpoint with side effects was sitting on GET — turned down the temptation to make an exception, chose honest POST. If an action mutates state, the method must reflect it. Code and review in one day",
+        "Critical SMTP bug: service switching wasn't applying to all linked objects. Caught the root cause, wrote a helper synchronizer — the full path code→review→prod fit into one working day",
+        "Closed three long-running sagas at once: a task from December, one from March, and a redirect dragging on since 2024. Satisfying to clear debt that outlived whoever started it",
+        "distinct() was silently swallowing duplicates — non-deterministic results at production scale. 3 rounds of review: each round the solution simplified from overengineered to correct",
+        "Finalized the year-long external editor integration series: killed the visual jump on load by setting container dimensions before initialization. Bonus — a unified loader on DOM visibility monitoring, no timeouts or polling intervals",
+        "Webhook integration refactor: moved away from brittle substring matching to proper URL parsing, extracted configuration into constants, covered with unit tests. Prod and tests — same day",
+        "Handled EmptyResultSet explicitly instead of burying it under a bare except. Cyrillic in one of the forms was throwing 500 — added a pre-check before hitting the external service. Defensive programming as a habit",
+        "Lesson of the month: 16 hours of refactoring went to waste — the task became obsolete while I was doing it. Including a failed attempt via Claude Code. Note written: confirm the component's fate before starting major rework, not after"
       ]
     },
     {
@@ -20,32 +24,38 @@
       "tasks": 29,
       "note": "record month",
       "entries": [
-        "Proxy architecture for external editor: runtime XHR/fetch interception, domain substitution without modifying third-party code",
-        "SPF/DNS score API: aggregating multiple DNS checks into a single metric",
-        "SPF chain visualization page with step-by-step breakdown",
-        "XSS via sanitize-bypass in non-standard field type: discovery, fix, audit of similar locations"
+        "Proxy for a third-party visual editor: runtime interception of XHR and fetch inside an iframe with no access to its source — domain substitution on the fly, without touching a single line of third-party code. Most non-trivial solution to date; reviewer approved the architecture",
+        "SPF domain score API from scratch to prod in 3.5 days: recursive SPF record parsing, score calculation by rules, rating from D to A. Manually ran 30+ domains with a results table; magic numbers became named constants after review",
+        "SPF chain visualization page: AJAX without page reload, include-dependency tree with step-by-step breakdown, final score and matched rules — so DNS inheritance can be read at a glance, not guessed",
+        "Caught an XSS myself — not as part of the task, but as a side effect of deep analysis of another one. Sanitize-bypass via non-standard field type: documented, assessed risk, checked similar locations. Proactive security diagnosis instead of 'not my task'"
       ]
     },
     {
       "period": "2026-03",
       "label": "March 2026",
       "tasks": 29,
+      "note": "first reviewer",
       "entries": [
-        "Geo-filtering by city/country in segments: string data normalization, composite conditions",
-        "Root cause of 500-error in send mechanism: chain of three individually-correct conditions",
-        "Template mechanism refactor: universal include to eliminate duplication",
-        "RFC email validation finalization: form integration with inline errors"
+        "Geo-filtering in segments: new operators 'contains / does not contain / empty / not empty'. Hit a CSS class conflict, caught and resolved it. Dependent MRs deployed in sync — getting the deploy order right",
+        "Root cause of 500-error in the send mechanism: wrong lookup field in an ORM query — syntactically valid on its own, but semantically wrong. Didn't just fix this one point, ran an audit across the whole codebase looking for the same class of error everywhere it could be hiding",
+        "Universal copy component instead of scattered ClipboardJS calls: added support for hidden values (passwords, tokens — copied but not exposed in the DOM). Walked all existing usages through the codebase and gradually migrated them to the unified mechanism",
+        "RFC email validation with inline errors: implementation with unit and integration tests. Along the way — an incident: code silently disappeared from stage due to an accidental revert. Rewrote the MR from scratch without panic, methodically, guided by the tests — context intact",
+        "Async Celery+Django task where it was easy to miss: log is written on save, then updated by the same ID after background recalculation. Tested under prod-like conditions — queues and periodic tasks simply don't run on stage",
+        "First time as a regular reviewer — five tasks in one month. Not rubber-stamp approvals: for one I dug into jQuery selector mechanics combined with django-widget-tweaks and wrote a substantive code breakdown"
       ]
     },
     {
       "period": "2026-02",
       "label": "February 2026",
       "tasks": 10,
+      "note": "first component",
       "entries": [
-        "Deep audit and refactor of JS modal component",
-        "Root cause of counter bug series: incorrect aggregation with multiple JOINs",
-        "Popup via iframe: CSS isolation, context passing",
-        "Static assets migration from CDN to self-hosted (nginx)"
+        "First reusable UI component: extracted modal dialogs into a shared module based on bootbox.js, applied to two different sections at once. On deploy, a Sentry alert fired — turned out to be a harmless stale cache, investigated and closed it myself. Bonus — first systematic documentation for the component",
+        "Counter for address corrections: two different edit paths, and bulk_create doesn't retain originals. Instead of carrying extra state, chose to count corrections without storing them — architectural decision approved in review",
+        "Popups inside a nested iframe of a third-party editor: modal and preview were fighting over z-index, height and overflow in someone else's context. Resolved with CSS isolation and careful context passing — non-trivial wrestling with iframe boundaries",
+        "Migrated static assets from external CDNs to self-hosted nginx. During testing, caught and fixed an unrelated bug — a minified component version had gone missing",
+        "Diagnosed two prod-only bugs that wouldn't reproduce locally. Carried both through to resolution in March — a lesson that prod-only bugs play by their own rules",
+        "Migration conflict when moving code: the original fix didn't get picked up. Resolved it myself, with a file backup before editing — careful iteration as a habit"
       ]
     },
     {
@@ -54,42 +64,48 @@
       "tasks": 20,
       "note": "Junior Developer",
       "entries": [
-        "Regex validation with inline UI errors",
-        "RFC email parser: non-standard formats, edge cases",
-        "XSS discovery via legacy rendering mechanism (mark_safe + user-controlled input)"
+        "Regex validation in a dynamic form: generating JS keys for fields, AJAX checking and server-side error return with precise highlighting of exactly the fields where errors occurred. Three iterations — rejected my own first solutions until I found something precise enough",
+        "Email validation per RFC: regex with careful strictness calibration. The first version was too strict and risked blocking valid addresses — rewrote it. Covered with unit tests and added an integration test for the API on my own initiative",
+        "Cyrillics decoding in JSON variables under Python 2.7: instead of workarounds — a wrapper class with overridden __str__/__repr__, resolving the str(dict) vs repr(dict) difference without breaking the interface. Along the way, extended special character protection across the whole project and discovered XSS through a legacy mark_safe on user-controlled input — documented and removed the risky path from the flow"
       ]
     },
     {
       "period": "2025-12",
       "label": "December 2025",
       "tasks": 36,
+      "note": "three critical bugs",
       "entries": [
-        "Three critical bugs in one day — all resolved same day",
-        "XSS vulnerability discovered and patched in legacy code, similar locations audited",
-        "Celery investigation: root cause identified, context handed to team",
-        "Manual testing of 25+ email templates after infrastructure changes"
+        "Three critical bugs — three fixes on the day of discovery. A dashboard CSS failure went code→review→prod→test in 4 hours, using a minimally invasive inline fix to avoid disturbing parallel changes",
+        "Closed the longest investigation in my chronicle — failures in the background processing queue had been piling up for months. The ending wasn't code but knowledge: a document with diagrams, logs and a specific hypothesis, handed to the team. Formalized the next step as a separate task — it closed in March",
+        "Double-defect diagnosis: the first hypothesis gave a correct fix, but stage didn't pass. Dug deeper — found a second cause: AJAX was firing with the wrong context. Data was being saved correctly, just to the wrong place. Lesson: one symptom can hide two independent causes",
+        "XSS vulnerability surfaced while working on another task: assessed as low-risk DOM XSS, documented. Separately — two-layer form protection: after a reviewer's note about JS bypass, added a server-side layer and attached a DevTools demonstration of the bypass. Trust the client, verify on the server",
+        "Systematic QA of 25+ templates over two days using a checklist. Non-standard methods: DevTools Network Offline to simulate server failure, JS injection via console to emulate postback, manually setting status in the DB for a rare scenario. Along the way, found and removed a dead handler",
+        "Worked through the holidays Dec 24–29 — three tasks written in that period. Including a form edit where I got the wrong file: admitted it immediately, recreated the MR, prod same day. Wrote a Confluence article after the mistake — so the next person doesn't step on the same rake"
       ]
     },
     {
       "period": "2025-11",
       "label": "November 2025",
       "tasks": 25,
+      "note": "big refactors",
       "entries": [
-        "Editor template system refactor: 8 templates → 1 universal, −300 lines of code",
-        "EOL dependency replacement 5 weeks before deadline",
-        "Dialog component centralization: 29+ duplicates → single control point, 37 files changed",
-        "302-redirect investigation: curl → incognito → cookies → Middleware"
+        "End of a months-long editor series: instead of eight near-identical templates per tab — one universal one. Minus seven files and ~300 lines. Reviewer's note: 'The code came out clean.' Along the way — a stage incident from an unrelated migration, investigated independently and documented",
+        "EOL race: planned replacement of an expiring external dependency — done five weeks before the deadline. Three auth pages, a shared Django mixin for DRY, debugging a tricky naming issue (hyphen vs underscore). CI failure after first deploy — caught and fixed, honestly noting 'forgot about tests again'",
+        "Centralization of the dialog component: 29+ duplicates reduced to a single control point — changes across 37 files. Three-plus hours of self-testing across 30+ pages and a detailed testing guide for the QA team with each scenario described. A 'local' task that grew into a large one — a lesson in estimating scope",
+        "Detective story with a paginator: two defects plus a mysterious 302 redirect. Methodical hunt — curl, incognito, cookies, and finally Middleware as the culprit. Bonus — conflicts in minified JS resolved through a new branch: pragmatic, if not by the book. Case went into the notebook"
       ]
     },
     {
       "period": "2025-10",
       "label": "October 2025",
       "tasks": 34,
+      "note": "security audit",
       "entries": [
-        "Full integration cycle with external system: production incident (rate limit 429) + cache solution",
-        "Frontend security audit: 10+ apps, CSV report with risk classification",
-        "Search query optimization via pyinstrument on prod replica: 8–10x speedup",
-        "Editor task series: CSS feature flag, auto-preview, adaptive height"
+        "Full integration cycle between two systems: designed it, got it to prod — and caught a production incident on prod itself (429 rate limit from an external API). Walked the path sync → async → cache on my own: identified the problem, understood its nature, chose the right fix",
+        "Security audit of the entire frontend layer: walked through 10+ apps looking for places where a user identifier could leak or be substituted. No existing algorithm — built the risk classification methodology myself, compiled results into a CSV report. A research task without a template, where half the work is figuring out what to look for",
+        "Search performance investigation: first time profiling via pyinstrument on a prod replica. Compared ILIKE vs REVERSE LIKE, reconsidered the approach after review — result: 8–10x speedup. Lesson of the month: the profiler shows truth you can't see with your eyes",
+        "Q4 series on the external editor: CSS feature flag, auto-preview, adaptive height",
+        "A pagination audit I consciously stopped: figured out and proved the task didn't need doing. Not a waste of time but an engineering decision — sometimes the most valuable result of an investigation is an argued 'leave it alone'"
       ]
     },
     {
@@ -98,42 +114,53 @@
       "tasks": 27,
       "note": "probation period",
       "entries": [
-        "Compliance form with 3-day deadline — completed in 2",
-        "Undelivered emails investigation: Celery log analysis and 5 years of git history, 6x reduction",
-        "Comment mechanism refactor: 3 different implementations → one universal function",
-        "First solo stage deploy: migration incident, self-recovery"
+        "Compliance form with a hard deadline: 3 days planned — done in 2, prod without a single comment. First time feeling that a deadline isn't pressure, it's just a frame",
+        "Systemic investigation: thousands of undelivered emails had been accumulating since July. Pulled Celery worker logs and 5 years of git history, found the weak point — wrote a temporary fix that reduced the problem 6x, and extended logging to nail the root later",
+        "External service integration investigation: turned out the problem was on the partner's side, not ours — rate limiting. Instead of 'not our bug', found two workarounds",
+        "Comment mechanism refactor: three different implementations living in parallel — merged into one universal function. Not for cleanliness, but because a new feature couldn't be added otherwise",
+        "Old 500 bug (NoneType): uncovered that a 2023 commit silently broke an assumption made in 2020. Traced the full code history — review came back with 'ok, thanks for digging into this'",
+        "First solo stage deploy — and immediately an incident: migrations failed. Brought everything back up myself, didn't hide it, debugged the error openly and documented it. Lesson learned harder than a clean deploy would have taught it",
+        "18 hours on a pagination task — only to end up asking 'is pagination even needed here?'. Articulated an architectural blocker, task closed at the product level. Learned that recognizing a dead end on time is also a result",
+        "Picked up a JS bug after a previous attempt — diagnosed it in one pass. In parallel, cleaned up stale branches 500–700 commits behind master: nearly lost code once during conflict resolution — caught it and recovered"
       ]
     },
     {
       "period": "2025-08",
       "label": "August 2025",
       "tasks": 23,
+      "note": "first solo feature",
       "entries": [
-        "SLA timer: Celery periodic task, webhook on deadline",
-        "Statistics dashboard: finalization and production deploy",
-        "Bulk SPF parser for domain lists with report",
-        "Pagination audit: systemic N+1 and COUNT issues discovered"
+        "Solo feature in a week: SLA timer with external API integration — cache on first page load and webhook to invalidate on data change. Designed the architecture myself, reviewer approved. Six post-deploy days with various error types — but got it to prod",
+        "Finished the first version of an analytics dashboard: Django model for data accumulation, periodic task for calculation, frontend with a Graph/Table toggle. Stage showed zeros (periodic tasks don't run there) — decided to push to prod, data came in immediately",
+        "Bulk SPF parser for a domain list: instead of sequential processing — a parallel DNS strategy (5 threads × 20 domains). 40 minutes instead of 8 hours; single-threaded the task was practically unsolvable",
+        "Email authentication stabilization, 5 tickets: false positive SPF on a non-standard subdomain, DKIM error breakdown on a Cyrillic domain character by character, trailing-character fix via regex with tests",
+        "Pagination audit across the entire frontend: automation gave unreliable results, switched to manual walkthrough. Map of three categories — custom pagination, pages without it, and broken standard pagination. Became the foundation for a series of follow-up refactors",
+        "Lesson of the month: an urgent evening hotfix under a deadline threw a 500 on an unanticipated data type. Next morning — a type-aware solution and an honest comment 'didn't think it through under pressure'. Takeaway: a boundary-type checklist before hotfix deploys"
       ]
     },
     {
       "period": "2025-07",
       "label": "July 2025",
       "tasks": 17,
+      "note": "first prod module",
       "entries": [
-        "SPF hotfixes: 7 tasks in 2 days, edge cases on real-world data",
-        "Statistics dashboard: Django ORM aggregations, query optimization",
-        "External system integration: webhook, status sync"
+        "First production release of a complex module: deployed SPF validation per RFC 7208 — and immediately caught a wave of 7 false positives on real domains. Closed everything in 2 days, surgically: removed redundant checks, fixed unicode IP encoding, added support for non-standard DNS labels. No regressions",
+        "Biggest solo feature to that point — an analytics dashboard of audience dynamics by day. Full multi-layer: custom Django model for data accumulation, periodic task, frontend with a Graph/Table toggle and filters. 13 days of development straight, review with changes same day",
+        "Support system integration: two cases to prod. First — diagnosing a 'silent' bug where an update seemed to go through but didn't apply; turned out to be a typo in a key. Second — clickable links: the standard Django approach didn't work, independently redefined the solution and moved the logic to JS",
+        "Along the way, found and fixed a broken neighboring button ('was near the code — couldn't walk past') and independently caught a timedelta bug: subtracting a number from a date instead of a duration"
       ]
     },
     {
       "period": "2025-06",
       "label": "June 2025",
       "tasks": 12,
+      "note": "editor integration",
       "entries": [
-        "Visual editor integration: iframe proxying, CORS bypass, postMessage",
-        "Email validation module: RFC 5321/5322 parser, error classification",
-        "SPF validation: parser, DNS chain edge cases",
-        "Investigation and fix of backend error series"
+        "External block WYSIWYG editor integration: library setup and configuration, iframe proxying, CORS bypass, two-way exchange via postMessage. Full cycle solo — from task analysis to prod: implementation, DB migration, two rounds of review, QA fixes",
+        "System module for mail policy syntax validation per RFC 7208: a parser covering 15+ violation types. Not a textbook exercise — the module closed an entire cluster of real support requests where policies were being processed incorrectly",
+        "Hunting edge cases in production: unicode in domain labels, specific DNS labels, validator false positives. Three targeted post-prod iterations — each a concrete fix without rewriting the module",
+        "External system integration investigation: instead of 'just do something', dug into the third-party API constraints and communicated the nature of the problem to the team",
+        "Applied fixes throughout the month: restoring background task queue operation, an API error handler for deleting a linked entity (brought to review, but closed by product decision as unnecessary)"
       ]
     },
     {
@@ -142,9 +169,10 @@
       "tasks": 4,
       "note": "first 3 weeks",
       "entries": [
-        "Backend: test writing, first contribution to test coverage",
-        "Bugfix: date calculation error (timedelta)",
-        "First solo production deploy — day 5"
+        "May 12 — first day at work. The first week and a half went entirely to onboarding: exploring a large unfamiliar codebase, reading others' code, trying to understand how it all fits together",
+        "First commit to prod — on day 5: took a small task, brought it to release, review passed without a single comment. Small, but an important symbolic start",
+        "Main energy of the month — writing tests for a historically uncovered component. Turned out to be the best way to get oriented: you can't write a good test without thoroughly understanding the logic. That's how the tests became a map of the system",
+        "Found my own regression: calculation was breaking on the first days of the month because of `-1` instead of `timedelta` when working with dates in Python. Classic trap — didn't just fix it, dug into the root cause and explained it in a comment"
       ]
     }
   ]

@@ -5,8 +5,10 @@
   "tagline": "Email marketing platform",
   "period": "May 2025 — present",
   "paragraphs": [
-    "Django backend: feature development, security auditing, complex bug investigations, performance optimization. Delivered WYSIWYG editor integration, SPF/email validation, a codebase-wide XSS and unsafe-pattern audit, and a 8–10x speedup on critical queries.",
-    "Grew from intern to Junior Developer in 8 months. Since June 2026 — lead developer on an internal AI/RAG project."
+    "Mailganer is an email marketing platform built on Django, PostgreSQL, Celery, Redis and Nginx, with a heavy vanilla JS and AJAX frontend. Joined as an intern in May 2025 — first commit to production on day five. Task count grew from a dozen a month by summer to over thirty by spring 2026.",
+    "Memorable milestones: seven SPF hotfixes in two days on live data; a compliance form due in three days — shipped in two; three critical bugs in a single day — all closed the same day; an SMTP failure found and fixed within twenty-four hours. A bulk SPF parser running five parallel threads cut domain list processing from eight hours to forty minutes.",
+    "Security ran alongside everything else: XSS through sanitize-bypass and through mark_safe on user-controlled input, an unsafe HTTP method with side effects, a full frontend audit across ten-plus apps with a risk-classified CSV report. Several vulnerabilities caught on my own initiative, outside the assigned task. Performance: search sped up 8–10x after locating the bottleneck with a profiler on a prod replica.",
+    "The longest thread — external editor integration: a year-long arc from an iframe / CORS / postMessage prototype to a proxy architecture with runtime XHR and fetch interception, substituting domains without touching a single line of third-party code. By June 2026 — Junior Developer, code reviewer, and lead developer on an internal AI/RAG project."
   ],
   "icon": "/images/experience/mailganer.svg#mailganer",
   "viewBox": "0 0 80 75",
