@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+  <symbol id="home_router">
+    <line x1="160" y1="240" x2="128" y2="112" stroke="currentColor" stroke-width="32" stroke-linecap="round"/>
+    <line x1="352" y1="240" x2="384" y2="112" stroke="currentColor" stroke-width="32" stroke-linecap="round"/>
+    <rect x="64" y="240" width="384" height="192" rx="48" fill="none" stroke="currentColor" stroke-width="32"/>
+    <circle cx="192" cy="336" r="24" fill="currentColor"/>
+    <circle cx="264" cy="336" r="24" fill="currentColor"/>
+    <circle cx="344" cy="336" r="32" fill="currentColor"/>
+  </symbol>
+</svg>

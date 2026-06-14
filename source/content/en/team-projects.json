@@ -1,41 +1,77 @@
 {
-  "title": "Team Projects",
+  "title": "Pet Projects",
   "items": [
     {
-      "title": "Telegram Bot (Hackathon Winner)",
-      "description": "This bot is designed to simplify the search for commercial real estate for rent or purchase. It allows users to quickly find suitable properties based on specified criteria, receive detailed information about each property, get contact information for owners or agents, and subscribe to notifications about new listings.",
-      "icon": "/images/previews/premium_product.svg#premium_product",
+      "title": "meteopavel.space",
+      "description": "Personal portfolio hub built on a custom static site generator. Under the hood: Python + Jinja2 for HTML generation, CSV-driven shields generator with MD5 caching (skips API calls for unchanged data), CSS/JS minification pipeline, GitHub Actions CI/CD, Docker + Nginx. Includes a project passport generator for automatic API mapping across all infrastructure projects.",
+      "icon": "/images/previews/meteopavel.svg#meteopavel",
       "viewBox": "0 0 512 512",
       "links": [
         {
-          "href": "https://github.com/meteopavel/Premium_product_bot",
+          "href": "https://github.com/meteopavel/meteopavel",
           "text": "REPOSITORY",
           "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
-          "href": "https://disk.yandex.ru/i/Wc8ZcIK27k2ORA",
-          "text": "PRESENTATION",
-          "icon": "/images/previews/video.svg#video",
-          "viewBox": "0 0 24 24"
+          "href": "https://meteopavel.space",
+          "text": "SITE",
+          "icon": "/images/previews/demo.svg#demo",
+          "viewBox": "0 0 512 512"
         }
       ],
-      "shields": "/column_right/shields/premium_product.html"
+      "shields": "/column_right/shields/meteopavel.html"
     },
     {
-      "title": "API YaMDb (Team Lead)",
-      "description": "This is a platform where users can leave reviews, rate, and comment on works from categories such as Books, Movies, Music, and others, forming their overall rating. Administrators manage the addition of titles, genres, and categories, while authenticated users can leave reviews and comments, and guests can only browse the content.",
-      "icon": "/images/previews/yamdb.svg#yamdb",
-      "viewBox": "0 0 64 64",
+      "title": "VOA Multi-domain Site",
+      "description": "Website for a civic educational organization — collaboration ongoing since 2013. A single Django application serves multiple domains. Non-standard deployment: full Django stack with Nginx and MySQL running on shared hosting, bypassing its constraints — configured as on a dedicated server. CI/CD runs on a self-hosted GitHub Actions runner: GitHub's standard runners refused to work with the hosting environment.",
+      "icon": "/images/experience/voa.svg#voa",
+      "viewBox": "0 0 360 362",
       "links": [
         {
-          "href": "https://github.com/meteopavel/api_yamdb",
+          "href": "https://github.com/meteopavel/Django_EDU_Multisite",
+          "text": "REPOSITORY",
+          "icon": "/images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        },
+        {
+          "href": "https://voa-irkutsk.ru",
+          "text": "SITE",
+          "icon": "/images/previews/demo.svg#demo",
+          "viewBox": "0 0 512 512"
+        }
+      ],
+      "shields": "/column_right/shields/voa_django.html"
+    },
+    {
+      "title": "Task Chronicle",
+      "description": "CLI tool for generating monthly reports and exporting task context for LLM analysis. Pipeline: Redmine → normalization → chunks → summarization → monthly final analysis. Used in the monthly workflow: from raw Redmine data to NDA-safe portfolio summaries.",
+      "icon": "/images/previews/chronicle.svg#chronicle",
+      "viewBox": "0 0 512 512",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/Chronicle_Reporting_Automation",
           "text": "REPOSITORY",
           "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         }
       ],
-      "shields": "/column_right/shields/yamdb.html"
+      "shields": "/column_right/shields/chronicle.html"
+    },
+    {
+      "title": "Home Router Panel",
+      "description": "Web dashboard for managing a home Linux router/server. The server handles traffic obfuscation and split routing: different routing rules per destination. Management via FastAPI + Nginx. Non-standard CI/CD pipeline.",
+      "icon": "/images/previews/home_router.svg#home_router",
+      "viewBox": "0 0 512 512",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/Home_Router_Panel",
+          "text": "REPOSITORY",
+          "icon": "/images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        }
+      ],
+      "shields": "/column_right/shields/home_router.html"
     }
   ],
   "allProjects": {

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+  <symbol id="chronicle">
+    <path fill="currentColor" fill-rule="evenodd" d="M80 24Q64 24 64 40L64 472Q64 488 80 488L432 488Q448 488 448 472L448 168L304 24ZM88 48L296 48L296 176L424 176L424 464L88 464Z"/>
+    <path fill="currentColor" d="M296 48L448 168L296 168Z"/>
+    <rect x="128" y="224" width="256" height="22" rx="7" fill="currentColor"/>
+    <rect x="128" y="276" width="256" height="22" rx="7" fill="currentColor"/>
+    <rect x="128" y="328" width="184" height="22" rx="7" fill="currentColor"/>
+    <rect x="128" y="380" width="216" height="22" rx="7" fill="currentColor"/>
+  </symbol>
+</svg>

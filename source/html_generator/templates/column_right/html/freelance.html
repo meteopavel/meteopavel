@@ -28,7 +28,7 @@
               </a>
             {% endfor %}
           </div>
-          {% include project.shields %}
+          {% if project.shields %}{% include project.shields %}{% endif %}
         </div>
       </li>
     {% endfor %}
