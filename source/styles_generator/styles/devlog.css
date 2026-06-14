@@ -58,7 +58,7 @@
   display: block;
 }
 
-/* Навигация: один-в-один как lang-switcher */
+/* Навигация */
 .devlog__nav {
   display: flex;
   flex-direction: column;
@@ -66,11 +66,35 @@
   margin-bottom: 14px;
 }
 
-.devlog__years,
+.devlog__year-row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .devlog__months-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+.devlog__months-row[hidden] {
+  display: none;
+}
+
+.devlog__month-long,
+.devlog__month-num {
+  display: none;
+}
+
+@media (max-width: 460px) {
+  .devlog__month-abbr {
+    display: none;
+  }
+  .devlog__month-num {
+    display: inline;
+  }
 }
 
 .devlog__year-btn,
@@ -79,10 +103,10 @@
   align-items: center;
   font-family: var(--font-family-bold);
   font-weight: var(--font-weight-bold);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   color: var(--secondary-color);
-  padding: 5px 10px;
+  padding: 5px 7px;
   border-radius: 12px;
   box-shadow: 0 0 0 2px var(--primary-color);
   background-color: transparent;
