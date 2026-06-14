@@ -1,41 +1,77 @@
 {
-  "title": "Командные проекты",
+  "title": "Пет-проекты",
   "items": [
     {
-      "title": "Telegram-бот (победа в хакатоне)",
-      "description": "Бот предназначен для упрощения поиска коммерческой недвижимости для аренды или покупки. Бот предоставляет пользователям возможность быстро находить подходящие объекты недвижимости по заданным критериям, а также получать подробную информацию о каждом объекте, контактную информацию владельцев или агентов и подписываться на уведомления о новых предложениях.",
-      "icon": "/images/previews/premium_product.svg#premium_product",
+      "title": "meteopavel.space",
+      "description": "Личный хаб-портфолио на самописном статическом генераторе. Под капотом: Python + Jinja2, CSV-driven генератор шилдов с MD5-кэшированием (пропускает API-вызовы для неизменённых данных), минификатор CSS/JS, GitHub Actions CI/CD, Docker + Nginx. Включает генератор паспортов проектов для автоматической карты API всей инфраструктуры.",
+      "icon": "/images/previews/meteopavel.svg#meteopavel",
       "viewBox": "0 0 512 512",
       "links": [
         {
-          "href": "https://github.com/meteopavel/Premium_product_bot",
+          "href": "https://github.com/meteopavel/meteopavel",
           "text": "РЕПОЗИТОРИЙ",
           "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         },
         {
-          "href": "https://disk.yandex.ru/i/Wc8ZcIK27k2ORA",
-          "text": "ПРЕЗЕНТАЦИЯ",
-          "icon": "/images/previews/video.svg#video",
-          "viewBox": "0 0 24 24"
+          "href": "https://meteopavel.space",
+          "text": "САЙТ",
+          "icon": "/images/previews/demo.svg#demo",
+          "viewBox": "0 0 512 512"
         }
       ],
-      "shields": "/column_right/shields/premium_product.html"
+      "shields": "/column_right/shields/meteopavel.html"
     },
     {
-      "title": "API YaMDb (тимлид)",
-      "description": "Это платформа, где пользователи могут оставлять отзывы, ставить оценки и комментировать произведения из категорий «Книги», «Фильмы», «Музыка» и других, формируя их рейтинг. Администраторы управляют добавлением произведений, жанров и категорий, в то время как аутентифицированные пользователи могут оставлять отзывы и комментарии, а гости могут только просматривать контент.",
-      "icon": "/images/previews/yamdb.svg#yamdb",
-      "viewBox": "0 0 64 64",
+      "title": "Мультидоменный сайт ВОА",
+      "description": "Сайт общественной образовательной организации — сотрудничество с 2013 года. Единое Django-приложение обслуживает несколько доменов. Нестандартное техническое решение: полноценный Django-стек с Nginx и MySQL задеплоен на шаред-хостинге в обход его ограничений — как на выделенном сервере. Для CI/CD настроен self-hosted GitHub Actions runner: стандартные раннеры GitHub отказывались работать с окружением хостинга.",
+      "icon": "/images/experience/voa.svg#voa",
+      "viewBox": "0 0 360 362",
       "links": [
         {
-          "href": "https://github.com/meteopavel/api_yamdb",
+          "href": "https://github.com/meteopavel/Django_EDU_Multisite",
+          "text": "РЕПОЗИТОРИЙ",
+          "icon": "/images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        },
+        {
+          "href": "https://voa-irkutsk.ru",
+          "text": "САЙТ",
+          "icon": "/images/previews/demo.svg#demo",
+          "viewBox": "0 0 512 512"
+        }
+      ],
+      "shields": "/column_right/shields/voa_django.html"
+    },
+    {
+      "title": "Летопись задач",
+      "description": "CLI-инструмент для генерации ежемесячных отчётов и экспорта контекста задач для LLM-анализа. Пайплайн: Redmine → нормализация → чанки → суммаризация → финальный анализ месяца. Используется в ежемесячном рабочем протоколе: от сырых данных Redmine до NDA-safe резюме для портфолио.",
+      "icon": "/images/previews/chronicle.svg#chronicle",
+      "viewBox": "0 0 512 512",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/Chronicle_Reporting_Automation",
           "text": "РЕПОЗИТОРИЙ",
           "icon": "/images/previews/git_repo.svg#git_repo",
           "viewBox": "0 -10 256 128"
         }
       ],
-      "shields": "/column_right/shields/yamdb.html"
+      "shields": "/column_right/shields/chronicle.html"
+    },
+    {
+      "title": "Home Router Panel",
+      "description": "Веб-панель для управления домашним сервером-роутером под Linux. Сервер выполняет обфускацию трафика и сплит-роутинг: разные правила маршрутизации для разных назначений. Управление через FastAPI + Nginx. Нестандартный CI/CD.",
+      "icon": "/images/previews/home_router.svg#home_router",
+      "viewBox": "0 0 512 512",
+      "links": [
+        {
+          "href": "https://github.com/meteopavel/Home_Router_Panel",
+          "text": "РЕПОЗИТОРИЙ",
+          "icon": "/images/previews/git_repo.svg#git_repo",
+          "viewBox": "0 -10 256 128"
+        }
+      ],
+      "shields": "/column_right/shields/home_router.html"
     }
   ],
   "allProjects": {
