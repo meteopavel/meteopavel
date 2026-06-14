@@ -73,19 +73,94 @@
   gap: 6px;
 }
 
+.devlog__months-carousel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  margin-left: 6px;
+}
+
 .devlog__months-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  flex: 1;
 }
 
 .devlog__months-row[hidden] {
   display: none;
 }
 
+.devlog__month-btn.devlog__month-btn--hidden {
+  display: none;
+}
+
+@media (min-width: 461px) {
+  .devlog__month-btn.devlog__month-btn--hidden {
+    display: inline-flex;
+  }
+}
+
+.devlog__carousel-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 24px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--secondary-color);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: color var(--transition-time) var(--transition-timing-function);
+}
+
+.devlog__carousel-btn:hover:not(:disabled) {
+  color: var(--primary-color);
+}
+
+.devlog__carousel-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
 .devlog__month-long,
 .devlog__month-num {
   display: none;
+}
+
+.devlog__year-btn,
+.devlog__month-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--secondary-color);
+  padding: 5px 0;
+  border-radius: 12px;
+  box-shadow: 0 0 0 2px var(--primary-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color var(--transition-time) var(--transition-timing-function),
+              color var(--transition-time) var(--transition-timing-function);
+}
+
+.devlog__year-btn {
+  width: 47px;
+}
+
+.devlog__month-btn {
+  width: 37px;
 }
 
 @media (max-width: 460px) {
@@ -95,26 +170,22 @@
   .devlog__month-num {
     display: inline;
   }
-}
-
-.devlog__year-btn,
-.devlog__month-btn {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: 12px;
-  line-height: 1;
-  color: var(--secondary-color);
-  padding: 5px 7px;
-  border-radius: 12px;
-  box-shadow: 0 0 0 2px var(--primary-color);
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: background-color var(--transition-time) var(--transition-timing-function),
-              color var(--transition-time) var(--transition-timing-function);
+  .devlog__year-btn {
+    height: 24px;
+  }
+  .devlog__month-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .devlog__months-carousel {
+    margin-left: 6px;
+    flex: none;
+  }
+  .devlog__carousel-btn {
+    display: inline-flex;
+  }
 }
 
 .devlog__year-btn:hover:not(.devlog__year-btn--active),
