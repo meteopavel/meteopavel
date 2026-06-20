@@ -76,7 +76,7 @@
 - `generate_root_redirect(output_dir: str, default_language: str) -> None`
   Создаёт корневой index.html с детекцией языка браузера и памятью выбора.
 
-- `generate_html(mode: str, static_version: str) -> None`
+- `generate_html(mode: str, static_version: str, cdn_url: str = '') -> None`
   Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier).
 
 - `generate_all(args: argparse.Namespace) -> None`
@@ -97,7 +97,7 @@
 - `render_template(template_name: str, context: dict[str, Any] | None = None, template_dir: str = './html_generator/templates') -> str`
   Рендерит Jinja2-шаблон с переданным контекстом и возвращает HTML-строку.
 
-- `generate_index_page(output_dir: str, template_dir: str, index_file: str, mode: str, locale: str = 'ru', static_version: str = '') -> None`
+- `generate_index_page(output_dir: str, template_dir: str, index_file: str, mode: str, locale: str = 'ru', static_version: str = '', cdn_url: str = '') -> None`
   Рендерит и сохраняет index.html для указанной локали и режима.
 
 - `format_with_prettier(file_path: str) -> None`
