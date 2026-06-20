@@ -49,6 +49,7 @@ def generate_index_page(
     mode: str,
     locale: str = 'ru',
     static_version: str = '',
+    cdn_url: str = '',
 ) -> None:
     """Рендерит и сохраняет index.html для указанной локали и режима."""
     os.makedirs(output_dir, exist_ok=True)
@@ -61,6 +62,7 @@ def generate_index_page(
         'ru_url': '/ru/',
         'en_url': '/en/',
         'static_version': static_version,
+        'cdn_url': cdn_url,
     })
 
     rendered_html = render_template(

@@ -95,10 +95,15 @@ build_static() {
   local html_mode="$1"
   local use_no_shields="$2"
 
+  local cdn_url_val="$3"
   local cmd=("${PYTHON_BIN}" "${STATIC_SCRIPT}" --html-mode "$html_mode")
 
   if [[ "$use_no_shields" == "yes" ]]; then
     cmd+=(--no-shields)
+  fi
+
+  if [[ -n "$cdn_url_val" ]]; then
+    cmd+=(--cdn-url "$cdn_url_val")
   fi
 
   echo
@@ -157,6 +162,7 @@ SHARED_SSH_USER="$(get_env "SHARED_SSH_USER" "$ENV_FILE")"
 SHARED_SSH_HOST="$(get_env "SHARED_SSH_HOST" "$ENV_FILE")"
 SHARED_SSH_PATH="$(get_env "SHARED_SSH_PATH" "$ENV_FILE")"
 SHARED_SSH_PASSWORD="$(get_env "SHARED_SSH_PASSWORD" "$ENV_FILE")"
+CDN_URL="$(get_env "CDN_URL" "$ENV_FILE")"
 
 require_env "ARCHIVE_PASSWORD" "$ARCHIVE_PASSWORD"
 require_env "SECURE_RSYNC_USER" "$SECURE_RSYNC_USER"
@@ -268,7 +274,7 @@ if ! confirm 'Продолжить сборку?'; then
   exit 0
 fi
 
-build_static "${HTML_MODE}" "${USE_NO_SHIELDS}"
+build_static "${HTML_MODE}" "${USE_NO_SHIELDS}" "${CDN_URL}"
 
 # ================= GIT =================
 

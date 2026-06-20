@@ -207,10 +207,12 @@ def generate_root_redirect(output_dir: str, default_language: str) -> None:
     print(f'Корневой редирект создан: {file_path}')
 
 
-def generate_html(mode: str, static_version: str) -> None:
+def generate_html(mode: str, static_version: str, cdn_url: str = '') -> None:
     """Генерирует HTML-страницы для всех языков в заданном режиме (minify/prettier)."""
     print(f'Генерация HTML в режиме {mode}...')
     print(f'Версия статики: {static_version}')
+    if cdn_url:
+        print(f'CDN URL: {cdn_url}')
 
     base_output_dir = CONFIG['html']['output_directory']
     default_language = CONFIG['html']['default_language']
@@ -225,7 +227,8 @@ def generate_html(mode: str, static_version: str) -> None:
             index_file=CONFIG['html']['index_file'],
             mode=mode,
             locale=lang,
-            static_version=static_version
+            static_version=static_version,
+            cdn_url=cdn_url,
         )
 
     generate_root_redirect(base_output_dir, default_language)
@@ -246,7 +249,7 @@ def generate_all(args: argparse.Namespace) -> None:
         generate_shields()
     generate_scripts()
     generate_css()
-    generate_html(args.html_mode, static_version)
+    generate_html(args.html_mode, static_version, getattr(args, 'cdn_url', ''))
     print('Все файлы успешно сгенерированы.')
 
 
@@ -261,6 +264,10 @@ if __name__ == "__main__":
     parser.add_argument(
         '--html-mode', choices=['minify', 'prettier'], default='minify',
         help='Режим генерации HTML ("minify" или "prettier").'
+    )
+    parser.add_argument(
+        '--cdn-url', dest='cdn_url', default='',
+        help='CDN-домен для статики (напр. https://k2bz83mrsg.cdn.twcstorage.ru).'
     )
     args = parser.parse_args()
     generate_all(args)
