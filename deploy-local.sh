@@ -153,12 +153,20 @@ SECURE_RSYNC_USER="$(get_env "SECURE_RSYNC_USER" "$ENV_FILE")"
 SECURE_RSYNC_HOST="$(get_env "SECURE_RSYNC_HOST" "$ENV_FILE")"
 SECURE_RSYNC_PATH="$(get_env "SECURE_RSYNC_PATH" "$ENV_FILE")"
 SECURE_RSYNC_PASSWORD="$(get_env "SECURE_RSYNC_PASSWORD" "$ENV_FILE")"
+SHARED_SSH_USER="$(get_env "SHARED_SSH_USER" "$ENV_FILE")"
+SHARED_SSH_HOST="$(get_env "SHARED_SSH_HOST" "$ENV_FILE")"
+SHARED_SSH_PATH="$(get_env "SHARED_SSH_PATH" "$ENV_FILE")"
+SHARED_SSH_PASSWORD="$(get_env "SHARED_SSH_PASSWORD" "$ENV_FILE")"
 
 require_env "ARCHIVE_PASSWORD" "$ARCHIVE_PASSWORD"
 require_env "SECURE_RSYNC_USER" "$SECURE_RSYNC_USER"
 require_env "SECURE_RSYNC_HOST" "$SECURE_RSYNC_HOST"
 require_env "SECURE_RSYNC_PATH" "$SECURE_RSYNC_PATH"
 require_env "SECURE_RSYNC_PASSWORD" "$SECURE_RSYNC_PASSWORD"
+require_env "SHARED_SSH_USER" "$SHARED_SSH_USER"
+require_env "SHARED_SSH_HOST" "$SHARED_SSH_HOST"
+require_env "SHARED_SSH_PATH" "$SHARED_SSH_PATH"
+require_env "SHARED_SSH_PASSWORD" "$SHARED_SSH_PASSWORD"
 
 mkdir -p "${ARCHIVE_DIR}"
 
@@ -316,4 +324,11 @@ echo "🚀 Выполняем push в origin/${BRANCH_NAME}..."
   git push origin "${BRANCH_NAME}"
 )
 
-echo '🎉 Готово: архив отправлен на backup-сервер, код запушен на GitHub.'
+echo '📤 Синхронизируем static/ на shared хостинг...'
+export SSHPASS="${SHARED_SSH_PASSWORD}"
+rsync -avz --delete --progress \
+  --rsh="sshpass -e ssh -o StrictHostKeyChecking=no" \
+  "${REPO_ROOT}/static/" "${SHARED_SSH_USER}@${SHARED_SSH_HOST}:${SHARED_SSH_PATH}"
+echo '✅ static/ успешно залит на shared хостинг.'
+
+echo '🎉 Готово: архив на backup-сервере, код на GitHub, статика на хостинге.'
