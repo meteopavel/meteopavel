@@ -1,4 +1,6 @@
 title,logo,docs_href
 Python,python,https://docs.python.org/3/
 FastAPI,fastapi,https://fastapi.tiangolo.com/release-notes/
+Uvicorn,uvicorn,https://www.uvicorn.org/
+Jinja,jinja,https://jinja.palletsprojects.com/
 Nginx,nginx,https://nginx.org/en/docs/
