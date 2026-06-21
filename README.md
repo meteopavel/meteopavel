@@ -2,17 +2,17 @@
 
 <!-- Greeting --><a href="https://meteopavel.space"><img src="./static/images/animated_greeting.svg" style="width: 100%;"></a>
 
-## 👋 About me
+## 👋 Обо мне
 
-I'm Pavel Naidenov — a developer based in Irkutsk who came into software from meteorology and eleven years of teaching. That background shapes how I work: I care about systems that are correct, observable, and built to last. Today I work commercially at **Mailganer**, where my day-to-day is Django backend, server-rendered templates, and heavy AJAX. My core stack is **Python / Django / fullstack**.
+Я Павел Найдёнов — разработчик из Иркутска, пришедший в IT из метеорологии и одиннадцати лет преподавания. Этот бэкграунд определяет то, как я работаю: мне важны системы корректные, наблюдаемые и сделанные надолго. Сейчас работаю коммерчески в **Mailganer**, где мои будни — это Django-бэкенд, серверный рендеринг шаблонов и тяжёлый AJAX. Мой основной стек — **Python / Django / fullstack**.
 
-## ⚙️ This repository
+## ⚙️ Этот репозиторий
 
-This is the **static site generator** behind [meteopavel.space](https://meteopavel.space) — not a theme or a template, but my own build pipeline. **Python + Jinja2** render the HTML, CSS/JS are minified, SVG shields are generated from data, and the whole site ships in both **Russian and English** to a CDN. It's a small demonstration of how I like to engineer things: explicit, reproducible, and automated end to end.
+Это **генератор статического сайта** [meteopavel.space](https://meteopavel.space) — не тема и не шаблон, а мой собственный пайплайн сборки. **Python + Jinja2** рендерят HTML, CSS/JS минифицируются, SVG-шилды генерируются из данных, а весь сайт собирается сразу на **русском и английском** и уезжает на CDN. Небольшая демонстрация того, как я люблю инженерить: явно, воспроизводимо и автоматизированно от начала до конца.
 
-## 🔗 Links
+## 🔗 Ссылки
 
-- 🌐 **[meteopavel.space](https://meteopavel.space)** — professional hub with the full story
+- 🌐 **[meteopavel.space](https://meteopavel.space)** — профессиональный хаб со всей историей
 - 🐙 GitHub — [github.com/meteopavel](https://github.com/meteopavel)
 - ✈️ Telegram — [t.me/meteopavel](https://t.me/meteopavel)
 - 💼 LinkedIn — [linkedin.com/in/meteopavel](https://linkedin.com/in/meteopavel)
