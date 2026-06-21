@@ -6,3 +6,9 @@ docs/
 secure/
 **/.DS_Store
 source/shields_generator/.shields_cache.json
+# Screenshots and Playwright artifacts
+*.png
+*.jpg
+*.jpeg
+*.webp
+.playwright-mcp/
