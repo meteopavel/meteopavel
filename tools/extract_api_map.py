@@ -435,7 +435,7 @@ def render_markdown(api_map_data: dict[str, Any]) -> str:
         '',
         'Сводная статистика:',
         f'- модулей: {api_map_data["stats"]["modules"]}',
-        f'- классов: {api_map_data["stats"]["classes"]}',
+        f'- классов: {api_map_data["stats"]["classes"] - api_map_data["stats"]["dataclasses"]}',
         f'- dataclass: {api_map_data["stats"]["dataclasses"]}',
         f'- функций: {api_map_data["stats"]["functions"]}',
         f'- методов: {api_map_data["stats"]["methods"]}',
