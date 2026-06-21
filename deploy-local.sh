@@ -120,6 +120,23 @@ build_static() {
   echo '✅ Сборка завершена.'
 }
 
+rsync_via_tunnel() {
+  # rsync_via_tunnel USER HOST PASSWORD SRC DEST [EXTRA_FLAGS]
+  # Открывает один SSH-туннель через sshpass, rsync переиспользует его.
+  # Защита от блокировки IP при множественных соединениях (Timeweb и др.).
+  local user="$1" host="$2" password="$3" src="$4" dest="$5"
+  shift 5
+  local ctl="/tmp/ssh_ctl_${user}_${host}"
+  export SSHPASS="$password"
+  sshpass -e ssh -o StrictHostKeyChecking=no \
+    -o ControlMaster=yes -o ControlPath="$ctl" -o ControlPersist=60s \
+    -nNf "${user}@${host}"
+  rsync -avz --progress "$@" \
+    --rsh="ssh -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl" \
+    "$src" "${user}@${host}:${dest}"
+  ssh -o ControlPath="$ctl" -O exit "${user}@${host}" 2>/dev/null || true
+}
+
 # ================= ПРОВЕРКИ =================
 
 echo '🔍 Проверяем, что мы внутри git-репозитория...'
@@ -195,10 +212,8 @@ echo '🔐 Создаём зашифрованный архив (docs/, CLAUDE.m
 echo '✅ Архив успешно создан.'
 
 echo '📤 Отправляем архив на backup-сервер...'
-export SSHPASS="${SECURE_RSYNC_PASSWORD}"
-rsync -avz --progress \
-  --rsh="sshpass -e ssh" \
-  "${ARCHIVE_PATH}" "${SECURE_RSYNC_USER}@${SECURE_RSYNC_HOST}:${SECURE_RSYNC_PATH}"
+rsync_via_tunnel "${SECURE_RSYNC_USER}" "${SECURE_RSYNC_HOST}" "${SECURE_RSYNC_PASSWORD}" \
+  "${ARCHIVE_PATH}" "${SECURE_RSYNC_PATH}"
 echo '✅ Архив успешно отправлен на сервер.'
 
 # ================= PROJECT PASSPORT =================
@@ -331,10 +346,8 @@ echo "🚀 Выполняем push в origin/${BRANCH_NAME}..."
 )
 
 echo '📤 Синхронизируем static/ на shared хостинг...'
-export SSHPASS="${SHARED_SSH_PASSWORD}"
-rsync -avz --delete --progress \
-  --rsh="sshpass -e ssh -o StrictHostKeyChecking=no" \
-  "${REPO_ROOT}/static/" "${SHARED_SSH_USER}@${SHARED_SSH_HOST}:${SHARED_SSH_PATH}"
+rsync_via_tunnel "${SHARED_SSH_USER}" "${SHARED_SSH_HOST}" "${SHARED_SSH_PASSWORD}" \
+  "${REPO_ROOT}/static/" "${SHARED_SSH_PATH}" --delete
 echo '✅ static/ успешно залит на shared хостинг.'
 
 echo '🎉 Готово: архив на backup-сервере, код на GitHub, статика на хостинге.'
