@@ -120,20 +120,9 @@ build_static() {
   echo '✅ Сборка завершена.'
 }
 
-rsync_via_tunnel() {
-  # rsync_via_tunnel USER HOST SRC DEST [EXTRA_FLAGS]
-  # Использует SSH-ключ ~/.ssh/timeweb_shared и ControlMaster для одного соединения.
-  local user="$1" host="$2" src="$3" dest="$4"
-  shift 4
-  local ctl="/tmp/ssh_ctl_${user}_${host}"
-  ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no \
-    -o ControlMaster=yes -o ControlPath="$ctl" -o ControlPersist=60s \
-    -nNf "${user}@${host}"
-  rsync -avz --progress "$@" \
-    --rsh="ssh -i ~/.ssh/timeweb_shared -o StrictHostKeyChecking=no -o ControlMaster=no -o ControlPath=$ctl" \
-    "$src" "${user}@${host}:${dest}"
-  ssh -o ControlPath="$ctl" -O exit "${user}@${host}" 2>/dev/null || true
-}
+# Общие функции (run_with_heartbeat, timeout_run, rsync_via_tunnel) —
+# используются во всех проектах, см. сам файл.
+source "${REPO_ROOT}/tools/deploy_helpers.sh"
 
 # ================= ПРОВЕРКИ =================
 
@@ -172,22 +161,18 @@ ARCHIVE_PASSWORD="$(get_env "ARCHIVE_PASSWORD" "$ENV_FILE")"
 SECURE_RSYNC_USER="$(get_env "SECURE_RSYNC_USER" "$ENV_FILE")"
 SECURE_RSYNC_HOST="$(get_env "SECURE_RSYNC_HOST" "$ENV_FILE")"
 SECURE_RSYNC_PATH="$(get_env "SECURE_RSYNC_PATH" "$ENV_FILE")"
-SECURE_RSYNC_PASSWORD="$(get_env "SECURE_RSYNC_PASSWORD" "$ENV_FILE")"
 SHARED_SSH_USER="$(get_env "SHARED_SSH_USER" "$ENV_FILE")"
 SHARED_SSH_HOST="$(get_env "SHARED_SSH_HOST" "$ENV_FILE")"
 SHARED_SSH_PATH="$(get_env "SHARED_SSH_PATH" "$ENV_FILE")"
-SHARED_SSH_PASSWORD="$(get_env "SHARED_SSH_PASSWORD" "$ENV_FILE")"
 CDN_URL="$(get_env "CDN_URL" "$ENV_FILE")"
 
 require_env "ARCHIVE_PASSWORD" "$ARCHIVE_PASSWORD"
 require_env "SECURE_RSYNC_USER" "$SECURE_RSYNC_USER"
 require_env "SECURE_RSYNC_HOST" "$SECURE_RSYNC_HOST"
 require_env "SECURE_RSYNC_PATH" "$SECURE_RSYNC_PATH"
-require_env "SECURE_RSYNC_PASSWORD" "$SECURE_RSYNC_PASSWORD"
 require_env "SHARED_SSH_USER" "$SHARED_SSH_USER"
 require_env "SHARED_SSH_HOST" "$SHARED_SSH_HOST"
 require_env "SHARED_SSH_PATH" "$SHARED_SSH_PATH"
-require_env "SHARED_SSH_PASSWORD" "$SHARED_SSH_PASSWORD"
 
 mkdir -p "${ARCHIVE_DIR}"
 
@@ -210,7 +195,8 @@ echo '🔐 Создаём зашифрованный архив (docs/, CLAUDE.m
 echo '✅ Архив успешно создан.'
 
 echo '📤 Отправляем архив на backup-сервер...'
-rsync_via_tunnel "${SECURE_RSYNC_USER}" "${SECURE_RSYNC_HOST}" \
+run_with_heartbeat "отправка backup" \
+  rsync_via_tunnel "${SECURE_RSYNC_USER}" "${SECURE_RSYNC_HOST}" \
   "${ARCHIVE_PATH}" "${SECURE_RSYNC_PATH}"
 echo '✅ Архив успешно отправлен на сервер.'
 
@@ -344,7 +330,8 @@ echo "🚀 Выполняем push в origin/${BRANCH_NAME}..."
 )
 
 echo '📤 Синхронизируем static/ на shared хостинг...'
-rsync_via_tunnel "${SHARED_SSH_USER}" "${SHARED_SSH_HOST}" \
+run_with_heartbeat "синхронизация static/" \
+  rsync_via_tunnel "${SHARED_SSH_USER}" "${SHARED_SSH_HOST}" \
   "${REPO_ROOT}/static/" "${SHARED_SSH_PATH}" --delete
 echo '✅ static/ успешно залит на shared хостинг.'
 
