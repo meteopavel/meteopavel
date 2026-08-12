@@ -134,6 +134,7 @@ require_command git
 require_command 7z
 require_command rsync
 require_command ssh
+require_command gitleaks   # brew install gitleaks — секрет-сканер, гоняется перед коммитом
 
 echo '🔍 Проверяем remote origin...'
 REMOTE_URL="$(git remote get-url origin)"
@@ -315,6 +316,16 @@ if (
   echo 'ℹ️ Нет изменений для коммита.'
   echo '🎉 Готово: архив отправлен на backup-сервер.'
   exit 0
+fi
+
+echo '🔒 Сканируем staged-файлы на секреты (gitleaks)...'
+if ! (
+  cd "${REPO_ROOT}"
+  gitleaks git --pre-commit --staged --redact --no-banner
+); then
+  echo '❌ gitleaks нашёл подозрение на секрет в staged-файлах — коммит отменён.'
+  echo '   Ложное срабатывание? Добавь сигнатуру в .gitleaks.toml (allowlist) и повтори деплой.'
+  exit 1
 fi
 
 echo '📝 Создаём коммит...'
