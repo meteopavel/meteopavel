@@ -12,3 +12,6 @@ source/shields_generator/.shields_cache.json
 *.jpeg
 *.webp
 .playwright-mcp/
+# Agent session data & scratchpads
+.zcode/
+scratchpad_*.md
