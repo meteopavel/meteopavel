@@ -1,6 +1,5 @@
 .idea/
 .env
-.env.bak*
 .claude/
 CLAUDE.md
 docs/
